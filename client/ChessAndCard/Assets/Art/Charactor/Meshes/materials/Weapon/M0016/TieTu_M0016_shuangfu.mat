@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TieTu_M0016_shuangfu
+  m_Shader: {fileID: 4800000, guid: 13e344c2db51ffb40ae00fa12cc5978b, type: 3}
+  m_ShaderKeywords:
+  - HAIR_SPECULAR_OFF
+  - MODEL_TANGENT_OFF
+  - LIGHT_PROBE_OFF
+  - CUTOUT_OFF
+  - DIRT_OFF
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: a74aca313fdaeb640a2b0e6d2de5923e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ToonRamp
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecularMask
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _OutlineMask
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DirtColor
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DirtMask
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Brightness
+        second: .5
+      data:
+        first:
+          name: _RimSize
+        second: .5
+      data:
+        first:
+          name: _RimSmoothness
+        second: .5
+      data:
+        first:
+          name: _RimShadow
+        second: .5
+      data:
+        first:
+          name: _RimIntensity
+        second: .5
+      data:
+        first:
+          name: _CameraLightIntensity
+        second: .5
+      data:
+        first:
+          name: _SpecularShiftAmount
+        second: .5
+      data:
+        first:
+          name: _SpecularIntensity
+        second: .5
+      data:
+        first:
+          name: _DirtAmount
+        second: 0
+      data:
+        first:
+          name: _OutlineSize
+        second: .300000012
+      data:
+        first:
+          name: _OutlineType
+        second: 0
+      data:
+        first:
+          name: _OutlineThreshold
+        second: 0
+      data:
+        first:
+          name: _Outline
+        second: .5
+      data:
+        first:
+          name: _RimPower
+        second: 1
+      data:
+        first:
+          name: _RimFactor
+        second: .600000024
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _AddColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _RimColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _SpecularLightDir
+        second: {r: 0, g: 1, b: 1, a: 1}

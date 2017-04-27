@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: L_wufeng_004
+  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 95050289362ce454ca6ea99f774afa60, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _T_mask
+        second:
+          m_Texture: {fileID: 2800000, guid: 1476e53623aa47f48ba4e12b479beb14, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MaskTexture
+        second:
+          m_Texture: {fileID: 2800000, guid: 8baa6f68bd6b837448b2ce3f0ab5f6b3, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Cutoff
+        second: 0.5
+      data:
+        first:
+          name: _InvFade
+        second: 1
+      data:
+        first:
+          name: _N_mask
+        second: 0.05
+      data:
+        first:
+          name: _N_BY_QD
+        second: 3
+      data:
+        first:
+          name: _N_BY_KD
+        second: 0.01
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 0.875, g: 0.28335446, b: 0.14797792, a: 0}
+      data:
+        first:
+          name: _C_BYcolor
+        second: {r: 0.3455882, g: 0.028600404, b: 0, a: 1}

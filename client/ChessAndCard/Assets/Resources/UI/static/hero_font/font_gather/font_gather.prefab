@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: font_gather
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4eb3a400afab046abb8471a9d746d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mMat: {fileID: 0}
+  mUVRect:
+    serializedVersion: 2
+    x: 0.7890625
+    y: 0.40625
+    width: 0.125
+    height: 0.25
+  mFont:
+    mSize: 24
+    mBase: 0
+    mWidth: 16
+    mHeight: 16
+    mSpriteName: 
+    mSaved:
+    - index: 32
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+      offsetX: 0
+      offsetY: 0
+      advance: 6
+      channel: 15
+      kerning: 
+    - index: 43
+      x: 0
+      y: 5
+      width: 11
+      height: 11
+      offsetX: 1
+      offsetY: 6
+      advance: 13
+      channel: 15
+      kerning: 
+    - index: 45
+      x: 0
+      y: 2
+      width: 6
+      height: 2
+      offsetX: 1
+      offsetY: 13
+      advance: 8
+      channel: 15
+      kerning: 
+  mAtlas: {fileID: 11400000, guid: b010851df0deb774786a03053dd1a89e, type: 2}
+  mReplacement: {fileID: 0}
+  mSymbols:
+  - sequence: '|001|'
+    spriteName: box
+  - sequence: '|002|'
+    spriteName: c_ball_grey
+  - sequence: '|003|'
+    spriteName: c_cloud
+  - sequence: '|005|'
+    spriteName: c_dinas
+  - sequence: '|006|'
+    spriteName: c_mud
+  - sequence: '|007|'
+    spriteName: c_grass
+  - sequence: '|008|'
+    spriteName: c_vine_lock
+  - sequence: '|009|'
+    spriteName: c_collect1
+  - sequence: '|010|'
+    spriteName: c_thin_ice
+  - sequence: '|011|'
+    spriteName: c_venom
+  - sequence: '|013|'
+    spriteName: c_grass2
+  - sequence: '|014|'
+    spriteName: c_grass3
+  - sequence: '|015|'
+    spriteName: c_grass4
+  - sequence: '|016|'
+    spriteName: c_grass5
+  - sequence: '|017|'
+    spriteName: c_ice
+  - sequence: '|018|'
+    spriteName: c_lock
+  - sequence: '|019|'
+    spriteName: c_mud2
+  - sequence: '|020|'
+    spriteName: c_mud3
+  - sequence: '|021|'
+    spriteName: c_silver_coin
+  - sequence: '|022|'
+    spriteName: c_snow
+  - sequence: '|023|'
+    spriteName: c_snow2
+  - sequence: '|024|'
+    spriteName: c_snow3
+  - sequence: '|025|'
+    spriteName: c_snow4
+  - sequence: '|026|'
+    spriteName: c_snow5
+  - sequence: '|027|'
+    spriteName: chess0_0
+  - sequence: '|028|'
+    spriteName: chess0_1
+  - sequence: '|029|'
+    spriteName: chess0_2
+  - sequence: '|030|'
+    spriteName: chess0_3
+  - sequence: '|031|'
+    spriteName: chess0_4
+  - sequence: '|032|'
+    spriteName: chess0_5
+  - sequence: '|033|'
+    spriteName: chess1_0
+  - sequence: '|034|'
+    spriteName: chess1_1
+  - sequence: '|035|'
+    spriteName: chess1_2
+  - sequence: '|036|'
+    spriteName: chess1_3
+  - sequence: '|037|'
+    spriteName: chess1_4
+  - sequence: '|038|'
+    spriteName: chess1_5
+  - sequence: '|039|'
+    spriteName: chess2_0
+  - sequence: '|040|'
+    spriteName: chess2_1
+  - sequence: '|041|'
+    spriteName: chess2_2
+  - sequence: '|042|'
+    spriteName: chess2_3
+  - sequence: '|044|'
+    spriteName: chess2_4
+  - sequence: '|045|'
+    spriteName: chess2_5
+  - sequence: '|046|'
+    spriteName: chess3_0
+  - sequence: '|047|'
+    spriteName: chess3_1
+  - sequence: '|048|'
+    spriteName: chess3_2
+  - sequence: '|049|'
+    spriteName: chess3_3
+  - sequence: '|050|'
+    spriteName: chess3_4
+  - sequence: '|051|'
+    spriteName: chess3_5
+  - sequence: '|052|'
+    spriteName: chess4_0
+  - sequence: '|054|'
+    spriteName: chess4_1
+  - sequence: '|055|'
+    spriteName: chess4_2
+  - sequence: '|056|'
+    spriteName: chess4_3
+  - sequence: '|057|'
+    spriteName: chess4_4
+  - sequence: '|058|'
+    spriteName: chess4_5
+  - sequence: '|060|'
+    spriteName: ball_brun_01
+  - sequence: '|061|'
+    spriteName: c_king1
+  - sequence: '|062|'
+    spriteName: c_black_ball
+  - sequence: '|063|'
+    spriteName: c_corn
+  - sequence: '|064|'
+    spriteName: c_jelly
+  - sequence: '|065|'
+    spriteName: c_egg
+  - sequence: '|066|'
+    spriteName: c_corn2
+  - sequence: '|067|'
+    spriteName: c_octopus
+  - sequence: '|068|'
+    spriteName: c_gift1
+  mDynamicFont: {fileID: 0}
+  mDynamicFontSize: 16
+  mDynamicFontStyle: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1

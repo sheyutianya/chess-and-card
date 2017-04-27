@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer4.5", "GameServer\GameServer4.5.csproj", "{8E328E11-8B4A-4B5D-A34A-4D58286F6A9C}"
 EndProject
@@ -14,8 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZyGames.Framework.Game4.5",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScutSecurity", "ScutSecurity\ScutSecurity.csproj", "{4086648B-06BA-40B9-B2CB-003B9DD07A45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountServer", "AccountServer\AccountServer.csproj", "{0CB62894-D218-44F9-A26B-CBC69BE608F7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{D86474A2-9266-4941-8388-A2F2A8F0DD5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZyGames.Framework.Common4.5", "..\Framework\ZyGames.Framework.Common\ZyGames.Framework.Common4.5.csproj", "{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB}"
@@ -23,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZyGames.Framework4.5", "..\Framework\ZyGames.Framework\ZyGames.Framework4.5.csproj", "{416E2E00-4064-4D7A-87A2-A649FF120274}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountServerConsole", "AccountServer\AccountServerConsole.csproj", "{E6364DB8-8867-41C7-8816-2ADD1ADDA968}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountServer", "AccountServer\AccountServer.csproj", "{0CB62894-D218-44F9-A26B-CBC69BE608F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,16 +64,6 @@ Global
 		{4086648B-06BA-40B9-B2CB-003B9DD07A45}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4086648B-06BA-40B9-B2CB-003B9DD07A45}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4086648B-06BA-40B9-B2CB-003B9DD07A45}.Release|x86.ActiveCfg = Release|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|x86.ActiveCfg = Release|Any CPU
 		{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -104,6 +94,16 @@ Global
 		{E6364DB8-8867-41C7-8816-2ADD1ADDA968}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E6364DB8-8867-41C7-8816-2ADD1ADDA968}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E6364DB8-8867-41C7-8816-2ADD1ADDA968}.Release|x86.ActiveCfg = Release|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0CB62894-D218-44F9-A26B-CBC69BE608F7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

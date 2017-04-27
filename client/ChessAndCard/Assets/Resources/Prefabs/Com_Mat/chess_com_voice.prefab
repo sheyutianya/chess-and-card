@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &170800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 456446}
+  - 114: {fileID: 11484430}
+  m_Layer: 0
+  m_Name: chess_com_voice
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &456446
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11484430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55ac06025bb91849b0e40239a9f5880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chess_eliminate_1: {fileID: 8300000, guid: 4a9c7a007c2bcec4099ea849be162f0a, type: 3}
+  chess_eliminate_2: {fileID: 8300000, guid: 41eeab416b826ad4db27d93ee1191f73, type: 3}
+  chess_eliminate_3: {fileID: 8300000, guid: 4c56b21489bd38d48b3bcb13279933d3, type: 3}
+  chess_eliminate_4: {fileID: 8300000, guid: 07a9eb8669f44bf4eb3986ea08bce508, type: 3}
+  chess_eliminate_5: {fileID: 8300000, guid: 0bc37a630254dbb418b65edf39708881, type: 3}
+  chess_eliminate_6: {fileID: 8300000, guid: 4fc1b70e0ef5a2640898d159012781a8, type: 3}
+  chess_eliminate_7: {fileID: 8300000, guid: 616cd6549dcc6f14e82cac6eb813f10a, type: 3}
+  chess_eliminate_8: {fileID: 8300000, guid: 28ce3a11e4e97b943b6fb66e4b03bcda, type: 3}
+  chess_finish_good: {fileID: 8300000, guid: 61205d8788323f444b205391902ef6f4, type: 3}
+  chess_finish_great: {fileID: 8300000, guid: bac84c0413029e34ab6302fc58c5adef, type: 3}
+  chess_finish_wow: {fileID: 8300000, guid: a2feb60af831ee84cb127f25b69aae3c, type: 3}
+  chess_finish_amazing: {fileID: 8300000, guid: 2a5c7988b7a1f214c8c78823daf93619,
+    type: 3}
+  chess_finish_unbelievable: {fileID: 8300000, guid: 41ef5f54862b43343b4b1aa065510745,
+    type: 3}
+  chess_falsemove: {fileID: 8300000, guid: 638addd404f0e054a9f8ff1264420adf, type: 3}
+  chess_select: {fileID: 8300000, guid: f813b376475e0134284678866b0b93d9, type: 3}
+  chess_reward_step: {fileID: 8300000, guid: 69bfc7b1d4e2ee842b873739b3adc224, type: 3}
+  chess_icebroken: {fileID: 8300000, guid: 5ca61370e36be4b4ea65268d68864c0d, type: 3}
+  chess_lockbroken: {fileID: 8300000, guid: 6becd58cdb521a34681f429b54db0639, type: 3}
+  chess_show_shockwave: {fileID: 8300000, guid: 533d3b66239cc5141b6173c149a5331b,
+    type: 3}
+  chess_show_l: {fileID: 8300000, guid: 6597ee944455d6f46811394bed048a0e, type: 3}
+  chess_show_ghost: {fileID: 8300000, guid: 6ce4b2dac25e6b4409760323b72c0b5f, type: 3}
+  chess_board_crush: {fileID: 8300000, guid: 05f88ad23c1f94f4b91bbabf739e0f60, type: 3}
+  chess_crush_shockwave: {fileID: 8300000, guid: 037bbc45ebbc3234fbf5c4d0b814f00e,
+    type: 3}
+  chess_crush_l: {fileID: 8300000, guid: 408da123c42c8c547b1d5e37a07036ea, type: 3}
+  chess_crush_t: {fileID: 8300000, guid: 97dee300a98e98945b257b50fb840b6a, type: 3}
+  chess_crush_ghost: {fileID: 8300000, guid: 1a7e999f0b733484da2f3304872d5e5f, type: 3}
+  chess_crush_ghost_shockwave: {fileID: 8300000, guid: d9e3567ccb7596e498dc1638e1b34587,
+    type: 3}
+  chess_crush_ghost_l: {fileID: 8300000, guid: 61ff2cf159cb6814dbcebe4a663c1f9e, type: 3}
+  chess_crush_ghost_ghost: {fileID: 8300000, guid: 86917cbc160fa58439a5b8d11554d4d5,
+    type: 3}
+  chess_buff_magicvine_crush: {fileID: 8300000, guid: 1fbec2ef942bfbc41a3ebe7fe1b71141,
+    type: 3}
+  chess_buff_venom_crush: {fileID: 8300000, guid: 1a9a791f1c5c97f46adbe56d1f058db6,
+    type: 3}
+  chess_buff_venom_appear: {fileID: 8300000, guid: 9e781d37e18fdde4781fa3a92ce3a50f,
+    type: 3}
+  chess_buff_brown_crush: {fileID: 8300000, guid: b09cf89cdf76e20459acf01db664801a,
+    type: 3}
+  chess_buff_brown_move: {fileID: 8300000, guid: 933c0901408bae845942512ef54809d3,
+    type: 3}
+  chess_buff_grass1_crush: {fileID: 8300000, guid: f93b6f68858169e42919610a4cf83306,
+    type: 3}
+  chess_buff_grass2_crush: {fileID: 8300000, guid: 8fa11a8f82c6025429dd93c71bdfb092,
+    type: 3}
+  chess_buff_grass3_crush: {fileID: 8300000, guid: 54a9e8d9b04e8f7479fcb8640dd83904,
+    type: 3}
+  chess_buff_grass4_crush: {fileID: 8300000, guid: 8d474287d9c39cd4fba9ea664fc868b8,
+    type: 3}
+  chess_buff_grass5_crush: {fileID: 8300000, guid: 64308ccd9677b1b48aa3d5f8fdf3f605,
+    type: 3}
+  chess_buff_cat_collect: {fileID: 8300000, guid: e50943d2cf5368a489d5cbc6de622485,
+    type: 3}
+  chess_buff_dirt1_crush: {fileID: 8300000, guid: c8a34f395701ea24692c13c4211fd950,
+    type: 3}
+  chess_buff_dirt2_crush: {fileID: 8300000, guid: d96d6fb7577ea2b418ebf57cf9945286,
+    type: 3}
+  chess_buff_clod_crush: {fileID: 8300000, guid: 210bc76a76ed57249892a05c3e593b44,
+    type: 3}
+  chess_buff_lock: {fileID: 8300000, guid: 7ebb95fc92aa0c947928e6d713354893, type: 3}
+  chess_buff_frozen: {fileID: 8300000, guid: 5bd96212291774f48a19eecc330edf27, type: 3}
+  chess_buff_twolock: {fileID: 8300000, guid: 941958d93e82d57439b178f55210e2cb, type: 3}
+  chess_buff_twofrozen: {fileID: 8300000, guid: f6bc1e453235dde4eba6dc5ac3125647,
+    type: 3}
+  chess_buff_cirrus: {fileID: 8300000, guid: 80eb076d077288341b44fe43d40d0bd1, type: 3}
+  chess_buff_smallcirrus: {fileID: 8300000, guid: 4e98d76ac46e2094784fd60cf959721f,
+    type: 3}
+  chess_buff_poisonappear: {fileID: 8300000, guid: d626b8ec98633c341a9b082d2b2f1b1f,
+    type: 3}
+  chess_buff_poisonboom: {fileID: 8300000, guid: 8916e1c0b93e0ed4cb2dcc18902a9870,
+    type: 3}
+  chess_buff_powderappear: {fileID: 8300000, guid: 9427cb2fd2d515e4a99508f5880f9ae7,
+    type: 3}
+  chess_buff_powderboom: {fileID: 8300000, guid: d7206efb40f960645b5ab823af17e268,
+    type: 3}
+  chess_buff_questionappear: {fileID: 8300000, guid: 1152ba0120a2bb246b605af20b385d87,
+    type: 3}
+  chess_buff_questionboom: {fileID: 8300000, guid: e7e730d1d16937f41bd457ca1a3b3e1e,
+    type: 3}
+  chess_buff_petrifactionappear: {fileID: 8300000, guid: 9fd08d7506365e74394ae21bbfd9764c,
+    type: 3}
+  chess_buff_petrifaction: {fileID: 8300000, guid: 586e710534914c44a92312be8ecb2ff4,
+    type: 3}
+  chess_buff_calciumappear: {fileID: 8300000, guid: fcfcdf87e3cda974dbfd5aba0eb56a22,
+    type: 3}
+  chess_buff_calcium: {fileID: 8300000, guid: f694cc4e7eb38e34885a473250feb622, type: 3}
+  chess_buff_poisoningappear: {fileID: 8300000, guid: 1c793a84c5d5ab148a1b015d17072f7d,
+    type: 3}
+  chess_buff_poisoning: {fileID: 8300000, guid: 0aedc4ce6f01c6d41b8cccdd353251a2,
+    type: 3}
+  chess_buff_burningappear: {fileID: 8300000, guid: a66c6613a18dcb54cad37364830e00f2,
+    type: 3}
+  chess_buff_burning: {fileID: 8300000, guid: f462c5914c3de484da565e330372daa8, type: 3}
+  chess_buff_purify: {fileID: 8300000, guid: 2459b4973b438214996a7e8d7f94e6d3, type: 3}
+  chess_buff_bombappear: {fileID: 8300000, guid: 3e5522131925253468a7ee63a026585d,
+    type: 3}
+  chess_buff_bombboom: {fileID: 8300000, guid: a9264cc126607584295c1dd12b73f724, type: 3}
+  chess_buff_heartappear: {fileID: 8300000, guid: fe59d04f3635adc4fac837b04a940499,
+    type: 3}
+  chess_buff_heart: {fileID: 8300000, guid: 527571bdbe11f57459aa7417b6b571b9, type: 3}
+  prop_thunder: {fileID: 8300000, guid: b6feecce2cbad6844b3de43bcf2acda1, type: 3}
+  prop_strengthen_chess: {fileID: 8300000, guid: da488a792f7fcf145bcf8227fc2e59d3,
+    type: 3}
+  prop_realignment: {fileID: 8300000, guid: 019cb32c15a95764c84cbbd5e5ba1ceb, type: 3}
+  chess_pollyking_death: {fileID: 8300000, guid: 3054b1bdf987ed04da4c4562e89d3000,
+    type: 3}
+  chess_pollyking_eliminate: {fileID: 8300000, guid: 4ded827cfc717674cbe463eb4e003b69,
+    type: 3}
+  chess_pollyking_vertigo: {fileID: 8300000, guid: 5065ac904e87caf4facf565eaef62e9a,
+    type: 3}
+  chess_polly_vertigo: {fileID: 8300000, guid: 2074ab5bc98962e4bb6d6bd07e2a2617, type: 3}
+  chess_polly_jump: {fileID: 8300000, guid: 76badd28245bc5845862cc4ba9fd319b, type: 3}
+  chess_polly_eliminate: {fileID: 8300000, guid: 5aae3cf1a895d464b936661ecbb001bf,
+    type: 3}
+  chess_angerkumamoto_eliminate: {fileID: 8300000, guid: c393aadafa5fb4245823375eff50473a,
+    type: 3}
+  chess_kumamoto_eliminate: {fileID: 8300000, guid: 772bb5b307275d94f80cd907b605acf6,
+    type: 3}
+  chess_jelly_eliminate: {fileID: 8300000, guid: 7d39b3c2b3cefa14e91ef45d7ee9c0e7,
+    type: 3}
+  chess_egg_eliminate: {fileID: 8300000, guid: cbcb1079acff04c44adc032fd748303f, type: 3}
+  chess_octopus_eliminate: {fileID: 8300000, guid: fe2cd6625f0c58048b18d29011153b2f,
+    type: 3}
+  chess_octopus_runshi: {fileID: 8300000, guid: abd6c0d696fbe544c9df7f6e972ee602,
+    type: 3}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 170800}
+  m_IsPrefabParent: 1

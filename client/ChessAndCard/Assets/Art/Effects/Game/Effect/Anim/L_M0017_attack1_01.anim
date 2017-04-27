@@ -1,0 +1,834 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: L_M0017_attack1_01
+  serializedVersion: 4
+  m_AnimationType: 2
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_PositionCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: {x: .0523479991, y: -.629719973, z: 1.14090002}
+        inSlope: {x: .0334114507, y: -.00565716252, z: .446570963}
+        outSlope: {x: .0334114507, y: -.00565716252, z: .446570963}
+        tangentMode: 904945484
+      - time: .316666663
+        value: {x: .0562460013, y: -.630379975, z: 1.19299996}
+        inSlope: {x: .00568571966, y: -.000978750992, z: .0812857449}
+        outSlope: {x: .00568571966, y: -.000978750992, z: .0812857449}
+        tangentMode: 900988929
+      - time: .416666657
+        value: {x: .0540420003, y: -.630010009, z: 1.16460001}
+        inSlope: {x: -.0220400114, y: .00369966053, z: -.283999473}
+        outSlope: {x: -.0220400114, y: .00369966053, z: -.283999473}
+        tangentMode: 5
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    path: Mesh_chongfeng_001
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .25
+        value: {x: .0419999994, y: -.63499999, z: 1.17799997}
+        inSlope: {x: .0426149964, y: -.00735014724, z: .515999854}
+        outSlope: {x: .0426149964, y: -.00735014724, z: .515999854}
+        tangentMode: 0
+      - time: .316666663
+        value: {x: .0448409989, y: -.63549, z: 1.21239996}
+        inSlope: {x: .0426149964, y: -.00735014724, z: .515999854}
+        outSlope: {x: .0426149964, y: -.00735014724, z: .515999854}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    path: Mesh_chongfeng_002
+  m_ScaleCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: {x: .766874194, y: .534246862, z: 1}
+        inSlope: {x: 10.9530439, y: 2.14791775, z: 4.0204587}
+        outSlope: {x: 10.9530439, y: 2.14791775, z: 4.0204587}
+        tangentMode: 0
+      - time: .316666663
+        value: {x: 2.04472923, y: .784837246, z: 1.46905351}
+        inSlope: {x: 1.98535967, y: -.178993106, z: -.335038424}
+        outSlope: {x: 1.98535967, y: -.178993106, z: -.335038424}
+        tangentMode: 1359017670
+      - time: .416666657
+        value: {x: 1.34649682, y: .534246862, z: 1}
+        inSlope: {x: -6.9823246, y: -2.50590396, z: -4.69053555}
+        outSlope: {x: -6.9823246, y: -2.50590396, z: -4.69053555}
+        tangentMode: 2095431304
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    path: Mesh_chongfeng_001
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .25
+        value: {x: 1.67117536, y: 1.14243412, z: 1.21038127}
+        inSlope: {x: 12.6701641, y: 8.66146278, z: 9.17660999}
+        outSlope: {x: 12.6701641, y: 8.66146278, z: 9.17660999}
+        tangentMode: 64
+      - time: .316666663
+        value: {x: 2.51585293, y: 1.71986496, z: 1.82215524}
+        inSlope: {x: 12.6701641, y: 8.66146278, z: 9.17660999}
+        outSlope: {x: 12.6701641, y: 8.66146278, z: 9.17660999}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    path: Mesh_chongfeng_002
+  m_FloatCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.r
+    path: Mesh_chongfeng_001
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.g
+    path: Mesh_chongfeng_001
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.b
+    path: Mesh_chongfeng_001
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: 0
+        inSlope: 4.73949623
+        outSlope: 4.73949623
+        tangentMode: 10
+      - time: .316666663
+        value: .552941203
+        inSlope: -.394958019
+        outSlope: -.394958019
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -5.52941227
+        outSlope: -5.52941227
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.a
+    path: Mesh_chongfeng_001
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .216666669
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.r
+    path: Mesh_chongfeng_002
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .216666669
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.g
+    path: Mesh_chongfeng_002
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .216666669
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.b
+    path: Mesh_chongfeng_002
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .216666669
+        value: 0
+        inSlope: 5.17647123
+        outSlope: 5.17647123
+        tangentMode: 10
+      - time: .316666663
+        value: .517647088
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -5.17647123
+        outSlope: -5.17647123
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.a
+    path: Mesh_chongfeng_002
+    classID: 23
+    script: {fileID: 0}
+  m_PPtrCurves: []
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - path: 3857510194
+      attribute: 1
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2095431304
+      attribute: 1
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 3857510194
+      attribute: 3
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2095431304
+      attribute: 3
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 3857510194
+      attribute: 1895888582
+      script: {fileID: 0}
+      classID: 23
+      customType: 22
+      isPPtrCurve: 0
+    - path: 2095431304
+      attribute: 1895888582
+      script: {fileID: 0}
+      classID: 23
+      customType: 22
+      isPPtrCurve: 0
+    - path: 3857510194
+      attribute: 1090582214
+      script: {fileID: 0}
+      classID: 23
+      customType: 22
+      isPPtrCurve: 0
+    - path: 3857510194
+      attribute: 1359017670
+      script: {fileID: 0}
+      classID: 23
+      customType: 22
+      isPPtrCurve: 0
+    - path: 3857510194
+      attribute: 1627453126
+      script: {fileID: 0}
+      classID: 23
+      customType: 22
+      isPPtrCurve: 0
+    - path: 2095431304
+      attribute: 1090582214
+      script: {fileID: 0}
+      classID: 23
+      customType: 22
+      isPPtrCurve: 0
+    - path: 2095431304
+      attribute: 1359017670
+      script: {fileID: 0}
+      classID: 23
+      customType: 22
+      isPPtrCurve: 0
+    - path: 2095431304
+      attribute: 1627453126
+      script: {fileID: 0}
+      classID: 23
+      customType: 22
+      isPPtrCurve: 0
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_StartTime: 0
+    m_StopTime: .416666657
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: .0523479991
+        inSlope: .0334114507
+        outSlope: .0334114507
+        tangentMode: 10
+      - time: .316666663
+        value: .0562460013
+        inSlope: .00568571966
+        outSlope: .00568571966
+        tangentMode: 10
+      - time: .416666657
+        value: .0540420003
+        inSlope: -.0220400114
+        outSlope: -.0220400114
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.x
+    path: Mesh_chongfeng_001
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: -.629719973
+        inSlope: -.00565716252
+        outSlope: -.00565716252
+        tangentMode: 10
+      - time: .316666663
+        value: -.630379975
+        inSlope: -.000978750992
+        outSlope: -.000978750992
+        tangentMode: 10
+      - time: .416666657
+        value: -.630010009
+        inSlope: .00369966053
+        outSlope: .00369966053
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.y
+    path: Mesh_chongfeng_001
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: 1.14090002
+        inSlope: .446570963
+        outSlope: .446570963
+        tangentMode: 10
+      - time: .316666663
+        value: 1.19299996
+        inSlope: .0812857449
+        outSlope: .0812857449
+        tangentMode: 10
+      - time: .416666657
+        value: 1.16460001
+        inSlope: -.283999473
+        outSlope: -.283999473
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.z
+    path: Mesh_chongfeng_001
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: .766874194
+        inSlope: 10.9530439
+        outSlope: 10.9530439
+        tangentMode: 10
+      - time: .316666663
+        value: 2.04472923
+        inSlope: 1.98535967
+        outSlope: 1.98535967
+        tangentMode: 10
+      - time: .416666657
+        value: 1.34649682
+        inSlope: -6.9823246
+        outSlope: -6.9823246
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.x
+    path: Mesh_chongfeng_001
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: .534246862
+        inSlope: 2.14791775
+        outSlope: 2.14791775
+        tangentMode: 10
+      - time: .316666663
+        value: .784837246
+        inSlope: -.178993106
+        outSlope: -.178993106
+        tangentMode: 10
+      - time: .416666657
+        value: .534246862
+        inSlope: -2.50590396
+        outSlope: -2.50590396
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.y
+    path: Mesh_chongfeng_001
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: 1
+        inSlope: 4.0204587
+        outSlope: 4.0204587
+        tangentMode: 10
+      - time: .316666663
+        value: 1.46905351
+        inSlope: -.335038424
+        outSlope: -.335038424
+        tangentMode: 10
+      - time: .416666657
+        value: 1
+        inSlope: -4.69053555
+        outSlope: -4.69053555
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.z
+    path: Mesh_chongfeng_001
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.r
+    path: Mesh_chongfeng_001
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.g
+    path: Mesh_chongfeng_001
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.b
+    path: Mesh_chongfeng_001
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .200000003
+        value: 0
+        inSlope: 4.73949623
+        outSlope: 4.73949623
+        tangentMode: 10
+      - time: .316666663
+        value: .552941203
+        inSlope: -.394958019
+        outSlope: -.394958019
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -5.52941227
+        outSlope: -5.52941227
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.a
+    path: Mesh_chongfeng_001
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .216666669
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.r
+    path: Mesh_chongfeng_002
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .216666669
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.g
+    path: Mesh_chongfeng_002
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .216666669
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .316666663
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.b
+    path: Mesh_chongfeng_002
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .216666669
+        value: 0
+        inSlope: 5.17647123
+        outSlope: 5.17647123
+        tangentMode: 10
+      - time: .316666663
+        value: .517647088
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -5.17647123
+        outSlope: -5.17647123
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._TintColor.a
+    path: Mesh_chongfeng_002
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .25
+        value: .0419999994
+        inSlope: .0426149964
+        outSlope: .0426149964
+        tangentMode: 10
+      - time: .316666663
+        value: .0448409989
+        inSlope: .0426149964
+        outSlope: .0426149964
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.x
+    path: Mesh_chongfeng_002
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .25
+        value: -.63499999
+        inSlope: -.00735014724
+        outSlope: -.00735014724
+        tangentMode: 10
+      - time: .316666663
+        value: -.63549
+        inSlope: -.00735014724
+        outSlope: -.00735014724
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.y
+    path: Mesh_chongfeng_002
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .25
+        value: 1.17799997
+        inSlope: .515999854
+        outSlope: .515999854
+        tangentMode: 10
+      - time: .316666663
+        value: 1.21239996
+        inSlope: .515999854
+        outSlope: .515999854
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.z
+    path: Mesh_chongfeng_002
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .25
+        value: 1.67117536
+        inSlope: 12.6701641
+        outSlope: 12.6701641
+        tangentMode: 10
+      - time: .316666663
+        value: 2.51585293
+        inSlope: 12.6701641
+        outSlope: 12.6701641
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.x
+    path: Mesh_chongfeng_002
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .25
+        value: 1.14243412
+        inSlope: 8.66146278
+        outSlope: 8.66146278
+        tangentMode: 10
+      - time: .316666663
+        value: 1.71986496
+        inSlope: 8.66146278
+        outSlope: 8.66146278
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.y
+    path: Mesh_chongfeng_002
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: .25
+        value: 1.21038127
+        inSlope: 9.17660999
+        outSlope: 9.17660999
+        tangentMode: 10
+      - time: .316666663
+        value: 1.82215524
+        inSlope: 9.17660999
+        outSlope: 9.17660999
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.z
+    path: Mesh_chongfeng_002
+    classID: 4
+    script: {fileID: 0}
+  m_EulerEditorCurves: []
+  m_Events: []

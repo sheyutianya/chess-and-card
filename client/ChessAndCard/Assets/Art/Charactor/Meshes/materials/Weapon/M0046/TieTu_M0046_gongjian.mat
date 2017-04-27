@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TieTu_M0046_gongjian
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: CUTOUT_OFF DIRT_OFF HAIR_SPECULAR_OFF LIGHT_PROBE_OFF MODEL_TANGENT_OFF
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 2000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 095fd62a48e7aff4593d5f1b5a1c1560, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ToonRamp
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecularMask
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _OutlineMask
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DirtColor
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DirtMask
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _RimPower
+        second: 1
+      data:
+        first:
+          name: _RimFactor
+        second: 0.6
+      data:
+        first:
+          name: _RimSize
+        second: 0.5
+      data:
+        first:
+          name: _Brightness
+        second: 0.5
+      data:
+        first:
+          name: _CameraLightIntensity
+        second: 0.5
+      data:
+        first:
+          name: _DirtAmount
+        second: 0
+      data:
+        first:
+          name: _OutlineSize
+        second: 0.3
+      data:
+        first:
+          name: _OutlineThreshold
+        second: 0
+      data:
+        first:
+          name: _OutlineType
+        second: 0
+      data:
+        first:
+          name: _RimIntensity
+        second: 0.5
+      data:
+        first:
+          name: _RimShadow
+        second: 0.5
+      data:
+        first:
+          name: _RimSmoothness
+        second: 0.5
+      data:
+        first:
+          name: _SpecularIntensity
+        second: 0.5
+      data:
+        first:
+          name: _SpecularShiftAmount
+        second: 0.5
+      data:
+        first:
+          name: _Outline
+        second: 0.5
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _RimColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _AddColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _SpecularLightDir
+        second: {r: 0, g: 1, b: 1, a: 1}

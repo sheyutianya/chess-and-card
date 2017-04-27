@@ -24,6 +24,7 @@ THE SOFTWARE.
 using System;
 using ZyGames.Framework.Game.Contract;
 using ZyGames.Framework.Game.Runtime;
+using ZyGames.Framework.Game.Service;
 using ZyGames.Framework.Script;
 
 namespace Game.Script
@@ -41,6 +42,13 @@ namespace Game.Script
         protected override void OnServiceStop()
         {
             GameEnvironment.Stop();
+        }
+
+        protected override void OnRequested(ActionGetter actionGetter, BaseGameResponse response)
+        {
+            //这里处理玩家请求的业务
+            Console.WriteLine("url:{0}", actionGetter.ToParamString());
+            base.OnRequested(actionGetter, response);
         }
     }
 }

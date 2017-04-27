@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using Newtonsoft.Json;
+using UnityEngine;
 
 /// <summary>
 /// 
@@ -62,6 +63,7 @@ class DefaultHeadFormater : IHeadFormater
         }
         catch (Exception ex)
         {
+            Debug.Log(ex);
             return false;
         }
     }

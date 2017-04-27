@@ -1,0 +1,669 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &157902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 457902}
+  - 114: {fileID: 11457902}
+  m_Layer: 0
+  m_Name: lottery_atlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &457902
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11457902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 26e7deea907d8ba4fb2e7f72afb800a0, type: 2}
+  mSprites:
+  - name: buy_button
+    x: 620
+    y: 176
+    width: 39
+    height: 52
+    borderLeft: 18
+    borderRight: 18
+    borderTop: 11
+    borderBottom: 18
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: commmon_button_close_01
+    x: 222
+    y: 570
+    width: 50
+    height: 50
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 1
+  - name: commmon_icon_diamond_01
+    x: 616
+    y: 125
+    width: 54
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: commmon_icon_gold_01
+    x: 304
+    y: 362
+    width: 52
+    height: 52
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: commmon_schedule_01
+    x: 274
+    y: 570
+    width: 20
+    height: 32
+    borderLeft: 7
+    borderRight: 7
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common__mask_01
+    x: 263
+    y: 203
+    width: 9
+    height: 9
+    borderLeft: 1
+    borderRight: 1
+    borderTop: 1
+    borderBottom: 1
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_box_01
+    x: 264
+    y: 622
+    width: 36
+    height: 36
+    borderLeft: 17
+    borderRight: 17
+    borderTop: 17
+    borderBottom: 17
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_box01_inner_01
+    x: 267
+    y: 660
+    width: 32
+    height: 34
+    borderLeft: 15
+    borderRight: 15
+    borderTop: 15
+    borderBottom: 15
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_box04_01
+    x: 244
+    y: 302
+    width: 58
+    height: 194
+    borderLeft: 24
+    borderRight: 22
+    borderTop: 154
+    borderBottom: 29
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_button_01
+    x: 358
+    y: 345
+    width: 27
+    height: 41
+    borderLeft: 12
+    borderRight: 12
+    borderTop: 12
+    borderBottom: 18
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 4
+    paddingBottom: 0
+  - name: common_button_03
+    x: 357
+    y: 302
+    width: 27
+    height: 41
+    borderLeft: 12
+    borderRight: 12
+    borderTop: 12
+    borderBottom: 18
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 4
+    paddingBottom: 0
+  - name: common_button_09
+    x: 852
+    y: 258
+    width: 116
+    height: 125
+    borderLeft: 56
+    borderRight: 56
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_card_01
+    x: 908
+    y: 119
+    width: 96
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_chip_01
+    x: 222
+    y: 513
+    width: 53
+    height: 55
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_chip_02
+    x: 450
+    y: 750
+    width: 40
+    height: 41
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_chip_03
+    x: 228
+    y: 701
+    width: 40
+    height: 41
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_chip_04
+    x: 222
+    y: 622
+    width: 40
+    height: 41
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_prompt_01
+    x: 555
+    y: 125
+    width: 59
+    height: 67
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_schedule01_02
+    x: 277
+    y: 498
+    width: 20
+    height: 30
+    borderLeft: 8
+    borderRight: 8
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_schedulebg_01
+    x: 246
+    y: 203
+    width: 15
+    height: 15
+    borderLeft: 6
+    borderRight: 6
+    borderTop: 6
+    borderBottom: 6
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_share_01
+    x: 492
+    y: 125
+    width: 61
+    height: 48
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 7
+    paddingBottom: 7
+  - name: draw_database01_01
+    x: 2
+    y: 302
+    width: 240
+    height: 209
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 14
+    paddingTop: 34
+    paddingBottom: 2
+  - name: draw_database01_02
+    x: 752
+    y: 623
+    width: 226
+    height: 125
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 20
+    paddingTop: 119
+    paddingBottom: 1
+  - name: draw_database01_03
+    x: 620
+    y: 258
+    width: 230
+    height: 127
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 24
+    paddingRight: 2
+    paddingTop: 5
+    paddingBottom: 113
+  - name: draw_database02_01
+    x: 246
+    y: 2
+    width: 244
+    height: 199
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 11
+    paddingTop: 42
+    paddingBottom: 4
+  - name: draw_database02_02
+    x: 492
+    y: 2
+    width: 242
+    height: 121
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 11
+    paddingTop: 121
+    paddingBottom: 3
+  - name: draw_database02_03
+    x: 672
+    y: 125
+    width: 234
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 22
+    paddingRight: 0
+    paddingTop: 4
+    paddingBottom: 110
+  - name: draw_database03_01
+    x: 2
+    y: 2
+    width: 242
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 14
+    paddingTop: 25
+    paddingBottom: 1
+  - name: draw_database03_02
+    x: 302
+    y: 623
+    width: 228
+    height: 125
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 21
+    paddingTop: 119
+    paddingBottom: 1
+  - name: draw_database03_03
+    x: 532
+    y: 623
+    width: 218
+    height: 129
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 23
+    paddingRight: 15
+    paddingTop: 2
+    paddingBottom: 114
+  - name: draw_database04_01
+    x: 546
+    y: 416
+    width: 230
+    height: 205
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 17
+    paddingTop: 39
+    paddingBottom: 1
+  - name: draw_database04_02
+    x: 736
+    y: 2
+    width: 224
+    height: 115
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 20
+    paddingTop: 126
+    paddingBottom: 4
+  - name: draw_database04_03
+    x: 228
+    y: 750
+    width: 220
+    height: 127
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 27
+    paddingRight: 9
+    paddingTop: 12
+    paddingBottom: 106
+  - name: draw_database05_01
+    x: 396
+    y: 203
+    width: 222
+    height: 211
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 23
+    paddingTop: 33
+    paddingBottom: 1
+  - name: draw_database05_02
+    x: 2
+    y: 855
+    width: 214
+    height: 123
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 15
+    paddingRight: 27
+    paddingTop: 119
+    paddingBottom: 3
+  - name: draw_database05_03
+    x: 2
+    y: 722
+    width: 224
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 32
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 114
+  - name: draw_database06_01
+    x: 304
+    y: 416
+    width: 240
+    height: 205
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 5
+    paddingTop: 36
+    paddingBottom: 4
+  - name: draw_database06_02
+    x: 752
+    y: 750
+    width: 212
+    height: 123
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 27
+    paddingTop: 119
+    paddingBottom: 3
+  - name: draw_database06_03
+    x: 218
+    y: 879
+    width: 216
+    height: 121
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 7
+    paddingTop: 8
+    paddingBottom: 116
+  - name: draw_database07_01
+    x: 2
+    y: 513
+    width: 218
+    height: 207
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 25
+    paddingTop: 35
+    paddingBottom: 3
+  - name: draw_database07_02
+    x: 778
+    y: 387
+    width: 212
+    height: 123
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 27
+    paddingTop: 119
+    paddingBottom: 3
+  - name: draw_database07_03
+    x: 450
+    y: 793
+    width: 216
+    height: 121
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 7
+    paddingTop: 7
+    paddingBottom: 117
+  - name: draw_shadow_01
+    x: 2
+    y: 223
+    width: 392
+    height: 77
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: draw_soulbg_02
+    x: 492
+    y: 175
+    width: 26
+    height: 26
+    borderLeft: 12
+    borderRight: 12
+    borderTop: 12
+    borderBottom: 12
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: duel_icon_countdown_01
+    x: 304
+    y: 302
+    width: 51
+    height: 58
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: none
+    x: 274
+    y: 203
+    width: 1
+    height: 1
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: share_icon_01
+    x: 222
+    y: 665
+    width: 43
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 8
+    paddingBottom: 4
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 157902}
+  m_IsPrefabParent: 1

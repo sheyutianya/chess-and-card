@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: L_qipan_comeout_01
+  m_Shader: {fileID: 4800000, guid: f3bf2d3ea9e53494fa9d91a03f0042dd, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: dc1bc6346af470740a68a786d0f3c979, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NoiseTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 40e9e844db9602a42ba8c3590969130b, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DissolveSrc
+        second:
+          m_Texture: {fileID: 2800000, guid: fff4fe292cc6ffd4abae22aa9ef0f325, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DissolveSrcBump
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _TX
+        second:
+          m_Texture: {fileID: 2800000, guid: 8add4dee659cb0c449e0bbbf80e0d116, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _nq
+        second:
+          m_Texture: {fileID: 2800000, guid: 73a883d4157be264a9413934c89c71b2, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _tx
+        second:
+          m_Texture: {fileID: 2800000, guid: dc1bc6346af470740a68a786d0f3c979, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Shininess
+        second: .40492329
+      data:
+        first:
+          name: _InvFade
+        second: 1
+      data:
+        first:
+          name: _HeatTime
+        second: .133928567
+      data:
+        first:
+          name: _HeatForce
+        second: .00535714207
+      data:
+        first:
+          name: _Amount
+        second: .0535714291
+      data:
+        first:
+          name: _StartAmount
+        second: .100000001
+      data:
+        first:
+          name: _Illuminate
+        second: .285714269
+      data:
+        first:
+          name: _Tile
+        second: 1
+      data:
+        first:
+          name: _sd
+        second: 0
+      data:
+        first:
+          name: _nqpw
+        second: -.5
+      data:
+        first:
+          name: _Gloss
+        second: .5
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: .868154168, b: .632352948, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 1, g: .599188626, b: .235294104, a: .501960814}
+      data:
+        first:
+          name: _TintColor
+        second: {r: .5, g: .5, b: .5, a: .501960814}
+      data:
+        first:
+          name: _DissColor
+        second: {r: .411764681, g: .561865985, b: 1, a: 1}
+      data:
+        first:
+          name: _ColorAnimate
+        second: {r: 1, g: 1, b: 1, a: 1}
