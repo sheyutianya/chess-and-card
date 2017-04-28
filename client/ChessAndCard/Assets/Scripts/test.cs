@@ -204,7 +204,29 @@ public class test : MonoBehaviour {
         {
             Directory.CreateDirectory(dataPath);
         }
-        File.WriteAllBytes(dataPath + "files.txt", www.bytes);
+
+        //解析数据
+        byte[] buffBytes = www.bytes;
+
+        NetReader reader = new NetReader(Net.Instance.HeadFormater);
+        string filestring = string.Empty;
+        if (reader.pushNetStream(buffBytes, NetworkType.Http, NetWriter.ResponseContentType))
+        {
+            if (reader.Success)
+            {
+                byte[] filedata = reader.readBytes();
+                //string filestring = reader.readString();
+                File.WriteAllBytes(dataPath + "files.txt", filedata);
+
+                filestring = System.Text.Encoding.Default.GetString(filedata);
+            }
+            else
+            {
+                //OnNetError(package.ActionId, reader.Description);
+            }
+        }
+
+
 
 
         //string random = DateTime.Now.ToString("yyyymmddhhmmss");
@@ -223,48 +245,50 @@ public class test : MonoBehaviour {
         //}
         //File.WriteAllBytes(dataPath + "files.txt", www.bytes);
 
-        //string filesText = www.text;
-        //string[] files = filesText.Split('\n');
+        string filesText = filestring;
+        string[] files = filesText.Split('\n');
 
-        //string message = string.Empty;
-        //for (int i = 0; i < files.Length; i++)
-        //{
-        //    if (string.IsNullOrEmpty(files[i])) continue;
-        //    string[] keyValue = files[i].Split('|');
-        //    string f = keyValue[0];
-        //    string localfile = (dataPath + f).Trim();
-        //    string path = Path.GetDirectoryName(localfile);
-        //    if (!Directory.Exists(path))
-        //    {
-        //        Directory.CreateDirectory(path);
-        //    }
-        //    string fileUrl = url + keyValue[0] + "?v=" + random;
-        //    bool canUpdate = !File.Exists(localfile);
-        //    if (!canUpdate)
-        //    {
-        //        string remoteMd5 = keyValue[1].Trim();
-        //        string localMd5 = Util.md5file(localfile);
-        //        canUpdate = !remoteMd5.Equals(localMd5);
-        //        if (canUpdate) File.Delete(localfile);
-        //    }
-        //    if (canUpdate)
-        //    {   //本地缺少文件
-        //        Debug.Log(fileUrl);
-        //        message = "downloading>>" + fileUrl;
-        //        //facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
-        //        /*
-        //        www = new WWW(fileUrl); yield return www;
-        //        if (www.error != null) {
-        //            OnUpdateFailed(path);   //
-        //            yield break;
-        //        }
-        //        File.WriteAllBytes(localfile, www.bytes);
-        //         * */
-        //        //这里都是资源文件，用线程下载
-        //        //BeginDownload(fileUrl, localfile);
-        //        while (!(IsDownOK(localfile))) { yield return new WaitForEndOfFrame(); }
-        //    }
-        //}
+        string message = string.Empty;
+        for (int i = 0; i < files.Length; i++)
+        {
+            if (string.IsNullOrEmpty(files[i])) continue;
+            string[] keyValue = files[i].Split('|');
+            string f = keyValue[0];
+            string localfile = (dataPath + f).Trim();
+            string path = Path.GetDirectoryName(localfile);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string fileUrl = url + keyValue[0];
+            bool canUpdate = !File.Exists(localfile);
+            if (!canUpdate)
+            {
+                string remoteMd5 = keyValue[1].Trim();
+                string localMd5 = Util.md5file(localfile);
+                canUpdate = !remoteMd5.Equals(localMd5);
+                if (canUpdate) File.Delete(localfile);
+            }
+
+            if (canUpdate)
+            {   //本地缺少文件
+                message = "downloading>>" + fileUrl;
+
+                Debug.Log(message);
+                //facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
+                /*
+                www = new WWW(fileUrl); yield return www;
+                if (www.error != null) {
+                    OnUpdateFailed(path);   //
+                    yield break;
+                }
+                File.WriteAllBytes(localfile, www.bytes);
+                 * */
+                //这里都是资源文件，用线程下载
+                //BeginDownload(fileUrl, localfile);
+                while (!(IsDownOK(localfile))) { yield return new WaitForEndOfFrame(); }
+            }
+        }
         //yield return new WaitForEndOfFrame();
         //message = "更新完成!!";
         ////facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);

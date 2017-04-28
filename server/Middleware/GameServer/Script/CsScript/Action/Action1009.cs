@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using ZyGames.Framework.Game.Lang;
 using ZyGames.Framework.Game.Service;
 
@@ -7,6 +8,10 @@ namespace GameServer.CsScript.Action
 {
     public class Action1009 : BaseStruct
     {
+        private string Url = string.Empty;
+        private int Len;
+        private byte[] Bytes;
+
         public Action1009(ActionGetter actionGetter)
             : base((short)ActionType.GetRes, actionGetter)
         {
@@ -19,7 +24,19 @@ namespace GameServer.CsScript.Action
         /// <returns>false:中断后面的方式执行并返回Error</returns>
         public override bool GetUrlElement()
         {
+            httpGet.GetString("url", ref Url);
             return true;
+        }
+
+        string AssetPath
+        {
+            get
+            {
+                string exePath = Environment.CurrentDirectory;
+                exePath = exePath.Replace('\\', '/');
+                exePath = exePath.Substring(0, exePath.IndexOf("/GameServer/"));
+                return exePath + "/StreamingAssets/";
+            }
         }
 
         /// <summary>
@@ -30,6 +47,20 @@ namespace GameServer.CsScript.Action
         {
             try
             {
+                //string host = "http://127.0.0.1:6688/Service.aspx/";
+                //string url = Url.ToString().Remove(0, host.Length - 1);
+                string filename = AssetPath + Url;
+                if (File.Exists(filename))
+                {
+                    using (Stream fs = File.Open(filename, FileMode.Open))
+                    {
+                        Len = (int)fs.Length;
+                        Bytes = new byte[Len];
+                        fs.Read(Bytes, 0, Len);
+                        fs.Close();
+                    }
+                }
+
                 return true;
             }
             catch (Exception ex)
@@ -45,12 +76,8 @@ namespace GameServer.CsScript.Action
         /// </summary>
         public override void BuildPacket()
         {
-            byte[] sss = new byte[2];
-            sss[0] = 1;
-            sss[1] = 2;
-            PushIntoStack(2);
-            //PushIntoStack(sss);
-            //PushIntoStack(password);
+            //PushIntoStack(Len);
+            PushIntoStack(Bytes);
         }
     }
 }
