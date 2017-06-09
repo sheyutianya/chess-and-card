@@ -74,10 +74,10 @@ namespace AccountServer.Handler
                 //快速登录
                 RegType regType;
                 userId = SnsManager.LoginByDevice(data.Pid, data.Pwd, data.DeviceID, out regType, data.IsCustom);
-                if (userId <= 0)
-                {
-                    throw new HandlerException(StateCode.PassworkError, StateDescription.PassworkError);
-                }
+                //if (userId <= 0)
+                //{
+                //    throw new HandlerException(StateCode.PassworkError, StateDescription.PassworkError);
+                //}
                 passportId = data.Pid;
                 userType = (int)regType;
             }

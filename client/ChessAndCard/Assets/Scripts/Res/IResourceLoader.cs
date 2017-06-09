@@ -7,7 +7,7 @@ using UnityEngine;
 
 public enum ResourceCacheType
 {
-	// 只用在读取配置（建议不要使用）
+	    // 只用在读取配置（建议不要使用）
         rctNone = 0, 
         // 临时的,只用在同步的时候，立马实例化Prefab(建议不要使用)
 		rctTemp,

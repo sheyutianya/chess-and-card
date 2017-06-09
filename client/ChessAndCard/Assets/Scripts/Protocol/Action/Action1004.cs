@@ -13,19 +13,19 @@ public class Action1004 : BaseAction//GameAction
 
     protected override void SendParameter(NetWriter writer, ActionParam actionParam)
     {
-        //string pwd = new DESAlgorithmNew().EncodePwd(GameSetting.Instance.Password, GameSetting.ClientPasswordKey);
+        string pwd = new DESAlgorithmNew().EncodePwd(GameSetting.Instance.Password, GameSetting.ClientPasswordKey);
         //default url param
-        //writer.writeInt32("MobileType", GameSetting.Instance.MobileType);
-        //writer.writeString("Pid", GameSetting.Instance.Pid);
-        //writer.writeString("Pwd", pwd);
-        //writer.writeString("DeviceID", GameSetting.Instance.DeviceID);
-        //writer.writeInt32("ScreenX", GameSetting.Instance.ScreenX);
-        //writer.writeInt32("ScreenY", GameSetting.Instance.ScreenY);
-        //writer.writeString("RetailID", GameSetting.Instance.RetailID);
-        //writer.writeInt32("GameType", GameSetting.Instance.GameID);
-        //writer.writeInt32("ServerID", GameSetting.Instance.ServerID);
-        //writer.writeString("RetailUser", "");
-        //writer.writeString("ClientAppVersion", GameSetting.Instance.ClientAppVersion);
+        writer.writeInt32("MobileType", GameSetting.Instance.MobileType);
+        writer.writeString("Pid", GameSetting.Instance.Pid);
+        writer.writeString("Pwd", pwd);
+        writer.writeString("DeviceID", GameSetting.Instance.DeviceID);
+        writer.writeInt32("ScreenX", GameSetting.Instance.ScreenX);
+        writer.writeInt32("ScreenY", GameSetting.Instance.ScreenY);
+        writer.writeString("RetailID", GameSetting.Instance.RetailID);
+        writer.writeInt32("GameType", GameSetting.Instance.GameID);
+        writer.writeInt32("ServerID", GameSetting.Instance.ServerID);
+        writer.writeString("RetailUser", "");
+        writer.writeString("ClientAppVersion", GameSetting.Instance.ClientAppVersion);
     }
 
     protected override void DecodePackage(NetReader reader)

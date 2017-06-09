@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessAndCard.CSharp.Plugins", "ChessAndCard.CSharp.Plugins.csproj", "{42F4FE96-E094-A838-A350-B159CBCFF1E7}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessAndCard.CSharp", "ChessAndCard.CSharp.csproj", "{86D6550A-96D9-0D3C-0C1B-F9FF5D505D17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessAndCard.CSharp.Editor", "ChessAndCard.CSharp.Editor.csproj", "{5B254A9A-9CEC-6F08-0B58-0489B533FB9B}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42F4FE96-E094-A838-A350-B159CBCFF1E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F4FE96-E094-A838-A350-B159CBCFF1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F4FE96-E094-A838-A350-B159CBCFF1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F4FE96-E094-A838-A350-B159CBCFF1E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86D6550A-96D9-0D3C-0C1B-F9FF5D505D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86D6550A-96D9-0D3C-0C1B-F9FF5D505D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86D6550A-96D9-0D3C-0C1B-F9FF5D505D17}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -19,14 +19,14 @@ public class GameSetting : MonoBehaviour
         }
         if (setting == null) return;
 
-        setting.MobileType = 1;
+        setting.MobileType = 0;
         setting.DeviceID = "00-E1-4C-36-F5-C8";//更换会重新注册账号
         setting.ScreenX = 720;
         setting.ScreenY = 1280;
         setting.RetailID = "0000";
         setting.GameID = 1;
         setting.ServerID = 1;
-        setting.ClientAppVersion = "1.0";
+        setting.ClientAppVersion = "1.0.0.0";
     }
 
     public static GameSetting Instance { get { return setting; } }

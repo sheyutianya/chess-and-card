@@ -90,6 +90,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Script\CsScript\Action\Action2001.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Script\Model\GameUser.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Script\Model\UserRole.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Script\CsScript\Action\Action1009.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -101,8 +110,6 @@
       <SubType>Code</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Script\CsScript\Action\Action1000.cs" />
-    <None Include="Script\CsScript\Action\Action1001.cs" />
     <None Include="Script\CsScript\Locale\SimplifiedLanguage.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -132,9 +139,7 @@
       <Name>ZyGames.Framework.Game4.5</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Script\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
       <Visible>False</Visible>

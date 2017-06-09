@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42F4FE96-E094-A838-A350-B159CBCFF1E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
+    <UnityBuildTarget>Android:13</UnityBuildTarget>
+    <UnityVersion>5.6.0f3</UnityVersion>
+    <RootNamespace></RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_0;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_0;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>Assets\Lib\protobuf-net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Plugins\LitJson\IJsonWrapper.cs" />
+    <Compile Include="Assets\Plugins\LitJson\JsonData.cs" />
+    <Compile Include="Assets\Plugins\LitJson\JsonException.cs" />
+    <Compile Include="Assets\Plugins\LitJson\JsonMapper.cs" />
+    <Compile Include="Assets\Plugins\LitJson\JsonMockWrapper.cs" />
+    <Compile Include="Assets\Plugins\LitJson\JsonReader.cs" />
+    <Compile Include="Assets\Plugins\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\Plugins\LitJson\Lexer.cs" />
+    <Compile Include="Assets\Plugins\LitJson\ParserToken.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Art\Common\TextAsset\mao.atlas.txt" />
+    <None Include="Assets\Art\Common\TextAsset\mao.json.txt" />
+    <None Include="Assets\Art\Effects\Hero\Scripts\Dissolve_TexturCoords2.shader" />
+    <None Include="Assets\Art\Effects\Hero\Scripts\WillPan.shader" />
+    <None Include="Assets\Art\Effects\Hero\Scripts\xf_heat_distortion.shader" />
+    <None Include="Assets\Art\Shader\RoleSelectShade.shader" />
+    <None Include="Assets\Art\Shader\cgwell_Add_Mask.shader" />
+    <None Include="Assets\Art\Shader\cgwell_Alpha_Blend_Mask.shader" />
+    <None Include="Assets\Art\Shader\cgwell_dissolution_add.shader" />
+    <None Include="Assets\Art\Shader\cgwell_dissolution_blend.shader" />
+    <None Include="Assets\Resources\UI\static\hero_altas\FB_friend_atlas\FB_friend_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\NewMysteriousShop_atlas\NewMysteriousShop_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\NewShop_atlas\NewShop_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P1001_jineng\P1001_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P1002_jineng\P1002_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P1003_jineng\P1003_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P1004_jineng\P1004_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P1005_jineng\P1005_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P1006_jineng\P1006_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P1007_jineng\P1007_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P1010_jineng\P1010_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P1011_jineng\P1011_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2001_jineng\P2001_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2002_jineng\P2002_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2003_jineng\P2003_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2004_jineng\P2004_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2005_jineng\P2005_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2006_jineng\P2006_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2007_jineng\P2007_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2008_jineng\P2008_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2009_jineng\P2009_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2010_jineng\P2010_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P2012_jineng\P2012_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3001_jineng\P3001_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3002_jineng\P3002_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3003_jineng\P3003_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3004_jineng\P3004_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3005_jineng\P3005_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3006_jineng\P3006_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3007_jineng\P3007_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3009_jineng\P3009_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3010_jineng\P3010_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P3011_jineng\P3011_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4001_jineng\P4001_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4002_jineng\P4002_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4003_jineng\P4003_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4004_jineng\P4004_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4005_jineng\P4005_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4006_jineng\P4006_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4007_jineng\P4007_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4009_jineng\P4009_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4010_jineng\P4010_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\P4011_jineng\P4011_jineng.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\buy_diamond\buy_diamond_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\buy_gold_box\buy_gold_box_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\facebook\facebook.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\guild_shop\guild_shop_altas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\hero_cardIcon\LegendCardIcon.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\hero_cardIcon\epicCardIcon.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\hero_cardIcon\normalCardIcon.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\hero_cardIcon\uncommonCardIcon.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\hero_dailyAward\dailyAward.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\hero_dailyAward\dailyBox.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\individualData\individualData.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\item_frame\item_frame_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\jump_atlas\jump_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\lock\lock_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\mail_atlas\mail_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\notice\notice_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\one-arm_bandit\one-arm_bandit.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\rank_atlas\rank_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\role\role_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_buyvit\buy_vit_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_com\common_new_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_dng\dng_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_dng\tail_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_emblem\emblem_altas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\cike_zhuangbei_01\cike_zhuangbei_01_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\cike_zhuangbei_02\cike_zhuangbei_02_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\cike_zhuangbei_03\cike_zhuangbei_03_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\cike_zhuangbei_04\cike_zhuangbei_04_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\cike_zhuangbei_05\cike_zhuangbei_05_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\dunzhan_zhuangbei_01\dunzhan_zhuangbei_01_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\dunzhan_zhuangbei_02\dunzhan_zhuangbei_02_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\dunzhan_zhuangbei_03\dunzhan_zhuangbei_03_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\dunzhan_zhuangbei_04\dunzhan_zhuangbei_04_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\dunzhan_zhuangbei_05\dunzhan_zhuangbei_05_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\fashi_zhuangbei_01\fashi_zhuangbei_01_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\fashi_zhuangbei_02\fashi_zhuangbei_02_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\fashi_zhuangbei_03\fashi_zhuangbei_03_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\fashi_zhuangbei_04\fashi_zhuangbei_04_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\fashi_zhuangbei_05\fashi_zhuangbei_05_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\zhanshi_zhuangbei_01\zhanshi_zhuangbei_01_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\zhanshi_zhuangbei_02\zhanshi_zhuangbei_02_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\zhanshi_zhuangbei_03\zhanshi_zhuangbei_03_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\zhanshi_zhuangbei_04\zhanshi_zhuangbei_04_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_equip\zhanshi_zhuangbei_05\zhanshi_zhuangbei_05_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_fight_main\fight_boss_atlas\fight_boss_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_fight_main\fight_doublenum_atlas\doublenum_atals.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_fight_main\fight_main_atlas\fight_main_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_fight_main\fight_pause_atlas\fight_pause_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_fight_main\fight_prop_atlas\fight_prop_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_fight_main\fight_pvpol_atlas\fight_pvpol_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_fight_main\fight_pvpol_result_atlas\fight_pvpol_result_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_fight_main\fight_ready_atlas\fight_ready_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_fight_main\fight_result_atlas\fight_result_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_firends\firends_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_firends\sign_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_gather\gather_altas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_goods_icon\goods_icon.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_guide_mask\guide_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_hero_icon\hero_HeadIcon.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_invite\invite_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_lottery\lottery_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_main\main_ui.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_newbieguide\newbieguide_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_player_frame\player_frame_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_prop\prop_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_pvpol\pvpol_info_atlas\pvpol_info_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_pvpol\pvpol_main_atlas\pvpol_main_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_pvpol\pvpol_selecthero_atlas\pvpol_selecthero_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_setting\setting_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_snatch\snatch_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_snatch\snatch_box_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_snatch\snatch_cloud_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_talk\talk_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_task\task_altas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\shero_task\task_item_atlas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\staraward_altas\staraward_altas.txt" />
+    <None Include="Assets\Resources\UI\static\hero_altas\unitary_buy\unitary_buy.txt" />
+    <None Include="Assets\Resources\UI\static\hero_font\font_snatch\font_snatch_num.txt" />
+    <None Include="Assets\Resources\UI\static\hero_font\font_special_num_set\font_special_num_set.txt" />
+    <None Include="Assets\Resources\UI\static\hero_font\font_step\font_step_num.txt" />
+    <None Include="Assets\Resources\UpdateSrc\Atlas\update_src_atlas.txt" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Custom_Particle-Add.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Custom_Particle-AlphaBlend.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Mobile-Bumped.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Mobile-Particle-Add.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Mobile-Particle-Alpha.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Mobile-Particle-Multiply.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Particle_Add.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Particle_AddSmooth.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Particle_Alpha_Blend.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Alpha.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Premultiplied_Colored.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Premultiplied_Colored1.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Premultiplied_Colored2.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Premultiplied_Colored3.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Text.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Text1.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Text2.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Text3.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Transparent_Colored.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Transparent_Colored1.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Transparent_Colored2.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Transparent_Colored3.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Transparent_Colored_Mask.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Transparent_Packed.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Transparent_Packed1.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Transparent_Packed2.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Transparent_Packed3.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\chess_gray.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\chess_gray_1.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\chess_gray_ui.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\chess_gray_ui1.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\chess_gray_ui2.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\chess_gray_ui3.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\transit_mask_shader.shader" />
+    <None Include="Assets\StreamingAssets\files.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
+</Project>

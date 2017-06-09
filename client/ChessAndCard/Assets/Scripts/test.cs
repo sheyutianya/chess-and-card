@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConfigDate;
+using Core.CSV;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -56,10 +58,25 @@ public class test : MonoBehaviour {
             Net.Instance.Send((int)ActionType.Regist, RegistCallback, null);
         }
 
-        if (GUI.Button(new Rect(cwidth, cheight - 80, 80, 22), "Login"))
+        if (GUI.Button(new Rect(cwidth, cheight - 80, 80, 22), "GetRes"))
         {
             NetWriter.SetUrl("http://127.0.0.1:6688/Service.aspx/",ResponseContentType.Stream,true);
             Net.Instance.Send((int)ActionType.GetRes, RegistCallback, null);
+        }
+
+        if (GUI.Button(new Rect(cwidth + 100, cheight - 80, 80, 22), "GetRoleInfo"))
+        {
+            ActionParam actionParam = new ActionParam();
+            actionParam["userName"] = "shulu";
+            actionParam["userId"] = 1001001;
+
+            NetWriter.SetUrl("127.0.0.1:9001");
+            Net.Instance.Send((int)ActionType.GetRoleInfo, RoleInfRes, actionParam);
+        }
+
+        if (GUI.Button(new Rect(cwidth, cheight - 280, 100, 60), "LoadGameScene")) 
+        {
+            //SceneLoader.Instance.LoadGmaeScene();
         }
     }
 
@@ -67,12 +84,20 @@ public class test : MonoBehaviour {
     {
         if (actionResult != null)
         {
-            string user = actionResult.Get<string>("passportID");
-            string pwd = actionResult.Get<string>("password");
-            Debug.Log("username:" + user + " password:" + pwd);
+            //string user = actionResult.Get<string>("RoleName");
+            //string pwd = actionResult.Get<string>("password");
+            //Debug.Log("username:" + user);
         }
     }
 
+    private void RoleInfRes(ActionResult actionResult) 
+    {
+        if (actionResult != null)
+        {
+            string user = actionResult.Get<string>("RoleName");
+            Debug.Log("username:" + user);
+        }
+    }
     /// <summary>
     /// 释放资源
     /// </summary>
@@ -102,7 +127,6 @@ public class test : MonoBehaviour {
 
         string message = "正在解包文件:>files.txt";
         Debug.Log(message);
-        //facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
 
         if (Application.platform == RuntimePlatform.Android)
         {
@@ -173,11 +197,12 @@ public class test : MonoBehaviour {
     {
         downloadFiles.Clear();
 
-        //if (!AppConst.UpdateMode)
-        //{
-        //    ResManager.initialize(OnResourceInited);
-        //    yield break;
-        //}
+        if (!AppConst.UpdateMode)
+        {
+            ResourceManager.Instance.initialize(OnResourceInited);
+            yield break;
+        }
+
         string dataPath = Util.DataPath;  //数据目录
         string url = AppConst.WebUrl;
 
@@ -205,45 +230,15 @@ public class test : MonoBehaviour {
             Directory.CreateDirectory(dataPath);
         }
 
-        //解析数据
-        byte[] buffBytes = www.bytes;
-
-        NetReader reader = new NetReader(Net.Instance.HeadFormater);
         string filestring = string.Empty;
-        if (reader.pushNetStream(buffBytes, NetworkType.Http, NetWriter.ResponseContentType))
+        NetReader reader = ParseWWWDataToNetReader(www.bytes);
+        if (reader != null && reader.Success) 
         {
-            if (reader.Success)
-            {
-                byte[] filedata = reader.readBytes();
-                //string filestring = reader.readString();
-                File.WriteAllBytes(dataPath + "files.txt", filedata);
+            byte[] filedata = reader.readBytes();
+            File.WriteAllBytes(dataPath + "files.txt", filedata);
 
-                filestring = System.Text.Encoding.Default.GetString(filedata);
-            }
-            else
-            {
-                //OnNetError(package.ActionId, reader.Description);
-            }
+            filestring = System.Text.Encoding.Default.GetString(filedata);
         }
-
-
-
-
-        //string random = DateTime.Now.ToString("yyyymmddhhmmss");
-        //string listUrl = url + "files.txt?v=" + random;
-        //Debug.LogWarning("LoadUpdate---->>>" + listUrl);
-
-        //WWW www = new WWW(listUrl); yield return www;
-        //if (www.error != null)
-        //{
-        //    OnUpdateFailed(string.Empty);
-        //    yield break;
-        //}
-        //if (!Directory.Exists(dataPath))
-        //{
-        //    Directory.CreateDirectory(dataPath);
-        //}
-        //File.WriteAllBytes(dataPath + "files.txt", www.bytes);
 
         string filesText = filestring;
         string[] files = filesText.Split('\n');
@@ -271,29 +266,36 @@ public class test : MonoBehaviour {
             }
 
             if (canUpdate)
-            {   //本地缺少文件
+            {   //需要更新文件
                 message = "downloading>>" + fileUrl;
-
                 Debug.Log(message);
-                //facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
-                /*
-                www = new WWW(fileUrl); yield return www;
-                if (www.error != null) {
-                    OnUpdateFailed(path);   //
+
+                www = PackageWWWData(keyValue[0]);
+                yield return www;
+                if (www.error != null) 
+                {
                     yield break;
                 }
-                File.WriteAllBytes(localfile, www.bytes);
-                 * */
+
+                reader = ParseWWWDataToNetReader(www.bytes);
+                if (reader != null && reader.Success)
+                {
+                    byte[] filedata = reader.readBytes();
+                    File.WriteAllBytes(localfile, filedata);
+                }
+
                 //这里都是资源文件，用线程下载
                 //BeginDownload(fileUrl, localfile);
-                while (!(IsDownOK(localfile))) { yield return new WaitForEndOfFrame(); }
+                //while (!(IsDownOK(localfile))) { yield return new WaitForEndOfFrame(); }
             }
         }
-        //yield return new WaitForEndOfFrame();
-        //message = "更新完成!!";
+        yield return new WaitForEndOfFrame();
+        message = "更新完成!!";
+        Debug.Log(message);
+
         ////facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
 
-        ////ResManager.initialize(OnResourceInited);
+        ResourceManager.Instance.initialize(OnResourceInited);
     }
 
     /// <summary>
@@ -339,5 +341,62 @@ public class test : MonoBehaviour {
         string message = "更新失败!>" + file;
         Debug.LogWarning("OnUpdateFailed---->>>" + message);
         //facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
+    }
+
+    NetReader ParseWWWDataToNetReader(byte[] pData) 
+    {
+        NetReader reader = new NetReader(Net.Instance.HeadFormater);
+        string filestring = string.Empty;
+        if (reader.pushNetStream(pData, NetworkType.Http, NetWriter.ResponseContentType))
+        {
+            if (reader.Success)
+            {
+                return reader;
+            }
+            else
+            {
+                //OnNetError(package.ActionId, reader.Description);
+            }
+        }
+        return null;
+    }
+
+    WWW PackageWWWData(string pFileName) 
+    {
+        string url = AppConst.WebUrl;
+
+        GameAction gameAction = ActionFactory.Create(1009);
+        if (gameAction == null)
+        {
+            throw new ArgumentException(string.Format("Not found {0} of GameAction object.", 1009));
+        }
+
+        NetWriter.SetUrl("http://127.0.0.1:6688/Service.aspx/", ResponseContentType.Stream, true);
+        ActionParam actionParam = new ActionParam();
+        actionParam["url"] = pFileName;
+        byte[] postData = gameAction.Send(actionParam);
+        Debug.LogWarning("LoadUpdate---->>>" + url);
+
+        return new WWW(string.Format("{0}?{1}", url, Encoding.UTF8.GetString(postData)));
+    }
+
+    /// <summary>
+    /// 资源初始化结束
+    /// </summary>
+    public void OnResourceInited()
+    {
+        Debug.Log("资源初始化结束");
+        //LuaManager.InitStart();
+        //LuaManager.DoFile("Logic/Game");            //加载游戏
+        //LuaManager.DoFile("Logic/Network");         //加载网络
+        //NetManager.OnInit();                        //初始化网络
+        //Util.CallMethod("Game", "OnInitOK");        //初始化完成
+        //initialize = true;                          //初始化完 
+        Hero mhero = CSVManager.Instance.GetData<Hero>(1);
+        if (mhero != null) 
+        {
+            Debug.Log(mhero.name);
+            Debug.Log(mhero.attributes);
+        }        
     }
 }

@@ -131,6 +131,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="ChessAndCard.CSharp.Plugins.csproj">
+      <Project>{42F4FE96-E094-A838-A350-B159CBCFF1E7}</Project>
+      <Name>ChessAndCard.CSharp.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="ChessAndCard.CSharp.csproj">
       <Project>{86D6550A-96D9-0D3C-0C1B-F9FF5D505D17}</Project>
       <Name>ChessAndCard.CSharp</Name>
@@ -146,6 +150,8 @@
     <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleTree.cs" />
     <Compile Include="Assets\Editor\AssetBundleBrowser\AssetListTree.cs" />
     <Compile Include="Assets\Editor\AssetBundleBrowser\MessageList.cs" />
+    <Compile Include="Assets\Editor\CodeGenerater.cs" />
+    <Compile Include="Assets\Editor\VersionCSVGenerater.cs" />
     <Compile Include="Assets\Editor\testbuild.cs" />
   </ItemGroup>
   <ItemGroup>

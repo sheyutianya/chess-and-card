@@ -144,3 +144,88 @@ CREATE TABLE `userloginlog` (
 
 select 'create center table successfully!';
 
+
+DROP database IF EXISTS `chessandcard`;
+create database `chessandcard` DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
+
+select 'create databases:chessandcard successfull!';
+
+
+--
+-- Table structure for table `TbPlayer`
+--
+use chessandcard;
+
+DROP TABLE IF EXISTS `TbPlayer`;
+
+CREATE TABLE `TbPlayer` (
+  `id` bigint(20) NOT NULL COMMENT '唯一标识',
+  `accountId` bigint(20) NOT NULL COMMENT '账号id',
+  `openId` varchar(128) DEFAULT '' COMMENT '登陆的平台ID',
+  `name` varchar(64) DEFAULT NULL COMMENT '角色名称',
+  `status` int(11) DEFAULT '0' COMMENT '当前状态',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
+  `lastlogindate` datetime DEFAULT NULL COMMENT '角色最后一次登录时间',
+  `lastlogoutdate` datetime DEFAULT NULL COMMENT '角色最后一次登出时间',
+  `areaid` int(11) DEFAULT '0' COMMENT '所属分区编号',
+  `channelId` int(11) NOT NULL DEFAULT '10001' COMMENT '渠道ID',
+  `loginType` int(11) DEFAULT '0' COMMENT '登陆方式',
+  `online` tinyint(4) DEFAULT '0' COMMENT '当前是否在线:0不在线,1在线',
+  `onlinetimes` bigint(20) DEFAULT '0' COMMENT '总在线时长:ms',
+  `trial` int(11) DEFAULT '0' COMMENT '试炼币',
+  `infinite` int(11) DEFAULT '0' COMMENT '无尽币',
+  `honour` int(11) DEFAULT '0' COMMENT '荣誉币',
+  `silver` int(11) DEFAULT '0' COMMENT '银币',
+  `diamond` int(11) DEFAULT '0' COMMENT '钻石',
+  `patrolMoney` int(11) DEFAULT '0' COMMENT '巡逻币',
+  `guildMoney` int(11) DEFAULT '0' COMMENT '公会贡献币',
+  `exp` int(11) DEFAULT '0' COMMENT '经验',
+  `level` int(11) DEFAULT '0' COMMENT '等级',
+  `vipLevel` int(11) DEFAULT '0' COMMENT 'vip等级',
+  `vipExp` int(11) DEFAULT '0' COMMENT 'vip经验',
+  `strength` int(11) DEFAULT '0' COMMENT '体力',
+  `skillPoint` int(11) NOT NULL DEFAULT '0' COMMENT '技能点',
+  `iconType` int(11) DEFAULT '0' COMMENT '玩家头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一',
+  `icon` varchar(256) DEFAULT '' COMMENT '玩家头像ID, 或头像URL',
+  `nameChanage` int(11) DEFAULT '0' COMMENT '改名次数，0未取名，1，第一次创建名称...',
+  `fightingForce` int(11) NOT NULL DEFAULT '0' COMMENT '战斗力',
+  `pvpFight` int(11) NOT NULL DEFAULT '0' COMMENT 'pvp的战斗力',
+  `country` smallint(2) NOT NULL DEFAULT '0' COMMENT '国家，0：无国家，1：魏国 2：蜀国 3：吴国',
+  `investigate` int(11) NOT NULL DEFAULT '0' COMMENT '侦查令',
+  `militaryOrder` int(11) NOT NULL DEFAULT '0' COMMENT '军令',
+  `technoloySteps` int(11) NOT NULL DEFAULT '0' COMMENT '科技系统剩余步数',
+  `pvpScore` int(11) NOT NULL DEFAULT '0' COMMENT 'PVP积分',
+  `pvpScoreDaily` int(11) NOT NULL DEFAULT '0' COMMENT 'PVP积分 每日重置',
+  `isFristCard` int(11) NOT NULL DEFAULT '0' COMMENT '是否首次抽卡,0是其他否',
+  `secretRoomId` int(11) NOT NULL DEFAULT '0' COMMENT '参加的秘境房间Id',
+  `fightItemRandomNum` int(11) NOT NULL DEFAULT '0' COMMENT '战斗道具随机次数',
+  `fightItemRandomID` int(11) NOT NULL DEFAULT '0' COMMENT '战斗道具随机Id',
+  `pvpRank` int(11) NOT NULL DEFAULT '0' COMMENT 'PVP阶级',
+  `unionId` int(11) DEFAULT '0' COMMENT '加入的公会ID',
+  `unlimitStrengthTime` datetime DEFAULT NULL COMMENT '无限体力到期时间',
+  `language` VARCHAR(12) NULL COMMENT '语言',
+  PRIMARY KEY (`id`),
+  KEY `indAccountId` (`accountId`),
+  KEY `indName` (`name`),
+  KEY `indCreateTime` (`createTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表,一个玩家在一个区里唯一';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
