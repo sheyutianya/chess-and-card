@@ -1,0 +1,11 @@
+1.参考文章
+	http://blog.csdn.net/qq_27772057/article/details/51945700
+	比较详细的说明的重新编译mono和安卓热更新的步骤
+2.实践步骤说明
+	2.1首先要找准unity版本对应的mono，地址在这里 https://github.com/Unity-Technologies/mono
+	2.2执行build_runtime_android.sh
+	2.3编译出的x86 和 armeabi-v7a 放入unity3d
+	2.4修改UnityPlayerActivity.java 导出jar包放入unity3d
+	2.5重新导出APK
+3.实现热更
+	游戏启动后先加载包里面的Assembly-CSharp.dll --> 在splash屏下载新的Assembly-CSharp.dll --> 代码重启游戏 --> 在加载 Assembly-CSharp.dll 的地方 mono_image_open_from_data_with_name 里面 强制加载 /data/data/packname/files/Assembly-CSharp.dll

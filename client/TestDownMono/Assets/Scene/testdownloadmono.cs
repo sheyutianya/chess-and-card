@@ -40,7 +40,7 @@ public class testdownloadmono : MonoBehaviour
         StartCoroutine(loadAsset());
 #endif
 
-        Debug.Log("1.1");
+        Debug.Log("1.0");
     }
 
     string version = "1.0";
