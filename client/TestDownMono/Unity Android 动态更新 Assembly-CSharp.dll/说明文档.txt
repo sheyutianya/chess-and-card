@@ -9,3 +9,4 @@
 	2.5重新导出APK
 3.实现热更
 	游戏启动后先加载包里面的Assembly-CSharp.dll --> 在splash屏下载新的Assembly-CSharp.dll --> 代码重启游戏 --> 在加载 Assembly-CSharp.dll 的地方 mono_image_open_from_data_with_name 里面 强制加载 /data/data/packname/files/Assembly-CSharp.dll
+4.导出jar包---注意jdk和sdk的版本
