@@ -139,7 +139,7 @@ public class testdownloadmono : MonoBehaviour
         //sw.Dispose();
 
         Debug.Log("SaveBytes:" + path + filename);
-        FileStream stream = new FileStream(path + filename, FileMode.CreateNew);
+        FileStream stream = new FileStream(path + filename, FileMode.Create);
         stream.Write(bytes, 0, bytes.Length);
         stream.Flush();
         stream.Close();
