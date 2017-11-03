@@ -1,0 +1,7 @@
+启动时提示"Redis Server is using Ip game server, it's path..."或"Server failed to start error:The game server is using Redis at host nam e "oneHostName" path D:\xxx\xxx."
+说明Redis服务被其它的程序使用了，进入命令行窗口，使用redis-cli客户端删除"__RedisInfo"的键; 脚本如下：
+> redis-cli -h 127.0.0.1 -p 6379
+# 切换使用的Redis.DB
+> select 0;
+> del __RedisInfo;
+select 0的0根据你的游戏redis数据库序号填写
