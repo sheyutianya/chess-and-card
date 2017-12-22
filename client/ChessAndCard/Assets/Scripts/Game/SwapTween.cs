@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SwapTween : MonoBehaviour
 {
-    private float SWAP_FORWARD_SPEED = 7f;
-    private float SWAP_BACK_SPEED = 6f;
+    //private float SWAP_FORWARD_SPEED = 7f;
+    //private float SWAP_BACK_SPEED = 6f;
     public AnimationCurve SwapForwardCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     public AnimationCurve SwapBackwardCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 

@@ -346,7 +346,7 @@ public class test : MonoBehaviour {
     NetReader ParseWWWDataToNetReader(byte[] pData) 
     {
         NetReader reader = new NetReader(Net.Instance.HeadFormater);
-        string filestring = string.Empty;
+        //string filestring = string.Empty;
         if (reader.pushNetStream(pData, NetworkType.Http, NetWriter.ResponseContentType))
         {
             if (reader.Success)

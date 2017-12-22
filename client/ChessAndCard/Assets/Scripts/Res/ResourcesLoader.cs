@@ -33,7 +33,7 @@ public class ResourcesLoader : IResourceLoader
             return null;
 
         T ret = null;
-        string orgFileName = fileName;
+        //string orgFileName = fileName;
 
         bool isFirstLoad = (ret == null);
         if (isFirstLoad)
