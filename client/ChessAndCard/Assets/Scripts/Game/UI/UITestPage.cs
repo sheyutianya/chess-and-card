@@ -7,7 +7,9 @@ public class UITestPage : TTUIPage {
     public UITestPage()
         : base(UIType.Normal, UIMode.HideOther, UICollider.None)
     {
-        uiPath = "prefab/panel1";
+        uiPath = "UI/panel/main/uimain";
+        //int i = 5;
+
     }
 
     public override void Awake(GameObject go)

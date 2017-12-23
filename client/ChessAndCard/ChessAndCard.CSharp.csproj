@@ -79,6 +79,12 @@
     <Reference Include="Mono.Cecil">
       <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>Assets\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -327,6 +333,7 @@
     <Compile Include="Assets\Scripts\UIFramework\TTUIRoot.cs" />
     <Compile Include="Assets\Scripts\Utility\Util.cs" />
     <Compile Include="Assets\Scripts\test.cs" />
+    <Compile Include="Assets\Scripts\testpage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Art\Common\TextAsset\mao.atlas.txt" />
@@ -473,6 +480,8 @@
     <None Include="Assets\Resources\UpdateSrc\Shader\Particle_Add.shader" />
     <None Include="Assets\Resources\UpdateSrc\Shader\Particle_AddSmooth.shader" />
     <None Include="Assets\Resources\UpdateSrc\Shader\Particle_Alpha_Blend.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\UI-Additive.shader" />
+    <None Include="Assets\Resources\UpdateSrc\Shader\UI-Default.shader" />
     <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Alpha.shader" />
     <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Premultiplied_Colored.shader" />
     <None Include="Assets\Resources\UpdateSrc\Shader\Unlit-Premultiplied_Colored1.shader" />
