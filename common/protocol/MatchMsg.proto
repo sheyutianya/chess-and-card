@@ -1,0 +1,248 @@
+
+import "GuildMsg.proto";
+import "DrawCardMsg.proto";
+// 竞技场相关协议 --------------------------------------------------------
+
+// 实时PVP随机匹配
+message C2SMatchPvpRandom { //cmd=MATCH_PVP_RANDOM 实时PVP随机匹配请求
+	required int32 isTimeout	= 1[default=0];		// 是否为超时匹配0否 1是
+}
+message S2CMatchPvpRandom {
+	required int32 result 		= 1; 				// 匹配结果 0-匹配请求失败 1-匹配请求成功 2-匹配到机器人
+	optional MatchRobotInfo robotInfo= 2;			// 匹配机器人列表
+	optional int64 fightId		= 3[default=0];		// 机器人战斗的战斗ID
+}
+
+// 实时PVP友谊战匹配
+message C2SMatchPvpFriend {	//cmd=MATCH_PVP_FRIEND 实时PVP好友对战请求
+	required int32 soloType 	= 1;				// 对战类型1，世界  2，公会 3，私聊
+	optional int64 targetId 	= 2[default=0];		// 目标玩家ID 0-表示
+	optional string declaration	= 3[default=""];	// 对战宣言
+	optional string extraData	= 4[default=""];	// 扩展字段, 在约战信息中转发
+}
+message S2CMatchPvpFriend {
+	required int32 result 		= 1; 				// 匹配结果 0-匹配请求失败 1-匹配请求成功 2-友谊战尚未解锁 3-对方友谊战尚未解锁
+	optional MatchFriendInfo matchInfo	= 2;		// 友谊战匹配信息
+}
+
+// 实时PVP公会战匹配
+message C2SMatchPvpUnion { //cmd=MATCH_PVP_UNION 实时PVP公会战
+	required int32 step			= 1;				// 当前处于公会战哪个阶段
+	
+}
+message S2CMatchPvpUnion {
+	required int32 result 		= 1; 				// 匹配结果 0-匹配请求失败 1-匹配请求成功
+}
+
+// 公会PVP友谊战列表
+message C2SUnionFriendPvpList {	//cmd=MATCH_UNIONFRIEND_LIST 公会友谊战列表
+}
+message S2CUnionFriendPvpList {
+	repeated MatchFriendInfo matchList = 1;		// 匹配列表
+}
+
+// 实时PVP匹配取消
+message C2SMatchPvpCancel {
+	required int32 cancelType = 1;					// 取消类型 0-实时PVP 1-公会战
+}
+message S2CMatchPvpCancel {
+	required int32 result 	  = 1; 					// 匹配取消 0-取消失败 1-取消成功
+	required int32 cancelType = 2;					// 取消类型 0-实时PVP 1-公会战
+}
+
+// 实时PVP友谊战匹配取消
+message C2SMatchFriendCancel {	//cmd=MATCH_FRIEND_CANCEL　实时PVP好友对战取消
+}
+message S2CMatchFriendCancel {
+	required int32 soloType 	= 1;				// 对战类型1，世界  2，公会 3，私聊
+	required int64 senderId 	= 2;				// 发送者玩家Id
+	required string messageId	= 3[default=""];	// 消息ID
+	required int32 result 		= 4; 				// 匹配取消 0-取消失败 1-取消成功
+	required int32 reason		= 5;				// 取消原因 0-玩家主动取消 1-已经成攻匹配 2-发起者下线
+}
+
+// 实时PVP匹配结果(服务器主动通知) 
+message S2CMatchPvpResult { //cmd=MATCH_PVP_RESULT 实时PVP匹配结果
+	required int32 result 		= 1; 				// 匹配结果
+	optional int32 myCup		= 2[default = 0];	// 我的奖杯
+	optional int32 targetCup	= 3[default = 0];	// 对手奖杯				
+	optional int64 targetId		= 4[default = 0];	// 对手ID
+	optional int32 targetLv 	= 5[default = 0];	// 对手等级
+	optional string targetName	= 6[default = ""];	// 对手名称
+	optional string fightIp		= 7[default = ""];	// 战斗服务器IP
+	optional int32 fightPort 	= 8[default = 0];	// 战斗服务器Port
+	optional int64 roomId		= 9[default = 0];	// 战斗服务器房间编号，每个战斗服唯一
+	optional int64 validTime 	= 10[default = 0];	// 该匹配信息有效时间,客户端可能来判断是否还需要断线重连战斗，超时战斗必定结束
+	optional string token		= 11[default = ""];	// 匹配令牌客户端回传用于进入战斗服或重连战斗服时的较验
+	optional int32 stageId		= 12[default = 1];	//战斗场景ID
+	optional int32 iconType     = 13[default = 1];  //对手图像类型
+	optional string icon        = 14[default = ""]; //对手图像
+}
+
+// 实时PVP同步机器人数据(仅针对机器人，需要在战斗过程同步一些数据)
+message C2SFightSyncRobotData {	//cmd = MATCH_SYNC_ROBOT_DATA //同步PVP机器人数据
+	required int64 fightId 		= 1;				// 战斗ID
+	required int32 robotDeadNum = 2;				// 机器人死亡数量
+}
+
+// 实时PVP战斗结果(仅针对机器人需要请求战斗结束,对手是玩家由服务器推送战斗结果)
+message C2SFightEndResult {	//cmd=PVP_ONLINE_FIGHT_END 实时PVP战斗结果
+	required int64 fightId 		= 1;				// 战斗ID由匹配时机器
+	required int32 seleDies  	= 2;				// 自己死亡武将数量
+	required int32 enemyDies	= 3;				// 敌方死亡武将数量
+	required FightResultParam resultParam = 4;		// 战斗结果上报数据	
+}
+message S2CFightEndResult {	//cmd=PVP_ONLINE_FIGHT_END 实时PVP战斗结果
+	required int32 result 		= 1; 				// 是否赢得比赛-1 输 0-战平  1-赢
+	required int32 dropStar		= 2;				// 掉落的星数数-1不掉落了
+	required int32 cupChange	= 3;				// 获得的奖杯数，正数加，负数扣
+	required int32 selfStar		= 4;				// 己方获得的星星数
+	required int32 enemyStar  	= 5;				// 敌方获得的星星数
+	optional DropReward reward	= 6;				// 掉落物品
+}
+
+// 实时PVP信息
+message C2SPvpOnlineInfo {	//cmd=PVP_ONLNIE_INFO	实时PVP信息
+}
+message S2CPvpOllineInfo {
+	required int64 freeChestTime= 1;				// 免费宝箱时间
+	required int64 starChestTime= 2;				// 星星宝箱时间
+	required int32 starNum		= 3;				// 当前收集的星星数
+	required int32 starMax		= 4;				// 能收集的最大星星数
+	repeated PvpChestInfo chestList= 5;				// 掉落的宝箱列表
+	optional int32 winCount 	= 6[default = 0];	// 获胜次数（用于显示引导阶段进度)
+}
+
+// 实时PVP查询宝箱时间
+message C2SQueryChestTime {	//cmd=PVPOL_QUERY_CHEST_TIME 实时PVP查询宝箱时间
+}
+message S2CQueryChestTime {
+	required int64 freeChestTime= 1;				// 免费宝箱时间
+	required int64 starChestTime= 2;				// 星星宝箱时间
+	repeated PvpChestInfo chestList= 3;				// 掉落的宝箱列表
+}
+
+// 实时PVP开启免费宝箱
+message C2SPvpOpenFreeChest {	// cmd=PVPOL_OPEN_FREE_CHEST 实时PVP开启免费宝箱
+	required int32 isStarChest	= 1;				// 是否为星星宝箱 0-否 1-是
+}
+message S2CPvpOpenFreeChest {
+	required int32 isStarChest	= 1;				// 是否为星星宝箱 0-否 1-是
+	required int64 chestTime	= 2;				// 宝箱CD时间
+	repeated DrawCardInfo cards = 3;				// 奖励卡牌
+}
+
+// 实时PVP开启掉落宝箱
+message C2SPvpOpenDropChest {	//cmd=PVPOL_OPEN_DROP_CHEST 实时PVP开启掉落宝箱
+	optional int32 pos			= 1[default = 0];	// 宝箱格子位置[0,3]
+	optional int32 useDiamond	= 2[default = 0];	// 是否使用钻石0-非 1-是
+}
+message S2CPvpOpenDropChest {
+	required PvpChestInfo chestInfo = 1;			// 该宝箱信息
+	repeated DrawCardInfo cards = 2;				// 奖励卡牌	
+}
+
+// 实时PVP掉落宝箱信息
+message PvpChestInfo {
+	optional int32 pos			= 1[default = 0];	// 宝箱格子位置[0,3]
+	optional int32 chestTime	= 2[default = 0];	// 宝箱CD时间秒
+	optional int64 countdown	= 3[default = 0];	// 宝箱倒计时
+	optional int32 chestId		= 4[default = 0];	// 宝箱ID
+	optional int32 isNew		= 5[default = 0];	// 是否为新掉落宝箱 0-否 1-是
+	optional int32 state		= 6[default = 0];	// 宝箱状态 0-未打开，1-计时中 2-计时完成 3已经领取
+}
+
+// 友谊战信息
+message MatchFriendInfo {
+	required string messageId	= 1;				// 消息ID
+	required int32 soloType 	= 2;				// 对战类型1，世界  2，公会 3，私聊
+	optional string extraData 	= 3[default=""];	// 扩展字段 服务器生成由客户端转发
+	optional string declaration	= 4[default=""];	// 对战宣言
+	optional int32 targetCup	= 5[default = 0];	// 对手奖杯				
+	optional int64 targetId		= 6[default = 0];	// 对手ID
+	optional int32 targetLv 	= 7[default = 0];	// 对手等级
+	optional string targetName	= 8[default = ""];	// 对手名称
+	optional string	icon		= 9[default = ""];	// 头像
+	optional int32 iconType		= 10[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional int32 unionId		= 11[default= 0];	// 公会ID
+	optional string unionName	= 12[default=""];	// 公会名称
+	optional int32 jobTitle 	= 13[default = 0];	// 公会职称
+	optional int64 sendTime     = 14[default = 0];	// 发送时间
+}
+
+message MatchRobotInfo {
+	optional string enemyName 	= 1[default = ""]; 	// 匹配玩家名称
+	optional int32 enemyLevel	= 2[default = 1];	// 匹配玩家等级
+	optional string enemySociety= 3[default = ""];	// 匹配玩家公会
+	optional int32 enemyIconType= 4[default = 0];	// 匹配玩家头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string enemyIcon	= 5[default = ""];	// 匹配玩家icon
+	optional int32 enemyCup		= 6[default = 0];	// 对手奖杯				
+	optional int64 enemyId		= 7[default = 0];	// 对手ID
+	repeated RobotInfo robotList= 8;				// 匹配机器人武将列表
+}
+
+// pvp战斗结果请求
+message C2SPvpResultReport {	// cmd=PVP_PK_RESULT_REPORT
+}
+// pvp战斗结果战报
+message S2CPvpResultReport {	// cmd=PVP_PK_RESULT_REPORT
+	repeated PvpResultLog logs	= 1;				// 日志列表
+	repeated GvGScoreLog scores = 2;				// 公会战绩列表
+}
+
+message PvpResultLog {
+	required string messageId	= 1;				// 消息ID  
+	required int32 soloType	 	= 2;				// 对战类型 1、世界 2、公会 3、私聊 4、公会战
+	
+	required int64 leftId	  	= 3;				// 左边ID
+	required int64 rightId	 	= 4;				// 右边ID
+	required string leftName	= 5;				// 左边名称
+	required string rightName 	= 6;				// 右边名称
+	
+	required int32 leftStar 	= 7;				// 左边星星
+	required int32 rightStar	= 8;				// 右边星星
+	required int32 leftCup		= 9;				// 左边奖杯
+	required int32 rightCup	 	= 10;				// 右边奖杯
+	
+	required int32 leftIconType	= 11;				// 左边头像类型 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	required int32 rightIconType= 12;				// 右边头像类型 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	required string leftIcon	= 13;				// 左边头像
+	required string rightIcon 	= 14;				// 右边头象
+	
+	optional PkUnionParam leftUnion	= 15;			// 左边公会
+	optional PkUnionParam rightUnion = 16;			// 右边公会
+	
+	repeated PkHeroParam leftHeros 	= 17;			// 左边武将列表
+	repeated PkHeroParam rightHeros = 18;			// 右边武将列表
+
+	optional int64 sendTime     = 19[default = 0];	// 发送时间
+}
+
+// 公会战战绩日志
+message GvGScoreLog {
+	required string messageId	= 1;				// 消息ID
+	required int32 soloType	 	= 2;				// 对战类型 1、世界 2、公会 3、私聊 4、公会战
+	required int64  playerId 	= 3;				// 玩家ID
+	required string name		= 4;				// 玩家名称
+	required int32 gvgCup		= 5;				// 公会战获得战绩
+	required int32 remainFighter= 6;				// 剩余可战人数
+	optional int64 sendTime     = 7[default = 0];	// 发送时间
+}
+
+// Pk 公会参数
+message PkUnionParam {							
+	optional int32 unionId		= 1;				// 公会ID
+	optional string unionName	= 2;				// 公会名称
+	optional int32 logoBg		= 3;				// 会徽背景
+	optional int32 logoStyle 	= 4;				// 会徽样式
+	optional int32 logoBorder	= 5;				// 会徽边框
+	optional int32 jobTitle		= 6;				// 公会职称
+}
+
+// Pk 武将信息
+message PkHeroParam {
+	// 武将ID
+	required int32 heroId = 1;
+	// 武将等级
+	required int32 heroLv = 2;
+}

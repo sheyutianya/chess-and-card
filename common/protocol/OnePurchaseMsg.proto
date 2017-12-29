@@ -1,0 +1,49 @@
+option java_package = "net.uyo.proto"; 
+option java_outer_classname = "OnePurchaseMsg";
+import "GuildMsg.proto";
+
+//推送活动是否开启状态
+message S2COnePurchase {
+	optional bool result	 	= 1;	// 活动是否开启 true：是 false：否
+	optional int64 activtyEfficientTime	 	= 2;    // 活动过期时间
+}
+
+//检测宝箱是购买消息
+message C2SOnePurchaseBox {
+
+}
+
+message S2COnePurchaseBox {
+	optional bool result	 	= 1;
+}
+
+//宝箱信息推送
+message S2COnePurchaseBoxPush{
+    optional int32 boxId	 	= 1;	// 宝箱ID
+	optional int64 boxEfficientTime	 	= 2;    // 宝箱开启时间
+}
+
+//打开宝箱消息
+message C2SOnePurchaseOpenBox {
+
+}
+//打开宝箱，返回宝箱道具信息
+message S2COnePurchaseOpenBox {
+    optional bool result	 	= 1;
+	repeated BoxCardInfo Infos = 2;
+}
+
+message BoxCardInfo{
+	required int32 type = 1;//奖励类型  0 普通道具ID，1 最新获得英雄卡牌,2 英雄卡牌道具
+	required Item item = 2;//抽卡奖励道具
+	optional int32 heroId =3;//英雄卡牌道具 对应的英雄ID
+}
+
+
+message C2SOnePurchaseCheckBuy {
+}
+
+message S2COnePurchaseCheckBuy {
+   optional int32 buyCount	 	= 1;	// 购买次数
+   optional int32 useCount	 	= 2;	// 使用次数
+}

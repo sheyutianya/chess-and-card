@@ -1,0 +1,36 @@
+package com.dh.game.vo.hero;
+
+import "com/proto/vo/BaseProto.proto";
+
+//英雄挂机详情
+message HeroTiredDetailResponse {
+	repeated HeroTired heroTired = 1;
+	required BuildInfo buildInfo = 2;
+	required int32 water = 3; //泉水
+	required int32 maxwater = 4;
+	required int32 waterRemainTime = 5; //下次刷新倒计时剩余时间
+}
+
+message HeroTired {
+	required int32 heroHangId = 1; //位置id
+	required int32 isHang = 2; //挂机状态 0空闲 1在挂机 2挂机时间已满
+	required int32 heroId = 3; //挂机英雄id
+	required int32 remaintime = 4; //剩余时间
+	required int32 openLevel = 5; //
+}
+
+//英雄挂机
+message HeroRestRequest {
+	required int32 heroId = 1;
+	optional int32 type = 2 [default = 0]; // 0用泉水 1 用元宝
+}
+
+message HeroRestResponse {
+	required HeroTired heroTired = 1;
+}
+
+message WareResponse {
+	required int32 water = 3; //泉水
+	required int32 maxwater = 4;
+	required int32 waterRemainTime = 5; //下次刷新倒计时剩余时间
+}

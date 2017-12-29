@@ -1,0 +1,127 @@
+package com.dh.game.vo.login;
+
+import "com/proto/vo/BaseProto.proto";
+message PlayerLoginRequest {
+	required string account = 1;
+	required string password = 2;
+	optional string pfkey = 3 [default = "1"]; //TX专用的
+	optional string platform = 4 [default = "1"]; //平台名
+}
+
+message PlayerLoginResponse {
+	required EXIST_STATUS result = 1;
+	optional string msg = 4;
+	optional PlayerProto playerProto = 3;
+}
+
+enum EXIST_STATUS {
+	PLAYER_NOT_EXIST = 0; //不存在
+	PLAYER_EXIST = 1; //存在
+	EXCEPTION = 2; //系统异常
+}
+
+//登陆数据
+message PlayerProto {
+	required MyPlayer myPlayer = 1;
+	required MyPlayerAccount myPlayerAccount = 2;
+	repeated MyHero myHero = 3;
+	repeated ItemInfo items = 4; //背包物品列表
+	repeated MyTask task = 5;
+	optional bool isNewMail = 6; //是否有新邮件
+	optional MyKnapsack myKnapsack = 7;
+	repeated BuildInfo buildInfo = 8;
+	optional int32 streetStatus = 9; //江湖 {0:无状态,1:资源点被占领,主城被攻击,2:江湖资源点收获}
+	optional BufListInfo bufListInfo = 10;
+	required bytes guide = 11;
+	required int32 now = 12; //当前时间戳(unit:s)
+	required PowerBuyInfo powerBuyInfo = 13;
+	required PlayerFriendInfo playerFriend = 14; //好友
+}
+
+message PlayerFriendInfo {
+	repeated FriendInfo friends = 1;
+	repeated FriendInfo blacks = 2; //黑名单
+}
+
+//行动力购买
+message PowerBuyInfo {
+	required int32 countLeft = 1; //剩余购买次数
+	required int32 moneyDemand = 2; //购买需要金钱
+	required int32 countMax = 3; //总购买次数
+	required int32 pvptimes = 4; //竞技值剩余购买次数
+	required int32 pvpMoney = 5; //竞技值购金钱
+	required int32 pvpCounttimes = 6; //竞技值总购买次数
+}
+
+//buf相关
+message BufListInfo {
+	optional int32 daddyLimit = 1; //封山令剩余时间,如果为0,则不存在
+}
+
+message GuideUpReq {
+	required int32 index = 1; //位数
+}
+
+message GuideUpResp {
+	required int32 index = 1; //位数
+}
+
+//更新物品信息
+message KpsItemInfoUpdateResponse {
+	required int32 status = 1; // 0新增 1修改 2删除
+	required int32 heroId = 2; //当heroId>0时代表英雄身上的装备 0背包里的物品
+	repeated ItemInfo items = 3; //物品信息
+}
+
+//更新角色信息
+message UpdatePlayerResponse {
+	required MyPlayer myPlayer = 1;
+}
+
+//更新英雄信息
+message UpdateHeroResponse {
+	repeated MyHero myHero = 1;
+}
+
+//* 更新属性*/
+message UpdatePropertyResponse {
+	required int32 id = 1;
+	required PLAYER_UNIT_TYPE unitType = 2; //单位类型
+	repeated UnitAnyProperty unitAnyProperty = 3;
+}
+//属性
+message UnitAnyProperty {
+	required PLAYER_PROPERTY fieldProperty = 1; //字段类型
+	required int32 value = 2; //值
+	optional string stringValue = 3; //string类型值
+}
+
+enum PLAYER_PROPERTY {
+	PROPERTY_EXP = 0; //经验值
+	PROPERTY_VIP = 1; //vip
+	PROPERTY_COMBAT = 2; //战斗力
+	PROPERTY_RMB = 3; // rmb
+	PROPERTY_MONEY = 4; //游戏币
+	PROPERTY_EXPLOIT = 5; //功勋
+	PROPERTY_POWER = 6; //体力
+	PROPERTY_PVP = 7; //pvp值
+	PROPERTY_EXPC = 8; //竞技值
+	PROPERTY_SCORE = 9; //积分
+	PROPERTY_HERO_HUNGRY = 10; //英雄疲劳值
+	PROPERTY_HUNGRYSTATUS = 11; //挂机状态
+	PROPERYTY_MAIL = 12; //新邮件[1新邮件]
+	PROPERTY_HERO_STATUS = 13; //英雄当前所在队列[可能会加入跑商之类}
+	PROPERTY_STREET_NOTICE = 14; //江湖通知
+	PROPERTY_DADDY_LIMIT = 15; //封山令
+	PROPERTY_YZ_HP = 18; //远征英雄血量
+	PROPERTY_GIFTGOLD = 19; // 礼金
+	PROPERTY_YZ_YZANGER = 20; //远征怒气
+	PROPERTY_POWERLIFETIME = 21; //体力倒计时
+}
+
+//单位类型
+enum PLAYER_UNIT_TYPE {
+	UNIT_PLAYER = 0; //角色
+	UNIT_HERO = 1; //英雄
+}
+

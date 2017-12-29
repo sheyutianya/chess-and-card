@@ -1,0 +1,229 @@
+
+// 获得好友列表
+message C2SFriendInfoList {
+}
+message S2CFriendInfoList {
+	repeated FriendInfo friends		=2;
+	required int32 ret 			    =3;
+}
+
+// 获取好友申请列表
+message C2SFriendApplyList {
+}
+message S2CFriendApplyList {
+	repeated FriendInfo friends		=2;
+	required int32 ret 			    =3;
+}
+
+// 获取推荐好友列表
+message C2SFriendLookList {
+}
+message S2CFriendLookList {
+	repeated FriendInfo friends		=2;
+	repeated int64 coolTime			=3;	
+	required int32 ret 			    =4;
+}
+
+// 申请加为好友
+message C2SFriendAddApply {
+	repeated int64 friendId			=2;
+}
+message S2CFriendAddApply {
+	repeated int64 friendId			=1;
+	required int32 ret 			    =2;  //0-失败 1-成功 2-对方已达上限 3-自己已达上限
+}
+
+// 同意好友申请
+message C2SFriendAddAgree {
+	repeated int64 friendId			=2;
+	required int32 add				=3;
+}
+message S2CFriendAddAgree {
+	repeated int64 friendId			=1;
+	required int32 add				=2;
+	required int32 ret 			    =3;
+}
+
+// 删除好友
+message C2SFriendRelationDel {
+	repeated int64 friendIds		=1;
+}
+message S2CFriendRelationDel {
+	repeated int64 friendIds		=1;
+	required int32 ret 			    =2;
+}
+
+// 好友体力赠送, 返回好友列表 
+message C2SFriendStrengthGift {
+	repeated int64 	strengthId 		=1;
+}
+
+// 好友体力领取, 返回好友列表 
+message C2SFriendStrengthGet {
+	repeated int64 	strengthId 		=1;
+}
+
+// 搜索好友
+message C2SFriendSearch {
+	required int64 friendId			=1;
+}
+message S2CFriendSearch {
+	required int32 ret				=1; 
+	optional FriendInfo friendInfo	=2;
+}
+
+// 向好友索要体力
+message C2SFriendAskforStrength {	// cmd=FRIEND_ASKFOR_STRENGTH
+	repeated int64 friendId			= 1;
+}
+message S2CFriendAskforStrength {
+	required int32 result			= 1;	// 是否成功0-失败1-成功
+	required int32 askDaily			= 2;	// 当日索要数量
+}
+
+// 求体力管理
+message C2SFriendAskforManager {	//cmd=FRIEND_ASKFOR_MANAGER
+	required int32 option			= 1;	// 0-全部拒绝 1-全部同意
+	repeated StrengthManagerInfo friends= 2;	// 管理的好友列表
+}
+message S2CFriendAskforManager {
+	repeated FriendInfo friends		= 1;	// 返回操作后这些好友的信息
+	required int32 gainDaily		= 2;	// 当日领取数量
+	required int32 giveDaily		= 3;	// 当日赠送数量
+}
+
+// 超越好友炫耀
+message C2SOverstepFriendShow {		// cmd=FRIEND_OVERSTEP_SHOW
+	required int32 showType 		= 1;	// 炫耀类型		
+}
+message S2COverstepFriendShow {
+	required int32 showType 		= 1;	// 炫耀类型
+	required int32 dailyNum			= 2;	// 当日次数
+}
+
+// 同步平台好友关系链(登陆时由客户端主动上传一次中间不作同步)
+message C2SPlatformFriendsSync {	//cmd=FRIEND_PLATFORM_SYNC
+	repeated FriendPlafrom friends  = 1;	// 好友列表
+}
+message S2CPlatformFriendsSync { 	// 服务器会主动推送一次好友列表		
+	required int32 result			= 1;	// 上传结果0-失败1-成功
+}
+
+
+// 好友信息
+message FriendInfo {
+	required int64 playerId 		=1;
+	optional int32 loginType		=2[default = 0];
+	optional int32 playerLevel		=3[default = 0];
+	optional string	icon			=4[default = ""];
+	optional string playerName		=5[default = ""];
+    optional int32 unionId			=6[default = 0];// 公会ID
+	optional string unionName 		=7[default = ""];// 公会名称
+	optional int32 logoBg			=8[default = 0];// 会徽背景
+	optional int32 logoStyele		=9[default = 0];// 会徽样式
+	optional int32 logoBorder		=10[default = 0];// 会徽边框
+	optional int64 offlineTime		=11[default = 0];//离线时间
+	optional int32 isOnline			=12[default = 0];//0-离线 1-在线
+	optional int32 iconType			=13[default = 0];//头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional int32 pvpOlScore      	=14[default = 0];//巅峰对决积分
+	optional int32 canAskfor		=15[default = 0];//是否能够索要体力0-不能 1-可以索要
+	optional int32 giveNum 			=16[default = 0];//体力赠送 0未赠送 >0已经赠送
+	repeated StrengthGainInfo hasAskList=17;// 该好友向我发出索要体力列表
+	repeated StrengthGainInfo gainList= 18;			 //该好友赠送我的体力列表
+	optional FriendStageInfo stageInfo=19;			 //关卡信息
+	optional int32 firendType 		  =20[default = 0]; //好友类型 0平台好友，1游戏好友
+	optional int32 isOpenExpedition =21[default = 0];//是否开启远征活动 0否 1是
+	optional int32 recommendType    =22[default = 0];//推荐好友类型  0真好友 1推荐同意好友 2推荐未同意好友
+	repeated string jmessageAppkey  =23;//极光聊天APPkey
+}
+
+message StrengthManagerInfo {
+	required int64 friendId 		= 1;	// 玩家ID
+	repeated int32 hasAskList		= 2;	// 被处理的被索要列表 （下标列表）
+	repeated int32 gainList			= 3;	// 被处理的领取体力列表 （下标列表）
+}
+
+// 体力赠送信息
+message StrengthGainInfo {
+	optional int32 index			= 1;	// 下标(用来区别同一个玩家的多条记录)
+	optional int64 time				= 2;	// 时间
+	optional int32 state			= 3; 	// 状态0-未处理 1-处理完0的状态 2-处理完1的状态 3-忽略了前面操作
+}
+
+// 好友赠送体力信息
+message FriendStrength {
+    required int64 	strengthId 		=1;
+  	required int64 	playerId 		=2;
+	optional int32 	playerLevel		=3;
+	optional string	icon			=4;
+	optional string playerName		=5;
+	optional string sociatyName		=6;
+	optional int32 vipLevel			=7;
+	optional int32 iconType			=8; //头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+}
+
+// 好友关卡信息
+message FriendStageInfo {
+	optional int32 highStageId		=1[default=0]; //最高关卡Id
+	optional int32 starCount		=2[default=0]; //收集的星星数
+	repeated int32 stageIds			=3;//关卡ID列表
+	repeated int32 stageScores		=4;//关卡积分列表
+}
+
+// 好友平台信息
+message FriendPlafrom {
+	required string openId			= 1;	// 好友开方平台唯一标识
+	required string name			= 2;	// 好友名称
+	required string icon			= 3;	// 好友头像
+}
+
+//邀请好友通知
+message C2SInviteFriendNotice{
+
+}
+message S2CInviteFriendNotice{
+	required bool result = 1[default=false];//true为成功
+}
+
+// 好友状态变化
+message S2CFriendStateChange {	// cmd=FRIEND_STATE_CHANGE
+	required int64 friendId 		= 1;	// 好友ID
+	optional int32 isOnline	 		= 2;	// 0-离线 1-在线
+	optional int64 offlineTime		= 3;	// 离线时间
+}
+//新好友申请通知 FRIEND_APPLY_NOTICE=4110;
+message S2CFriendApplyNotice{
+	required int64 playerId 		=1;
+	optional int32 loginType		=2[default = 0];
+	optional string	icon			=3[default = ""];
+	optional int32 iconType			=4[default = 0];
+	optional string playerName		=5[default = ""];
+}
+//新邮件通知 EMAIL_NEW_NOTICE=4111
+message S2CEmailNotice{
+	optional string emailName       =1[default = ""];
+}
+
+//推荐好友  RECOMMEND_FRIEND=4112;
+message C2SRecommendFriend{
+
+}
+message S2CRecommendFriend{
+	required int64 playerId 		=1;
+	optional int32 loginType		=2[default = 0];
+	optional string	icon			=3[default = ""];
+	optional int32 iconType			=4[default = 0];
+	optional string playerName		=5[default = ""];
+}
+//推荐好友列表 RECOMMEND_FRIEND_LIST=4113
+message C2SRecommendFriendList{
+
+}
+message S2CRecommendFriendList{
+	repeated FriendInfo friends = 1;
+}
+//被删除推荐好友关系玩家ID DEL_RECOMMEND_FRIEND=4115
+message S2CDelRecommendFrendList{
+	repeated int64 friendIds = 1;
+}
+

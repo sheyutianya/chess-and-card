@@ -27,12 +27,13 @@ using ZyGames.Framework.Game.Runtime;
 using ZyGames.Framework.Game.Service;
 using ZyGames.Framework.Script;
 
-namespace Game.Script
+namespace GameServer.Script
 {
     public class MainClass : GameSocketHost, IMainScript
     {
         public MainClass()
         {
+            GameEnvironment.Setting.ActionDispatcher = new CustomActionDispatcher();
         }
 
         protected override void OnStartAffer()

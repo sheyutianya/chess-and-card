@@ -1,0 +1,120 @@
+
+import "GuildMsg.proto";
+message S2CExpeditionTimeLimit{//远征活动期限EXPEDITION_TIME_LIMIT	= 3030
+	required int64 startTime = 1;
+	required int64 endTime = 2;
+}
+message C2SExpeditionStageList {//cmd=EXPEDITION_LIST =3021远征关卡列表
+	required int32 stageType = 1 [default = 0];//关卡类型 0自己的关卡 1他人关卡
+	optional int64 playerId = 2 ;//类型为他人关卡时 需传他人玩家ID
+}
+message S2CExpeditionStageList {
+	repeated ExpeditionStage stageList	= 1; // 关卡列表
+	optional int64 restTime = 2[default = 0];//他人关卡的重置时间 0为没有重置时间
+	optional int64 playerId = 3 ;//列表拥有者
+}
+message C2SExpeditionBoxList{//远征宝箱列表EXPEDITION_BOX_LIST	= 3025
+	required int32 boxType = 1 [default = 0];//类型 0自己的宝箱 1他人宝箱
+	optional int64 playerId = 2 ;//类型为他人宝箱时 需传他人玩家ID
+}
+message S2CExpeditionBoxList{
+	optional int64 playerId = 1 ;//宝箱拥有者
+	repeated ExpeditionBox box = 2;//宝箱列表
+}
+
+message C2SExpeditionOpenBox {//cmd=EXPEDITION_OPEN_BOX	= 3022 远征关卡宝箱开启
+	required int32 openType = 1[default = 0];//开启类型 0为开启自己宝箱 1为开启他人宝箱
+	required int32 boxType	= 2; //宝箱类型 0铜 1 银 2金
+	optional int64 playerId = 3;//开启类型为开启他人宝箱时 需传他人玩家Id
+}
+message S2CExpeditionOpenBox {
+	required int32 boxType = 1[default =  0]; //宝箱类型 0铜 1 银 2金
+	optional DropReward itemList	= 2;//奖励物品列表
+	optional int64 playerId = 3;//目标玩家ID
+}
+
+message C2SExpeditionStart {//cmd=EXPEDITION_START= 3023 远征关卡战斗开始
+	required int32 stageType = 1 [default = 0];//关卡类型 0自己的关卡 1他人关卡
+	required int32 stageId = 2;//关卡Id
+	repeated int32 heroIds = 3;//参战英雄
+	required int32 fightVal = 4;//战斗力
+	optional int64 playerId = 5;//关卡类型为他人关卡时 需传他人玩家Id
+}
+message S2CExpeditionStart {
+	required int64 fightId = 1 ;//战斗Id，由服务器生成，用于结算回传
+	repeated int32 enemyIds = 2;//机器人ID 列表
+	repeated float enemyHps = 3;//机器人血值列表
+}
+
+message C2SExpeditionEnd {//cmd=EXPEDITION_END= 3024 远征战斗结束
+ 
+	required int64 fightId = 1;//战斗Id，由战斗开始前，服务器下发
+	repeated int32 heroIds = 2;//已方英雄ID 列表
+	repeated float heroHps = 3;//已方英雄血值列表
+	repeated int32 enemyIds = 4;//敌方英雄ID 列表
+	repeated float enemyHps = 5;//敌方英雄血值列表
+    required FightResultParam resultParam = 6;//战斗结果上报数据
+    optional int32 isQuit = 7[default = 0];//是否正常结束战斗 0 是 1否
+}
+message S2CExpeditionEnd {
+	required int64 fightId = 1;//战斗Id，由战斗开始前，服务器下发
+	required FightResultType result = 2;//战斗结果
+	required DropReward reward = 3;//奖励
+	optional int32 start = 4 [default = 0];//星星数
+	optional int32 score = 5 [default = 0];//结算积分
+}
+message C2SExeditionMess{//战斗消息EXPEDITION_MESSAGE	= 3026
+
+}
+message S2CExeditionMess{
+	repeated ExpeditionMess mess = 1;
+}
+message S2CExeditionStealBox{//cmd=EXPEDITION_STEAL_BOX = 3031 谁偷了你的宝箱
+	optional string name = 1;//那个谁
+	optional int32 boxType = 2;//宝箱类型 0铜 1 银 2金
+}
+message ExpeditionMess{
+	optional string id = 1 [default = ""];//消息Id
+	optional int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 logType          = 7[default = 0];   //消息类型 0偷取金宝箱 1偷取银宝箱 2偷取铜宝箱 3攻打关卡偷取了金币
+	optional int32 gold             = 8[default = 0]; //偷取的金币数量
+	optional int64 date				= 9[default = 0];//时间
+	optional int32 stageId			= 10[default = 0];//关卡
+}
+
+message C2SBuyBoxKey{//EXPEDITION_BUY_KEY	= 3027 购买宝箱钥匙道具
+	required int32 keyTpye = 1 [default = 0];//0铜 1银 2金
+}
+
+message C2SBuyRecoverPotion{//EXPEDITION_BUY_RECOVERPOTION	= 3028 购买恢复药水道具
+
+}
+message C2SUseRecoverPotion{//EXPEDITION_USE_RECOVERPOTION	= 3029使用恢复药水道具
+	repeated int32 heroIds = 1;//武将Id列表
+}
+message S2CUseRecoverPotion{//EXPEDITION_USE_RECOVERPOTION	= 3029使用恢复药水道具
+	required int32 result = 1[default = 0];//0成功 -1失败
+}
+//远征宝箱
+message ExpeditionBox{
+	required int32 boxType = 1;//宝箱类型 0铜 1 银 2金
+	required int32 boxState = 2;//宝箱状态 0可领取 1不可以领取  2已领取
+}
+// 远征关卡信息
+message ExpeditionStage {
+	required int32 stageId  	= 1; 				// 关卡ID
+	required int32 state		= 2; 				// 关卡状态 0-未开启、 1-开启未打赢、2-打赢、3-战斗中
+	optional string enemyName 	= 3[default = ""]; 	// 匹配玩家名称
+	optional int32 enemyLevel	= 4[default = 1];	// 匹配玩家等级
+	optional string enemySociety= 5[default = ""];	// 匹配玩家公会
+	optional int32 enemyIconType= 6[default = 0];	// 匹配玩家头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string enemyIcon	= 7[default = ""];	// 匹配玩家icon
+	optional int32 enemyType	= 8[default = 0]; 	// 敌人类型0-关卡、1-玩家、 2-机器人
+	repeated HeroInfo heroList 	= 9; 				// 匹配英雄列表 （开启后才有匹配的英雄列表)
+	repeated RobotInfo robotList= 10;				// 匹配机器人列表
+	optional int32 start 		= 11[default = 0];				//关卡星星数
+}

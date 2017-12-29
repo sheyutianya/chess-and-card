@@ -1,0 +1,732 @@
+2015-09-29 14:21:01,346|INFO|96|_initlog|
+
+
+
+2015-09-29 14:21:01,346|INFO|97|_initlog|logger is inited!
+2015-09-29 14:21:01,351|INFO|162|Interpreter|begin Interpreter, row_count = 24, col_count = 10
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=0, repeated_num=0
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=1, repeated_num=0
+2015-09-29 14:21:01,351|INFO|198|_FieldDefine|required|int32|id|技能id
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=2, repeated_num=0
+2015-09-29 14:21:01,351|INFO|198|_FieldDefine|required|string|name|技能名
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=3, repeated_num=0
+2015-09-29 14:21:01,351|INFO|198|_FieldDefine|required|string|desc|技能描述
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=4, repeated_num=0
+2015-09-29 14:21:01,351|INFO|198|_FieldDefine|required|string|icon|技能图标
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=5, repeated_num=0
+2015-09-29 14:21:01,351|INFO|198|_FieldDefine|required|int32|range_reach|施法范围
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=6, repeated_num=0
+2015-09-29 14:21:01,351|INFO|198|_FieldDefine|required|int32|range_effect|作用范围
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=7, repeated_num=0
+2015-09-29 14:21:01,351|INFO|198|_FieldDefine|required|int32|is_passive|是否被动
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=8, repeated_num=0
+2015-09-29 14:21:01,351|INFO|198|_FieldDefine|required|int32|cost|消耗水晶
+2015-09-29 14:21:01,351|INFO|190|_FieldDefine|row=0, col=9, repeated_num=0
+2015-09-29 14:21:01,351|INFO|198|_FieldDefine|required|int32|cold_down|冷却时间
+2015-09-29 14:21:01,381|INFO|424|Parse|begin parse, row_count = 24, col_count = 10
+2015-09-29 14:21:01,381|WARNING|441|Parse|4 is None
+2015-09-29 14:21:01,381|WARNING|441|Parse|5 is None
+2015-09-29 14:21:01,381|INFO|456|_ParseLine|6
+2015-09-29 14:21:01,381|INFO|472|_ParseField|6|1
+2015-09-29 14:21:01,381|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,381|INFO|598|_GetFieldValue|6|1|100.0
+2015-09-29 14:21:01,381|INFO|472|_ParseField|6|2
+2015-09-29 14:21:01,381|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,381|INFO|598|_GetFieldValue|6|2|爆裂碾压者
+2015-09-29 14:21:01,381|INFO|472|_ParseField|6|3
+2015-09-29 14:21:01,381|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,381|INFO|598|_GetFieldValue|6|3|对技能有效范围内一个敌方单位施加断筋，使其机动力-1，效果持续三回合。
+2015-09-29 14:21:01,381|INFO|472|_ParseField|6|4
+2015-09-29 14:21:01,381|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,381|INFO|598|_GetFieldValue|6|4|skill100
+2015-09-29 14:21:01,381|INFO|472|_ParseField|6|5
+2015-09-29 14:21:01,381|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,381|INFO|598|_GetFieldValue|6|5|2.0
+2015-09-29 14:21:01,381|INFO|472|_ParseField|6|6
+2015-09-29 14:21:01,381|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,381|INFO|598|_GetFieldValue|6|6|0.0
+2015-09-29 14:21:01,381|INFO|472|_ParseField|6|7
+2015-09-29 14:21:01,381|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,381|INFO|598|_GetFieldValue|6|7|0.0
+2015-09-29 14:21:01,381|INFO|472|_ParseField|6|8
+2015-09-29 14:21:01,381|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,382|INFO|598|_GetFieldValue|6|8|1.0
+2015-09-29 14:21:01,382|INFO|472|_ParseField|6|9
+2015-09-29 14:21:01,382|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,382|INFO|598|_GetFieldValue|6|9|1.0
+2015-09-29 14:21:01,382|INFO|456|_ParseLine|7
+2015-09-29 14:21:01,382|INFO|472|_ParseField|7|1
+2015-09-29 14:21:01,382|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,382|INFO|598|_GetFieldValue|7|1|101.0
+2015-09-29 14:21:01,382|INFO|472|_ParseField|7|2
+2015-09-29 14:21:01,382|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,382|INFO|598|_GetFieldValue|7|2|旋风斩
+2015-09-29 14:21:01,382|INFO|472|_ParseField|7|3
+2015-09-29 14:21:01,382|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,382|INFO|598|_GetFieldValue|7|3|举起武器对周围一圈敌方单位造成普攻X%点伤害。
+2015-09-29 14:21:01,382|INFO|472|_ParseField|7|4
+2015-09-29 14:21:01,382|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,382|INFO|598|_GetFieldValue|7|4|skill101
+2015-09-29 14:21:01,382|INFO|472|_ParseField|7|5
+2015-09-29 14:21:01,382|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,382|INFO|598|_GetFieldValue|7|5|0.0
+2015-09-29 14:21:01,382|INFO|472|_ParseField|7|6
+2015-09-29 14:21:01,382|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,382|INFO|598|_GetFieldValue|7|6|1.0
+2015-09-29 14:21:01,382|INFO|472|_ParseField|7|7
+2015-09-29 14:21:01,382|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|7|7|0.0
+2015-09-29 14:21:01,384|INFO|472|_ParseField|7|8
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|7|8|1.0
+2015-09-29 14:21:01,384|INFO|472|_ParseField|7|9
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|7|9|1.0
+2015-09-29 14:21:01,384|INFO|456|_ParseLine|8
+2015-09-29 14:21:01,384|INFO|472|_ParseField|8|1
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|8|1|102.0
+2015-09-29 14:21:01,384|INFO|472|_ParseField|8|2
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|8|2|挑衅
+2015-09-29 14:21:01,384|INFO|472|_ParseField|8|3
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|8|3|挑衅周围一圈敌方单位，使其移动不能攻击力降低X%且普攻只能以自己为攻击目标，持续一回合。
+2015-09-29 14:21:01,384|INFO|472|_ParseField|8|4
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|8|4|skill102
+2015-09-29 14:21:01,384|INFO|472|_ParseField|8|5
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|8|5|0.0
+2015-09-29 14:21:01,384|INFO|472|_ParseField|8|6
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|8|6|1.0
+2015-09-29 14:21:01,384|INFO|472|_ParseField|8|7
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|8|7|0.0
+2015-09-29 14:21:01,384|INFO|472|_ParseField|8|8
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|8|8|0.0
+2015-09-29 14:21:01,384|INFO|472|_ParseField|8|9
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|8|9|1.0
+2015-09-29 14:21:01,384|INFO|456|_ParseLine|9
+2015-09-29 14:21:01,384|INFO|472|_ParseField|9|1
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|9|1|104.0
+2015-09-29 14:21:01,384|INFO|472|_ParseField|9|2
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|9|2|雷霆震击
+2015-09-29 14:21:01,384|INFO|472|_ParseField|9|3
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|9|3|向目标格子跃进，落地冲击波对周围一圈敌方单位造成X点伤害。
+2015-09-29 14:21:01,384|INFO|472|_ParseField|9|4
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|9|4|skill104
+2015-09-29 14:21:01,384|INFO|472|_ParseField|9|5
+2015-09-29 14:21:01,384|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,384|INFO|598|_GetFieldValue|9|5|3.0
+2015-09-29 14:21:01,384|INFO|472|_ParseField|9|6
+2015-09-29 14:21:01,385|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,385|INFO|598|_GetFieldValue|9|6|1.0
+2015-09-29 14:21:01,385|INFO|472|_ParseField|9|7
+2015-09-29 14:21:01,385|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,385|INFO|598|_GetFieldValue|9|7|0.0
+2015-09-29 14:21:01,385|INFO|472|_ParseField|9|8
+2015-09-29 14:21:01,385|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,385|INFO|598|_GetFieldValue|9|8|2.0
+2015-09-29 14:21:01,385|INFO|472|_ParseField|9|9
+2015-09-29 14:21:01,385|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,385|INFO|598|_GetFieldValue|9|9|1.0
+2015-09-29 14:21:01,385|INFO|456|_ParseLine|10
+2015-09-29 14:21:01,385|INFO|472|_ParseField|10|1
+2015-09-29 14:21:01,385|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,385|INFO|598|_GetFieldValue|10|1|200.0
+2015-09-29 14:21:01,385|INFO|472|_ParseField|10|2
+2015-09-29 14:21:01,385|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,385|INFO|598|_GetFieldValue|10|2|圣盾守护
+2015-09-29 14:21:01,385|INFO|472|_ParseField|10|3
+2015-09-29 14:21:01,385|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,387|INFO|598|_GetFieldValue|10|3|在技能有效范围内选择一名友方单位为该单位施加一个护盾，使其抵挡X点伤害，持续一回合。
+2015-09-29 14:21:01,387|INFO|472|_ParseField|10|4
+2015-09-29 14:21:01,387|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,387|INFO|598|_GetFieldValue|10|4|skill200
+2015-09-29 14:21:01,387|INFO|472|_ParseField|10|5
+2015-09-29 14:21:01,387|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,387|INFO|598|_GetFieldValue|10|5|3.0
+2015-09-29 14:21:01,387|INFO|472|_ParseField|10|6
+2015-09-29 14:21:01,387|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,387|INFO|598|_GetFieldValue|10|6|0.0
+2015-09-29 14:21:01,387|INFO|472|_ParseField|10|7
+2015-09-29 14:21:01,387|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,387|INFO|598|_GetFieldValue|10|7|0.0
+2015-09-29 14:21:01,387|INFO|472|_ParseField|10|8
+2015-09-29 14:21:01,387|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,387|INFO|598|_GetFieldValue|10|8|1.0
+2015-09-29 14:21:01,387|INFO|472|_ParseField|10|9
+2015-09-29 14:21:01,387|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,387|INFO|598|_GetFieldValue|10|9|1.0
+2015-09-29 14:21:01,387|INFO|456|_ParseLine|11
+2015-09-29 14:21:01,387|INFO|472|_ParseField|11|1
+2015-09-29 14:21:01,387|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,387|INFO|598|_GetFieldValue|11|1|201.0
+2015-09-29 14:21:01,387|INFO|472|_ParseField|11|2
+2015-09-29 14:21:01,387|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|11|2|迅捷守护
+2015-09-29 14:21:01,388|INFO|472|_ParseField|11|3
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|11|3|在技能有效范围内选择一名友方单位为该单位施加迅捷效果，使其在本回合里移动无需消耗法力水晶且机动力+1。
+2015-09-29 14:21:01,388|INFO|472|_ParseField|11|4
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|11|4|skill201
+2015-09-29 14:21:01,388|INFO|472|_ParseField|11|5
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|11|5|3.0
+2015-09-29 14:21:01,388|INFO|472|_ParseField|11|6
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|11|6|0.0
+2015-09-29 14:21:01,388|INFO|472|_ParseField|11|7
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|11|7|0.0
+2015-09-29 14:21:01,388|INFO|472|_ParseField|11|8
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|11|8|1.0
+2015-09-29 14:21:01,388|INFO|472|_ParseField|11|9
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|11|9|1.0
+2015-09-29 14:21:01,388|INFO|456|_ParseLine|12
+2015-09-29 14:21:01,388|INFO|472|_ParseField|12|1
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|12|1|202.0
+2015-09-29 14:21:01,388|INFO|472|_ParseField|12|2
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|12|2|神圣之怒
+2015-09-29 14:21:01,388|INFO|472|_ParseField|12|3
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|12|3|对周围两圈范围内区域释放法术侵蚀，使其范围内敌方单位的普攻只能以自己为攻击目标并且每个回合结束后使位于范围内的敌方单位造成X点伤害，持续三回合。
+2015-09-29 14:21:01,388|INFO|472|_ParseField|12|4
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|12|4|skill202
+2015-09-29 14:21:01,388|INFO|472|_ParseField|12|5
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|12|5|3.0
+2015-09-29 14:21:01,388|INFO|472|_ParseField|12|6
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|12|6|0.0
+2015-09-29 14:21:01,388|INFO|472|_ParseField|12|7
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|12|7|0.0
+2015-09-29 14:21:01,388|INFO|472|_ParseField|12|8
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|12|8|2.0
+2015-09-29 14:21:01,388|INFO|472|_ParseField|12|9
+2015-09-29 14:21:01,388|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,388|INFO|598|_GetFieldValue|12|9|1.0
+2015-09-29 14:21:01,388|INFO|456|_ParseLine|13
+2015-09-29 14:21:01,388|INFO|472|_ParseField|13|1
+2015-09-29 14:21:01,390|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,390|INFO|598|_GetFieldValue|13|1|301.0
+2015-09-29 14:21:01,390|INFO|472|_ParseField|13|2
+2015-09-29 14:21:01,390|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,390|INFO|598|_GetFieldValue|13|2|影刺
+2015-09-29 14:21:01,390|INFO|472|_ParseField|13|3
+2015-09-29 14:21:01,390|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,390|INFO|598|_GetFieldValue|13|3|瞬移至技能有效范围内一个敌方单位背后（此目标背后格子无任何障碍），本回合里下一次普攻暴击率提高X%。
+2015-09-29 14:21:01,390|INFO|472|_ParseField|13|4
+2015-09-29 14:21:01,390|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,390|INFO|598|_GetFieldValue|13|4|skill301
+2015-09-29 14:21:01,390|INFO|472|_ParseField|13|5
+2015-09-29 14:21:01,390|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,390|INFO|598|_GetFieldValue|13|5|3.0
+2015-09-29 14:21:01,390|INFO|472|_ParseField|13|6
+2015-09-29 14:21:01,390|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,390|INFO|598|_GetFieldValue|13|6|0.0
+2015-09-29 14:21:01,390|INFO|472|_ParseField|13|7
+2015-09-29 14:21:01,390|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,390|INFO|598|_GetFieldValue|13|7|0.0
+2015-09-29 14:21:01,390|INFO|472|_ParseField|13|8
+2015-09-29 14:21:01,390|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,390|INFO|598|_GetFieldValue|13|8|2.0
+2015-09-29 14:21:01,390|INFO|472|_ParseField|13|9
+2015-09-29 14:21:01,390|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,390|INFO|598|_GetFieldValue|13|9|1.0
+2015-09-29 14:21:01,391|INFO|456|_ParseLine|14
+2015-09-29 14:21:01,391|INFO|472|_ParseField|14|1
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|14|1|302.0
+2015-09-29 14:21:01,391|INFO|472|_ParseField|14|2
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|14|2|致盲
+2015-09-29 14:21:01,391|INFO|472|_ParseField|14|3
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|14|3|致盲技能范围内任意一个敌方单位，使其X回合丧失普攻行为。
+2015-09-29 14:21:01,391|INFO|472|_ParseField|14|4
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|14|4|skill302
+2015-09-29 14:21:01,391|INFO|472|_ParseField|14|5
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|14|5|1.0
+2015-09-29 14:21:01,391|INFO|472|_ParseField|14|6
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|14|6|0.0
+2015-09-29 14:21:01,391|INFO|472|_ParseField|14|7
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|14|7|0.0
+2015-09-29 14:21:01,391|INFO|472|_ParseField|14|8
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|14|8|1.0
+2015-09-29 14:21:01,391|INFO|472|_ParseField|14|9
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|14|9|1.0
+2015-09-29 14:21:01,391|INFO|456|_ParseLine|15
+2015-09-29 14:21:01,391|INFO|472|_ParseField|15|1
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|15|1|400.0
+2015-09-29 14:21:01,391|INFO|472|_ParseField|15|2
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|15|2|爆炸陷阱
+2015-09-29 14:21:01,391|INFO|472|_ParseField|15|3
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|15|3|在技能范围内任意一个空格子放置一个爆炸陷阱，对踩到此陷阱的单位造成X点法术伤害。
+2015-09-29 14:21:01,391|INFO|472|_ParseField|15|4
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|15|4|skill400
+2015-09-29 14:21:01,391|INFO|472|_ParseField|15|5
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|15|5|1.0
+2015-09-29 14:21:01,391|INFO|472|_ParseField|15|6
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|15|6|0.0
+2015-09-29 14:21:01,391|INFO|472|_ParseField|15|7
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,391|INFO|598|_GetFieldValue|15|7|0.0
+2015-09-29 14:21:01,391|INFO|472|_ParseField|15|8
+2015-09-29 14:21:01,391|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,392|INFO|598|_GetFieldValue|15|8|1.0
+2015-09-29 14:21:01,392|INFO|472|_ParseField|15|9
+2015-09-29 14:21:01,392|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,392|INFO|598|_GetFieldValue|15|9|1.0
+2015-09-29 14:21:01,392|INFO|456|_ParseLine|16
+2015-09-29 14:21:01,392|INFO|472|_ParseField|16|1
+2015-09-29 14:21:01,392|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,392|INFO|598|_GetFieldValue|16|1|402.0
+2015-09-29 14:21:01,392|INFO|472|_ParseField|16|2
+2015-09-29 14:21:01,392|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,392|INFO|598|_GetFieldValue|16|2|震荡射击
+2015-09-29 14:21:01,392|INFO|472|_ParseField|16|3
+2015-09-29 14:21:01,392|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,392|INFO|598|_GetFieldValue|16|3|击晕技能有效范围内一个单位，持续一个回合。
+2015-09-29 14:21:01,392|INFO|472|_ParseField|16|4
+2015-09-29 14:21:01,392|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,392|INFO|598|_GetFieldValue|16|4|skill402
+2015-09-29 14:21:01,392|INFO|472|_ParseField|16|5
+2015-09-29 14:21:01,392|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,392|INFO|598|_GetFieldValue|16|5|3.0
+2015-09-29 14:21:01,392|INFO|472|_ParseField|16|6
+2015-09-29 14:21:01,392|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,392|INFO|598|_GetFieldValue|16|6|0.0
+2015-09-29 14:21:01,392|INFO|472|_ParseField|16|7
+2015-09-29 14:21:01,392|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|16|7|0.0
+2015-09-29 14:21:01,394|INFO|472|_ParseField|16|8
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|16|8|1.0
+2015-09-29 14:21:01,394|INFO|472|_ParseField|16|9
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|16|9|1.0
+2015-09-29 14:21:01,394|INFO|456|_ParseLine|17
+2015-09-29 14:21:01,394|INFO|472|_ParseField|17|1
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|17|1|501.0
+2015-09-29 14:21:01,394|INFO|472|_ParseField|17|2
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|17|2|治疗术
+2015-09-29 14:21:01,394|INFO|472|_ParseField|17|3
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|17|3|恢复技能有效范围内任意一名友方单位X点生命值。
+2015-09-29 14:21:01,394|INFO|472|_ParseField|17|4
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|17|4|skill501
+2015-09-29 14:21:01,394|INFO|472|_ParseField|17|5
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|17|5|3.0
+2015-09-29 14:21:01,394|INFO|472|_ParseField|17|6
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|17|6|0.0
+2015-09-29 14:21:01,394|INFO|472|_ParseField|17|7
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|17|7|0.0
+2015-09-29 14:21:01,394|INFO|472|_ParseField|17|8
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|17|8|1.0
+2015-09-29 14:21:01,394|INFO|472|_ParseField|17|9
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|17|9|1.0
+2015-09-29 14:21:01,394|INFO|456|_ParseLine|18
+2015-09-29 14:21:01,394|INFO|472|_ParseField|18|1
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|18|1|502.0
+2015-09-29 14:21:01,394|INFO|472|_ParseField|18|2
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|18|2|暗影亲和
+2015-09-29 14:21:01,394|INFO|472|_ParseField|18|3
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|18|3|对攻击自己的敌方单位施加法术侵蚀，使其在回合结束后承受额外的X点伤害，并治愈自己X点生命值。
+2015-09-29 14:21:01,394|INFO|472|_ParseField|18|4
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|18|4|skill502
+2015-09-29 14:21:01,394|INFO|472|_ParseField|18|5
+2015-09-29 14:21:01,394|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,394|INFO|598|_GetFieldValue|18|5|0.0
+2015-09-29 14:21:01,394|INFO|472|_ParseField|18|6
+2015-09-29 14:21:01,395|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,395|INFO|598|_GetFieldValue|18|6|0.0
+2015-09-29 14:21:01,395|INFO|472|_ParseField|18|7
+2015-09-29 14:21:01,395|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,395|INFO|598|_GetFieldValue|18|7|1.0
+2015-09-29 14:21:01,395|INFO|472|_ParseField|18|8
+2015-09-29 14:21:01,395|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,395|INFO|598|_GetFieldValue|18|8|0.0
+2015-09-29 14:21:01,395|INFO|472|_ParseField|18|9
+2015-09-29 14:21:01,395|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,395|INFO|598|_GetFieldValue|18|9|1.0
+2015-09-29 14:21:01,395|INFO|456|_ParseLine|19
+2015-09-29 14:21:01,395|INFO|472|_ParseField|19|1
+2015-09-29 14:21:01,395|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,395|INFO|598|_GetFieldValue|19|1|600.0
+2015-09-29 14:21:01,395|INFO|472|_ParseField|19|2
+2015-09-29 14:21:01,395|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,395|INFO|598|_GetFieldValue|19|2|陨石术
+2015-09-29 14:21:01,397|INFO|472|_ParseField|19|3
+2015-09-29 14:21:01,397|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,397|INFO|598|_GetFieldValue|19|3|对技能有效范围内任意一格子召唤一颗陨石，对此格子内单位造成X点伤害，并施加灼烧效果。灼烧效果持续三回合，每回合造成X点伤害。
+2015-09-29 14:21:01,397|INFO|472|_ParseField|19|4
+2015-09-29 14:21:01,397|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,397|INFO|598|_GetFieldValue|19|4|skill600
+2015-09-29 14:21:01,397|INFO|472|_ParseField|19|5
+2015-09-29 14:21:01,397|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,397|INFO|598|_GetFieldValue|19|5|3.0
+2015-09-29 14:21:01,397|INFO|472|_ParseField|19|6
+2015-09-29 14:21:01,397|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,397|INFO|598|_GetFieldValue|19|6|0.0
+2015-09-29 14:21:01,397|INFO|472|_ParseField|19|7
+2015-09-29 14:21:01,397|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,397|INFO|598|_GetFieldValue|19|7|0.0
+2015-09-29 14:21:01,397|INFO|472|_ParseField|19|8
+2015-09-29 14:21:01,397|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,397|INFO|598|_GetFieldValue|19|8|2.0
+2015-09-29 14:21:01,397|INFO|472|_ParseField|19|9
+2015-09-29 14:21:01,397|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,397|INFO|598|_GetFieldValue|19|9|1.0
+2015-09-29 14:21:01,397|INFO|456|_ParseLine|20
+2015-09-29 14:21:01,397|INFO|472|_ParseField|20|1
+2015-09-29 14:21:01,397|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,397|INFO|598|_GetFieldValue|20|1|601.0
+2015-09-29 14:21:01,398|INFO|472|_ParseField|20|2
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|20|2|暴风雪
+2015-09-29 14:21:01,398|INFO|472|_ParseField|20|3
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|20|3|对技能有效范围内一个区域施放暴风雪，被暴风雪命中的敌方单位造成X点伤害并使其在下回合移动消耗+1。
+2015-09-29 14:21:01,398|INFO|472|_ParseField|20|4
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|20|4|skill601
+2015-09-29 14:21:01,398|INFO|472|_ParseField|20|5
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|20|5|3.0
+2015-09-29 14:21:01,398|INFO|472|_ParseField|20|6
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|20|6|1.0
+2015-09-29 14:21:01,398|INFO|472|_ParseField|20|7
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|20|7|0.0
+2015-09-29 14:21:01,398|INFO|472|_ParseField|20|8
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|20|8|2.0
+2015-09-29 14:21:01,398|INFO|472|_ParseField|20|9
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|20|9|1.0
+2015-09-29 14:21:01,398|INFO|456|_ParseLine|21
+2015-09-29 14:21:01,398|INFO|472|_ParseField|21|1
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|21|1|602.0
+2015-09-29 14:21:01,398|INFO|472|_ParseField|21|2
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|21|2|奥术位移
+2015-09-29 14:21:01,398|INFO|472|_ParseField|21|3
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|21|3|瞬移至技能有效范围任意一个空格子。
+2015-09-29 14:21:01,398|INFO|472|_ParseField|21|4
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|21|4|skill602
+2015-09-29 14:21:01,398|INFO|472|_ParseField|21|5
+2015-09-29 14:21:01,398|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,398|INFO|598|_GetFieldValue|21|5|3.0
+2015-09-29 14:21:01,398|INFO|472|_ParseField|21|6
+2015-09-29 14:21:01,400|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,400|INFO|598|_GetFieldValue|21|6|0.0
+2015-09-29 14:21:01,400|INFO|472|_ParseField|21|7
+2015-09-29 14:21:01,400|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,400|INFO|598|_GetFieldValue|21|7|0.0
+2015-09-29 14:21:01,400|INFO|472|_ParseField|21|8
+2015-09-29 14:21:01,400|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,400|INFO|598|_GetFieldValue|21|8|1.0
+2015-09-29 14:21:01,400|INFO|472|_ParseField|21|9
+2015-09-29 14:21:01,400|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,400|INFO|598|_GetFieldValue|21|9|1.0
+2015-09-29 14:21:01,400|INFO|456|_ParseLine|22
+2015-09-29 14:21:01,400|INFO|472|_ParseField|22|1
+2015-09-29 14:21:01,400|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,400|INFO|598|_GetFieldValue|22|1|700.0
+2015-09-29 14:21:01,400|INFO|472|_ParseField|22|2
+2015-09-29 14:21:01,400|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,400|INFO|598|_GetFieldValue|22|2|治愈图腾
+2015-09-29 14:21:01,400|INFO|472|_ParseField|22|3
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|22|3|召唤一个治愈图腾，治愈图腾在己方回合结束后恢复此图腾有效区域内的友方单位X点生命值。
+2015-09-29 14:21:01,401|INFO|472|_ParseField|22|4
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|22|4|skill700
+2015-09-29 14:21:01,401|INFO|472|_ParseField|22|5
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|22|5|1.0
+2015-09-29 14:21:01,401|INFO|472|_ParseField|22|6
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|22|6|0.0
+2015-09-29 14:21:01,401|INFO|472|_ParseField|22|7
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|22|7|0.0
+2015-09-29 14:21:01,401|INFO|472|_ParseField|22|8
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|22|8|1.0
+2015-09-29 14:21:01,401|INFO|472|_ParseField|22|9
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|22|9|1.0
+2015-09-29 14:21:01,401|INFO|456|_ParseLine|23
+2015-09-29 14:21:01,401|INFO|472|_ParseField|23|1
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|id
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|23|1|701.0
+2015-09-29 14:21:01,401|INFO|472|_ParseField|23|2
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|string|name
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|23|2|暗语图腾
+2015-09-29 14:21:01,401|INFO|472|_ParseField|23|3
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|string|desc
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|23|3|召唤一个沉默图腾，沉默图腾在己方回合结束后随机沉默图腾有效范围内任意一个敌方单位，使其下一回合无法施放技能。
+2015-09-29 14:21:01,401|INFO|472|_ParseField|23|4
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|string|icon
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|23|4|skill701
+2015-09-29 14:21:01,401|INFO|472|_ParseField|23|5
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|range_reach
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|23|5|1.0
+2015-09-29 14:21:01,401|INFO|472|_ParseField|23|6
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|range_effect
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|23|6|0.0
+2015-09-29 14:21:01,401|INFO|472|_ParseField|23|7
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|is_passive
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|23|7|0.0
+2015-09-29 14:21:01,401|INFO|472|_ParseField|23|8
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|cost
+2015-09-29 14:21:01,401|INFO|598|_GetFieldValue|23|8|1.0
+2015-09-29 14:21:01,401|INFO|472|_ParseField|23|9
+2015-09-29 14:21:01,401|INFO|473|_ParseField|required|int32|cold_down
+2015-09-29 14:21:01,403|INFO|598|_GetFieldValue|23|9|1.0
+2015-09-29 14:21:01,403|INFO|446|Parse|parse result:
+items {
+  id: 100
+  name: "\347\210\206\350\243\202\347\242\276\345\216\213\350\200\205"
+  desc: "\345\257\271\346\212\200\350\203\275\346\234\211\346\225\210\350\214\203\345\233\264\345\206\205\344\270\200\344\270\252\346\225\214\346\226\271\345\215\225\344\275\215\346\226\275\345\212\240\346\226\255\347\255\213\357\274\214\344\275\277\345\205\266\346\234\272\345\212\250\345\212\233-1\357\274\214\346\225\210\346\236\234\346\214\201\347\273\255\344\270\211\345\233\236\345\220\210\343\200\202"
+  icon: "skill100"
+  range_reach: 2
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 101
+  name: "\346\227\213\351\243\216\346\226\251"
+  desc: "\344\270\276\350\265\267\346\255\246\345\231\250\345\257\271\345\221\250\345\233\264\344\270\200\345\234\210\346\225\214\346\226\271\345\215\225\344\275\215\351\200\240\346\210\220\346\231\256\346\224\273X%\347\202\271\344\274\244\345\256\263\343\200\202"
+  icon: "skill101"
+  range_reach: 0
+  range_effect: 1
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 102
+  name: "\346\214\221\350\241\205"
+  desc: "\346\214\221\350\241\205\345\221\250\345\233\264\344\270\200\345\234\210\346\225\214\346\226\271\345\215\225\344\275\215\357\274\214\344\275\277\345\205\266\347\247\273\345\212\250\344\270\215\350\203\275\346\224\273\345\207\273\345\212\233\351\231\215\344\275\216X%\344\270\224\346\231\256\346\224\273\345\217\252\350\203\275\344\273\245\350\207\252\345\267\261\344\270\272\346\224\273\345\207\273\347\233\256\346\240\207\357\274\214\346\214\201\347\273\255\344\270\200\345\233\236\345\220\210\343\200\202"
+  icon: "skill102"
+  range_reach: 0
+  range_effect: 1
+  is_passive: 0
+  cost: 0
+  cold_down: 1
+}
+items {
+  id: 104
+  name: "\351\233\267\351\234\206\351\234\207\345\207\273"
+  desc: "\345\220\221\347\233\256\346\240\207\346\240\274\345\255\220\350\267\203\350\277\233\357\274\214\350\220\275\345\234\260\345\206\262\345\207\273\346\263\242\345\257\271\345\221\250\345\233\264\344\270\200\345\234\210\346\225\214\346\226\271\345\215\225\344\275\215\351\200\240\346\210\220X\347\202\271\344\274\244\345\256\263\343\200\202"
+  icon: "skill104"
+  range_reach: 3
+  range_effect: 1
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 200
+  name: "\345\234\243\347\233\276\345\256\210\346\212\244"
+  desc: "\345\234\250\346\212\200\350\203\275\346\234\211\346\225\210\350\214\203\345\233\264\345\206\205\351\200\211\346\213\251\344\270\200\345\220\215\345\217\213\346\226\271\345\215\225\344\275\215\344\270\272\350\257\245\345\215\225\344\275\215\346\226\275\345\212\240\344\270\200\344\270\252\346\212\244\347\233\276\357\274\214\344\275\277\345\205\266\346\212\265\346\214\241X\347\202\271\344\274\244\345\256\263\357\274\214\346\214\201\347\273\255\344\270\200\345\233\236\345\220\210\343\200\202"
+  icon: "skill200"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 201
+  name: "\350\277\205\346\215\267\345\256\210\346\212\244"
+  desc: "\345\234\250\346\212\200\350\203\275\346\234\211\346\225\210\350\214\203\345\233\264\345\206\205\351\200\211\346\213\251\344\270\200\345\220\215\345\217\213\346\226\271\345\215\225\344\275\215\344\270\272\350\257\245\345\215\225\344\275\215\346\226\275\345\212\240\350\277\205\346\215\267\346\225\210\346\236\234\357\274\214\344\275\277\345\205\266\345\234\250\346\234\254\345\233\236\345\220\210\351\207\214\347\247\273\345\212\250\346\227\240\351\234\200\346\266\210\350\200\227\346\263\225\345\212\233\346\260\264\346\231\266\344\270\224\346\234\272\345\212\250\345\212\233+1\343\200\202"
+  icon: "skill201"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 202
+  name: "\347\245\236\345\234\243\344\271\213\346\200\222"
+  desc: "\345\257\271\345\221\250\345\233\264\344\270\244\345\234\210\350\214\203\345\233\264\345\206\205\345\214\272\345\237\237\351\207\212\346\224\276\346\263\225\346\234\257\344\276\265\350\232\200\357\274\214\344\275\277\345\205\266\350\214\203\345\233\264\345\206\205\346\225\214\346\226\271\345\215\225\344\275\215\347\232\204\346\231\256\346\224\273\345\217\252\350\203\275\344\273\245\350\207\252\345\267\261\344\270\272\346\224\273\345\207\273\347\233\256\346\240\207\345\271\266\344\270\224\346\257\217\344\270\252\345\233\236\345\220\210\347\273\223\346\235\237\345\220\216\344\275\277\344\275\215\344\272\216\350\214\203\345\233\264\345\206\205\347\232\204\346\225\214\346\226\271\345\215\225\344\275\215\351\200\240\346\210\220X\347\202\271\344\274\244\345\256\263\357\274\214\346\214\201\347\273\255\344\270\211\345\233\236\345\220\210\343\200\202"
+  icon: "skill202"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 301
+  name: "\345\275\261\345\210\272"
+  desc: "\347\236\254\347\247\273\350\207\263\346\212\200\350\203\275\346\234\211\346\225\210\350\214\203\345\233\264\345\206\205\344\270\200\344\270\252\346\225\214\346\226\271\345\215\225\344\275\215\350\203\214\345\220\216\357\274\210\346\255\244\347\233\256\346\240\207\350\203\214\345\220\216\346\240\274\345\255\220\346\227\240\344\273\273\344\275\225\351\232\234\347\242\215\357\274\211\357\274\214\346\234\254\345\233\236\345\220\210\351\207\214\344\270\213\344\270\200\346\254\241\346\231\256\346\224\273\346\232\264\345\207\273\347\216\207\346\217\220\351\253\230X%\343\200\202"
+  icon: "skill301"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 302
+  name: "\350\207\264\347\233\262"
+  desc: "\350\207\264\347\233\262\346\212\200\350\203\275\350\214\203\345\233\264\345\206\205\344\273\273\346\204\217\344\270\200\344\270\252\346\225\214\346\226\271\345\215\225\344\275\215\357\274\214\344\275\277\345\205\266X\345\233\236\345\220\210\344\270\247\345\244\261\346\231\256\346\224\273\350\241\214\344\270\272\343\200\202"
+  icon: "skill302"
+  range_reach: 1
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 400
+  name: "\347\210\206\347\202\270\351\231\267\351\230\261"
+  desc: "\345\234\250\346\212\200\350\203\275\350\214\203\345\233\264\345\206\205\344\273\273\346\204\217\344\270\200\344\270\252\347\251\272\346\240\274\345\255\220\346\224\276\347\275\256\344\270\200\344\270\252\347\210\206\347\202\270\351\231\267\351\230\261\357\274\214\345\257\271\350\270\251\345\210\260\346\255\244\351\231\267\351\230\261\347\232\204\345\215\225\344\275\215\351\200\240\346\210\220X\347\202\271\346\263\225\346\234\257\344\274\244\345\256\263\343\200\202"
+  icon: "skill400"
+  range_reach: 1
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 402
+  name: "\351\234\207\350\215\241\345\260\204\345\207\273"
+  desc: "\345\207\273\346\231\225\346\212\200\350\203\275\346\234\211\346\225\210\350\214\203\345\233\264\345\206\205\344\270\200\344\270\252\345\215\225\344\275\215\357\274\214\346\214\201\347\273\255\344\270\200\344\270\252\345\233\236\345\220\210\343\200\202"
+  icon: "skill402"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 501
+  name: "\346\262\273\347\226\227\346\234\257"
+  desc: "\346\201\242\345\244\215\346\212\200\350\203\275\346\234\211\346\225\210\350\214\203\345\233\264\345\206\205\344\273\273\346\204\217\344\270\200\345\220\215\345\217\213\346\226\271\345\215\225\344\275\215X\347\202\271\347\224\237\345\221\275\345\200\274\343\200\202"
+  icon: "skill501"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 502
+  name: "\346\232\227\345\275\261\344\272\262\345\222\214"
+  desc: "\345\257\271\346\224\273\345\207\273\350\207\252\345\267\261\347\232\204\346\225\214\346\226\271\345\215\225\344\275\215\346\226\275\345\212\240\346\263\225\346\234\257\344\276\265\350\232\200\357\274\214\344\275\277\345\205\266\345\234\250\345\233\236\345\220\210\347\273\223\346\235\237\345\220\216\346\211\277\345\217\227\351\242\235\345\244\226\347\232\204X\347\202\271\344\274\244\345\256\263\357\274\214\345\271\266\346\262\273\346\204\210\350\207\252\345\267\261X\347\202\271\347\224\237\345\221\275\345\200\274\343\200\202"
+  icon: "skill502"
+  range_reach: 0
+  range_effect: 0
+  is_passive: 1
+  cost: 0
+  cold_down: 1
+}
+items {
+  id: 600
+  name: "\351\231\250\347\237\263\346\234\257"
+  desc: "\345\257\271\346\212\200\350\203\275\346\234\211\346\225\210\350\214\203\345\233\264\345\206\205\344\273\273\346\204\217\344\270\200\346\240\274\345\255\220\345\217\254\345\224\244\344\270\200\351\242\227\351\231\250\347\237\263\357\274\214\345\257\271\346\255\244\346\240\274\345\255\220\345\206\205\345\215\225\344\275\215\351\200\240\346\210\220X\347\202\271\344\274\244\345\256\263\357\274\214\345\271\266\346\226\275\345\212\240\347\201\274\347\203\247\346\225\210\346\236\234\343\200\202\347\201\274\347\203\247\346\225\210\346\236\234\346\214\201\347\273\255\344\270\211\345\233\236\345\220\210\357\274\214\346\257\217\345\233\236\345\220\210\351\200\240\346\210\220X\347\202\271\344\274\244\345\256\263\343\200\202"
+  icon: "skill600"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 601
+  name: "\346\232\264\351\243\216\351\233\252"
+  desc: "\345\257\271\346\212\200\350\203\275\346\234\211\346\225\210\350\214\203\345\233\264\345\206\205\344\270\200\344\270\252\345\214\272\345\237\237\346\226\275\346\224\276\346\232\264\351\243\216\351\233\252\357\274\214\350\242\253\346\232\264\351\243\216\351\233\252\345\221\275\344\270\255\347\232\204\346\225\214\346\226\271\345\215\225\344\275\215\351\200\240\346\210\220X\347\202\271\344\274\244\345\256\263\345\271\266\344\275\277\345\205\266\345\234\250\344\270\213\345\233\236\345\220\210\347\247\273\345\212\250\346\266\210\350\200\227+1\343\200\202"
+  icon: "skill601"
+  range_reach: 3
+  range_effect: 1
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 602
+  name: "\345\245\245\346\234\257\344\275\215\347\247\273"
+  desc: "\347\236\254\347\247\273\350\207\263\346\212\200\350\203\275\346\234\211\346\225\210\350\214\203\345\233\264\344\273\273\346\204\217\344\270\200\344\270\252\347\251\272\346\240\274\345\255\220\343\200\202"
+  icon: "skill602"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 700
+  name: "\346\262\273\346\204\210\345\233\276\350\205\276"
+  desc: "\345\217\254\345\224\244\344\270\200\344\270\252\346\262\273\346\204\210\345\233\276\350\205\276\357\274\214\346\262\273\346\204\210\345\233\276\350\205\276\345\234\250\345\267\261\346\226\271\345\233\236\345\220\210\347\273\223\346\235\237\345\220\216\346\201\242\345\244\215\346\255\244\345\233\276\350\205\276\346\234\211\346\225\210\345\214\272\345\237\237\345\206\205\347\232\204\345\217\213\346\226\271\345\215\225\344\275\215X\347\202\271\347\224\237\345\221\275\345\200\274\343\200\202"
+  icon: "skill700"
+  range_reach: 1
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 701
+  name: "\346\232\227\350\257\255\345\233\276\350\205\276"
+  desc: "\345\217\254\345\224\244\344\270\200\344\270\252\346\262\211\351\273\230\345\233\276\350\205\276\357\274\214\346\262\211\351\273\230\345\233\276\350\205\276\345\234\250\345\267\261\346\226\271\345\233\236\345\220\210\347\273\223\346\235\237\345\220\216\351\232\217\346\234\272\346\262\211\351\273\230\345\233\276\350\205\276\346\234\211\346\225\210\350\214\203\345\233\264\345\206\205\344\273\273\346\204\217\344\270\200\344\270\252\346\225\214\346\226\271\345\215\225\344\275\215\357\274\214\344\275\277\345\205\266\344\270\213\344\270\200\345\233\236\345\220\210\346\227\240\346\263\225\346\226\275\346\224\276\346\212\200\350\203\275\343\200\202"
+  icon: "skill701"
+  range_reach: 1
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+

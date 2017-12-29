@@ -1,0 +1,60 @@
+
+import "DrawCardMsg.proto";
+
+message C2SGamlePanel{//赌博机开始面板 GAMLE_PANEL=4601
+	required int32 type = 1[default=0];//面板类型 0 金币 1 钻石
+}
+message S2CGamlePanel{
+	required GamlePanel panel = 1;//面板
+}
+
+message GamlePanel{
+	required int32 pool = 1 [default=0];//奖金池
+	required int32 power = 2 [default=0];//能量点
+	required int32 step = 3[default=0];//最高连消数
+	required int32 boxScore = 4[default=0];//宝箱积分
+	repeated GamlBox box = 5;//宝箱
+
+}
+
+message GamlBox{//赌博机宝箱
+	required int32 id = 1[default=1];//宝箱id 1-4 金币宝箱 5-8钻石宝箱
+	required int32 state = 2[default=0];//宝箱状态 0 未获得 1 未打开 2 已打开
+}
+
+message C2SGamleStart{//开始游戏 GAMLE_START=4602
+	required int32 type = 1[default=0];//类型 0 金币 1 钻石
+	required int32 award =2[default=0];//投入奖注数
+}
+
+message S2CGamleStart{
+	required int64 fightId = 1;//战斗Id，由战斗开始前，服务器下发
+	required GamlePanel panel =2;//同步一次面板
+}
+
+message C2SGamleEnd{//结束游戏 GAMLE_END=4603
+	required int64 fightId = 1;//战斗Id，由战斗开始前，服务器下发
+	required int32 singleStep = 2[default =0];//单消个数
+	required int32 fourStep = 3[default =0];//4消个数
+	required int32 tStep = 4[default =0];//T消个数
+	required int32 fiveStep = 5[default =0];//5消个数
+	required int32 hightStep = 6[default = 0];//最高连消数
+	required int32 power = 7 [default=0];//剩余能量点
+}
+
+message S2CGamleEnd{
+	required int64 fightId = 1;//战斗Id，由战斗开始前，服务器下发
+	required int32 type = 2[default=0];//类型 0 金币 1 钻石
+	required int32 reaward = 3[default=0];//获得奖励数  对应金币或者钻石 0为未获取任何奖金
+	required int32 rewardPool =4[default=0];//获得奖金池的奖励
+	optional GamlePanel panel =5;//同步面板
+}
+
+message C2SGamleOpenBox{//开宝箱 GAMLE_OPEN_BOX=4604
+	required int32 id = 1[default=1];//宝箱id 1-4 金币宝箱 5-8钻石宝箱
+}
+
+message S2CGamleOpenBox{
+	repeated DrawCardInfo awards = 1;//宝箱奖品
+}
+

@@ -1,0 +1,62 @@
+
+import "GuildMsg.proto";
+message C2SActivationReceive {//激活码领取奖励
+	required int32  channelId		= 1[default = 0];//渠道ID
+	required string activationCode  =2;//激活码
+}
+
+message S2CActivationReceive {
+	optional int32 activationStatus	 	= 1;	// -1:激活码不存在 0:激活码已领取 1:激活码奖励领取成功 2:激活码已过期
+	optional string rewardsContent	 	= 2;    // 奖励内容
+}
+message C2SYouChooseMeList{//获取你选我送列表 CHOOSEACTIVITY_LIST=4502
+
+}
+message S2CYouChooseMeList {
+	required int32 status = 1 [default = 0];//领取状态  0味领取 1已领取
+	required Item  award = 2;//当前奖励
+	repeated Item  options = 3;//供玩家选择的奖励
+	optional Item  selected =4;//今天已选定的奖励
+}
+
+message C2SChooseDrawd{//选择的奖励道具ID  CHOOSEACTIVITY_SELECT=4503
+	required int32 itemId = 1;
+}
+
+message C2SReceiveAward{ //领取当前奖励 CHOOSEACTIVITY_RECEIVE=4504
+
+}
+
+message C2SStageDrawList{//关卡抽奖活动列表 STAGE_DRAW_LIST = 4513;
+
+}
+
+message S2CStageDrawList{
+	repeated Item options = 1;//道具列表
+}
+
+message C2SStageDraw{//关卡抽奖活动 开奖 STAGE_DRAW = 4514
+
+}
+
+message S2CStageDraw{//关卡抽奖活动 开奖 STAGE_DRAW = 4514
+	repeated Item options = 1;//道具
+}
+
+message C2SBuyStageBuy{//购买关卡抽奖活动钥匙 STAE_BUY_KEY = 4515
+	required int32 num = 1;//购买数量
+}
+
+message C2STimeAward{//时间奖励数据 TIME_AWARD_DATA=4607
+
+}
+message S2CTimeAward{
+	required int64 lastTime = 1;//上一次计算时间点
+	required int32 count = 2;//上一次计算金币数
+}
+message C2STimeDrawAward{// 领取时间奖励 TIME_AWARD_DWARD=4608
+
+}
+message S2CTimeDrawAward{
+	required int32 count = 1[default=0];//领取时间奖励数量
+}

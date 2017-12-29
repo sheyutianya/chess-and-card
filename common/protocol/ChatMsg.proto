@@ -1,0 +1,98 @@
+
+message C2SChat { //聊天:cmd=CHAT_CHAT = 5001  , 返回通用结果  推送： S2CChatCommonMsg
+	required string msgContent = 1;//消息内容
+	required int32 chatType = 2;//聊天频道 1，世界  2，公会 3，私聊
+	optional int64 privatePlayerId = 3;//私聊玩家ID（用于私聊）
+}
+
+message S2CChatCommonMsg { //推送聊天通用协议:cmd=COMMON_CHAT_MSG = 5001
+	repeated ChatMsgInfo charMsgInfo = 1;//消息集合
+}
+
+message C2SChatBlock { //屏蔽玩家发言 返回通用协议 cmd =CHAT_BLOCK = 5003
+	required int64 blockId = 1[default=0];//屏蔽玩家ID
+}
+
+message C2SChatBlockList{ //屏蔽玩家列表cmd=CHAT_BLOCKI_LIST = 5004
+}
+
+message C2SGiftCard{//捐赠卡牌cmd=CHAT_GIFT_CARD = 5006;
+	required int64 playerId		= 1[default = 0];	// 接收捐赠的玩家ID
+	required int32 cardId 		= 2[default = 0];	// 捐赠的卡牌ID
+}
+message S2CGiftCard {
+	required int32 result = 1;	// 0-失败 1-成功
+	required int32 cardId 		= 2[default = 0];	// 捐赠的卡牌ID
+}
+message C2SGiftCardApply{//捐赠申请卡牌cmd=CHAT_GIFT_CARD_APPLY = 5007;
+	required int32 cardId		= 1[default = 0];	// 卡牌ID
+}
+message C2SGiftCardApplyList{//捐赠申请列表cmd=CHAT_GIFT_CARD_APPLY_LIST = 5008;
+	required int32 unionId = 1[default = 0];//公会ID
+}
+message C2SGiftCardValue{//捐赠卡牌价值数cmd=CHAT_GIFT_CARD_VALUE = 5009;
+}
+message S2CGiftCardValue{//捐赠卡牌价值数cmd=CHAT_GIFT_CARD_VALUE = 5009;
+	required int32 cardValue = 1[default = 0];
+}
+message S2CGiftCardApplyList{//捐赠申请列表,单个玩家捐赠有变化，也用这个协议推送下来
+	required int32 unionId = 1[default = 0];//公会ID
+	repeated GiftCardApply applys = 2;//申请捐赠情况
+}
+message S2CChatBlockList{ //屏蔽玩家列表
+	repeated ChatBlockInfo chatBlocks = 1;//消息集合
+}
+
+message C2SChatUnBlock{ //解除屏蔽玩家cmd=CHAT_UNBLOCK = 5005;
+	required int64 blockId = 1[default=0];//解除屏蔽玩家ID
+}
+message S2CGiftCardInfo{//系统推送捐卡消息cmd=CHAT_GIFT_CARD_INFO = 5010
+	repeated ChatGiftCard infos = 1;
+}
+message ChatBlockInfo{
+	required int64 playerId			= 1[default = 0];	// 玩家ID
+	optional string name			= 2[default = ""];	// 玩家名称
+	optional int32 iconType			= 3[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 4[default = ""];	// 头像
+	optional int32 level			= 5[default = 0];	// 等级
+	optional int32 vipLv			= 6[default = 0];	// Vip等级
+	optional int32 unionId          = 7[default = 0];	//公会Id
+	optional string unionName       = 8[default = ""];  //公会名称
+}
+message ChatMsgInfo{  
+	required string messageId		= 1;	// 消息ID
+	required int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 vipLv			= 7[default = 0];	// Vip等级
+	optional int32 unionId          = 8[default = 0];	//公会Id
+	optional string unionName       = 9[default = ""];  //公会名称
+	optional int32 jobTitle			= 10[default = 0];	// 职称 0-普通会员 1会长
+	required int32 chatType         = 11;//消息类型 1，世界  2，公会 3，私聊，
+	optional string msgContent      = 12; //消息内容
+	optional int64 sendTime         = 13;//发送时间
+	optional int32 pvpRank          = 14;//PVP奖杯数
+}
+message GiftCardApply{//捐赠申请
+	required int64 playerId			= 1[default = 0];	// 申请者ID
+	required string name			= 2[default = ""];	// 玩家名称
+	optional int32 iconType			= 3[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 4[default = ""];	// 头像
+	required int32 jobTitle			= 5[default = 0];	// 职称 0-普通会员 1会长
+	required int32 cardID			= 6[default=0];//卡牌ID
+	required int64 applyTime		= 7[default=0];//申请时间
+	required int32 appctNum			= 8[default=0];//接收捐赠数量
+	optional int32 appctLimit		= 9[default=0];//接受捐赠总数
+	repeated ChatGiftCard giftCard  = 10;//捐赠者列表
+}
+message ChatGiftCard{
+	required int64 playerId			= 1[default = 0];	// 捐赠者ID
+	optional string name			= 2[default = ""];	// 捐赠者名称
+	optional int32 iconType			= 3[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 4[default = ""];	// 头像
+	optional int32 giftNum			= 5[default=0];	//捐赠的次数
+	required int64 giftTime			= 6[default=0];//捐赠时间
+	optional int32 cardId			= 7[default=0];//卡牌ID
+}

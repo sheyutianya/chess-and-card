@@ -1,0 +1,222 @@
+
+import "GuildMsg.proto";
+message C2SHeroTotalFightRank { //cmd=RANK_HERO_TOTAL_FIGHT 武将总战斗力排行榜
+	required int32 pageNo			= 1;	// 页码，第几页 从0开始
+	required int32 pageSize			= 2;	// 每页数目
+
+} 
+message S2CHeroTotalFightRank {
+	required int32 myRank			= 1;	// 我排名
+	required int32 myValue			= 2;	// 我战斗力值
+	repeated RankHeroTotal 	rankList= 3; 	// 排名列表
+}
+
+message C2SStageTotalStarRank { //cmd=RANK_STAGE_TOTAL_STAR 关卡总星星数排行榜
+	required int32 pageNo			= 1;	// 页码，第几页 从0开始
+	required int32 pageSize			= 2;	// 每页数目
+}
+message S2CStageTotalStarRank {
+	required int32 myRank			= 1;	// 我排名
+	required int32 myValue			= 2;	// 我关卡总星星
+	repeated RankStageStar	 rankList= 3; 	// 排名列表
+}
+
+message C2SHeroSingleFightRank { //cmd=RANK_HERO_SINGLE_FIGHT 单个武将战斗力排行榜
+	required int32 pageNo			= 1;	// 页码，第几页 从0开始
+	required int32 pageSize			= 2;	// 每页数目
+
+} 
+message S2CHeroSingleFightRank {
+	required int32 myRank			= 1;	// 我排名
+	required RankHeroSingle myHero	= 2;	// 我的排名武将信息
+	repeated RankHeroSingle rankList= 3; 	// 排名列表
+}
+
+message C2SPVPScoreRank { //cmd=RANK_PVP_SCORE_RANK PVP积分排行榜
+	required int32 pageNo			= 1;	// 页码，第几页 从0开始
+	required int32 pageSize			= 2;	// 每页数目
+
+} 
+message S2CPVPScoreRank {
+	required int32 myRank			= 1;	// 我排名
+	required int32 myValue			= 2;	// 我pvp积分
+	repeated RankPvPScore rankList	= 3; 	// 排名列表
+}
+
+message C2SPVPCupRank {	// cmd=RANK_PVP_CUP_RANK PVP奖杯排行榜
+	required int32 pageNo			= 1;	// 页码，第几页 从0开始
+	required int32 pageSize			= 2;	// 每页数目
+}
+message S2CPVPCupRank {
+	required int32 myRank			= 1;	// 我排名
+	required int32 myValue			= 2;	// 我pvp积分
+	repeated RankPvPCup rankList	= 3; 	// 排名列表
+}
+message C2SExpeditionRank {//RANK_EXPEDITION	= 4066 远征积分排行榜
+	required int32 pageNo			= 1;	// 页码，第几页 从0开始
+	required int32 pageSize			= 2;	// 每页数目
+}
+message S2CExpeditionRank {
+	required int32 myRank			= 1;	// 我排名
+	required int32 myValue			= 2;	// 我积分
+	repeated RankExpedition rankList	= 3; 	// 排名列表
+}
+message C2SStageRank{// RANK_STAGE	= 4067 关卡全服排行
+	repeated int32 stageIds = 1;//关卡列表
+}
+message S2CStageRank{
+	repeated StageRank ranks =1;
+}
+message StageRank{
+	required int32 stageId = 1;//关卡ID
+	repeated RankStage rank =2;//排行列表
+}
+
+message C2SGamleGoldRank {// 赌博机金币排行榜 GAMLE_GOLD_RANK=4605
+	required int32 pageNo			= 1;	// 页码，第几页 从0开始
+	required int32 pageSize			= 2;	// 每页数目
+}
+message S2CGamleGoldRank {
+	required int32 myRank			= 1;	// 我排名
+	required int32 myValue			= 2;	// 我积分
+	repeated RankGamle rankList	= 3; 	// 排名列表
+}
+
+message C2SGamleDomainRank {// 赌博机钻石排行榜 GAMLE_DOMAIN_RANK=4606
+	required int32 pageNo			= 1;	// 页码，第几页 从0开始
+	required int32 pageSize			= 2;	// 每页数目
+}
+message S2CGamleDomainRank {
+	required int32 myRank			= 1;	// 我排名
+	required int32 myValue			= 2;	// 我积分
+	repeated RankGamle rankList	= 3; 	// 排名列表
+}
+
+
+// 查看玩家阵营信息
+message C2SPlayerCampInfo { //cmd=QUERY_PLAYER_CAMP_INFO 查看玩家阵营信息
+ 	required int64 targetId			=1;
+}
+message S2CPlayerCampInfo {
+	optional int64 playerId			= 1[default = 0];	// 玩家ID
+	optional string name			= 2[default = ""];	// 玩家名称
+	optional int32 iconType			= 3[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 4[default = ""];	// 头像
+	optional int32 level			= 5[default = 0];	// 等级
+	optional int32 vipLv			= 6[default = 0];	// Vip等级
+	optional string unionName		= 7[default = ""];	// 公会名称
+	repeated HeroInfo heroList		= 8;				// 武将列表
+}
+
+/*
+message RankMemberInfo {
+	optional int64 playerId			= 1[default = 0];	// 玩家ID
+	optional string name			= 2[default = ""];	// 玩家名称
+	optional int32 iconType			= 3[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 4[default = ""];	// 头像
+	optional int32 level			= 5[default = 0];	// 等级
+	optional int32 vipLv			= 6[default = 0];	// Vip等级
+	optional int32 fightVal			= 7[default = 0];	// 战斗力
+	optional int32 stageStar		= 8[default = 0];	// 关卡星星数
+	optional int32 pvpScore			= 9[default = 0];	// Pvp积分
+	optional int32 pvpWin			= 10[default = 0];	// Pvp胜场
+	optional int32 heroId			= 11[default = 0]; 	// 武将ID
+	optional int32 heroLevel		= 12[default = 0]; 	// 武将等级
+	optional int32 heroStar			= 13[default = 0]; 	// 武将星级
+}
+*/
+
+// 武将总战斗力
+message RankHeroTotal {
+	optional int32 rankNo			= 1[default = 0];	// 排名
+	optional int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 vipLv			= 7[default = 0];	// Vip等级
+	optional int32 fightVal			= 8[default = 0];	// 战斗力
+}
+
+// 关卡总星星
+message RankStageStar {
+	optional int32 rankNo			= 1[default = 0];	// 排名
+	optional int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 vipLv			= 7[default = 0];	// Vip等级
+	optional int32 stageStar		= 8[default = 0];	// 关卡星星数
+}
+
+// 单个武将战斗力
+message RankHeroSingle {
+	optional int32 rankNo			= 1[default = 0];	// 排名
+	optional int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 vipLv			= 7[default = 0];	// Vip等级
+	optional int32 fightVal			= 8[default = 0];	// 战斗力
+	optional HeroInfo heroInfo		= 9;				// 武将信息
+}
+
+// PVP积分
+message RankPvPScore {
+	optional int32 rankNo			= 1[default = 0];	// 排名
+	optional int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 vipLv			= 7[default = 0];	// Vip等级
+	optional int32 pvpScore			= 8[default = 0];	// Pvp积分
+	optional int32 pvpWin			= 9[default = 0];	// Pvp胜场
+}
+
+// PVP奖杯
+message RankPvPCup {
+	optional int32 rankNo			= 1[default = 0];	// 排名
+	optional int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 vipLv			= 7[default = 0];	// Vip等级
+	optional int32 pvpCup			= 8[default = 0];	// Pvp奖杯
+}
+message RankExpedition {
+	optional int32 rankNo			= 1[default = 0];	// 排名
+	optional int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 vipLv			= 7[default = 0];	// Vip等级
+	optional int32 sorce			= 8[default = 0];	// 积分
+}
+
+//关卡积分排行榜
+message RankStage {
+	optional int32 rankNo			= 1[default = 0];	// 排名
+	optional int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 vipLv			= 7[default = 0];	// Vip等级
+	optional int64 sorce			= 8[default = 0];	// 积分
+}
+
+ //赌博机排行榜
+ message RankGamle{
+ 	optional int32 rankNo			= 1[default = 0];	// 排名
+	optional int64 playerId			= 2[default = 0];	// 玩家ID
+	optional string name			= 3[default = ""];	// 玩家名称
+	optional int32 iconType			= 4[default = 0];	// 头像类型, 按位区分0位-为武将ID, 1位-为玩家URL, 2位-取得过PVP排名第一
+	optional string icon			= 5[default = ""];	// 头像
+	optional int32 level			= 6[default = 0];	// 等级
+	optional int32 sorce			= 7[default = 0];	// 分数
+ }

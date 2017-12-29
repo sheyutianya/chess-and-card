@@ -1,0 +1,23 @@
+package com.dh.game.vo.item;
+
+message GoldIngotsRequest {
+	required int32 serialId = 1; // //商品流水id
+	required int32 count = 2; //
+}
+
+message GoldIngotsResponse {
+	required string urlparams = 1;
+}
+
+
+message GetYellowToken {
+	required string actid = 1;
+	required string token = 2;
+	required string mid = 3;
+}
+
+//领取黄钻成长礼包
+message YellowLevelGiftRequest {
+	required int32 id = 1;
+}
+

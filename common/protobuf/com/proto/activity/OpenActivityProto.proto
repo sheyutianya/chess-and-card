@@ -1,0 +1,38 @@
+package com.dh.game.vo.activity;
+
+//单笔充值奖励　领取
+message OneRechargeReq {
+	required int32 type = 1; //0全部给 >0领取 500元宝1000元宝
+}
+
+// id 和 value的长度要一样
+message OneRechargeRep {
+	repeated int32 id = 1;
+	repeated int32 value = 2; //可领取次数
+}
+
+message OpenActiveInfo {
+	required int32 id = 1;
+	required int32 stage = 2;
+	repeated LinQuState linQuState = 3;
+	optional string nick = 4; //nick 为空时，表示还没结算
+	optional int32 headicon = 5;
+}
+
+message LinQuState {
+	required int32 lower = 1; //下限
+	required int32 value = 2; //是否有奖励 -1未达成 0可领取 1已领取
+}
+
+message OpenActiveResponse {
+	required string openservertime = 1; //开服日期　格式　2015-01-16
+	repeated OpenActiveInfo activeInfo = 2;
+}
+
+//发3个0表示查询 所有数所,领取后下发所有数据
+message OpenActiveLinQuReq {
+	required int32 id = 1;
+	required int32 stage = 2;
+	required int32 lower = 3;
+}
+

@@ -1,0 +1,43 @@
+package com.dh.game.vo.area;
+
+enum AreaOperation {
+	AREA_ENTER = 1; //进入
+	AREA_LEAVE = 2; //离开
+	AREA_LEAVE_AND_ENTER = 3; //离开并进入
+	AREA_MOVE = 4; //移动
+}
+
+//客户端请求
+message AreaOperationRequest {
+	required AreaOperation operation = 1;
+	optional int32 posx = 2;
+	optional int32 posy = 3;
+	optional int32 areaid = 4;
+}
+
+
+//角色移动下行广播
+message AreaOperationMoveResponse {
+	required int32 playerId = 1;
+	required int32 targetx = 4;
+	required int32 targety = 5;
+}
+
+//离开场景广播
+message AreaOperationLeaveResponse {
+	required int32 playerId = 1;
+}
+
+//取场景内其它用户数据广播信息
+message AreaOperationEnterResponse {
+	repeated AreaEnterBroadcast areaEnterBroadcast = 1;
+}
+//进入场景
+message AreaEnterBroadcast {
+	required int32 playerId = 1;
+	required int32 posx = 2;
+	required int32 posy = 3;
+	required string name = 4;
+	required string factionName = 5; //军团名
+	required int32 headIcon = 6; //角色或NPC 形象id
+}

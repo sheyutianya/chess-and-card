@@ -1,0 +1,123 @@
+package com.dh.game.vo.gm;
+
+import "com/proto/vo/BaseProto.proto";
+message WorldBossStartReq {
+	required int32 openBoss = 1; //[0为系统状态,1为开启上午,2为关闭上午,3为开启下午,4为关闭下午]
+}
+
+message ReloadRedisReq {
+	optional int32 playerId = 1;
+	optional string username = 2;
+}
+//二者必须填一个,用字符串分割
+message Users {
+	optional string playerId = 1;
+	optional string username = 2; //登录名字
+	optional string name = 3;
+}
+
+message ReloadRedisResp {
+	required bool isSucc = 1;
+}
+
+message SendSysMsgReq {
+	required string msg = 1;
+}
+
+message SendSysMailReq {
+	optional string nicks = 1;
+	required int32 reciver = 2;
+	required string title = 3;
+	required string content = 4;
+	required string sender = 5;
+	repeated RewardInfo rewardInfo = 6;
+}
+
+message SendSysMailResp {
+	required bool isSucc = 1; //是否成功
+}
+
+message CheckItemReq {
+	required int32 cfgId = 1;
+}
+
+message CheckItemResp {
+	required string itemName = 1;
+	required int32 cfgId = 2;
+}
+
+message BlackPlayerReq {
+	required BLOCK_ENUM type = 1; //类型1.封锁openID,类型2,永久禁言,类型3,分时段禁言,4,封ip,5解封
+	required string nicks = 2; //
+	optional string reason = 3; //封锁原因
+}
+
+enum BLOCK_ENUM {
+	BLOCK_UNBLOCK = 0; //解封
+	BLOCK_TIME_SPEAK = 30; //分时段禁言
+	BLOCK_SPEAK = 50; //永久禁言
+	BLOCK_OPENID = 80; //禁用opendID
+	BLOCK_ACC_IP = 90; //ＨＡＩＹＩ
+	BLOCK_IP = 100; //封锁IP
+}
+
+message BlackPlayerResp {
+	required BLOCK_ENUM type = 1; //类型1.封锁openID,类型2,永久禁言,类型3,分时段禁言,4,封ip,5解封
+	repeated BlackPlayerInfo players = 2;
+	optional string reason = 3; //封锁原因
+}
+
+message BlackPlayerInfo {
+	required string name = 1;
+	required string ip = 2;
+	required string result = 3; //操作结果
+}
+//直接对ip进行操作
+message BlackIPReq {
+	required int32 type = 1; //1解封ip,2:封锁ip
+	required string ip = 2;
+	required string ip2 = 3;
+	required string reason = 4;
+}
+
+message BlackIPResp {
+	required int32 type = 1;
+	required string reason = 2;
+	repeated BlackIPInfo blackIPInfo = 3;
+}
+
+message BlackIPInfo {
+	required string ip = 1;
+	required string result = 2; //操作结果
+}
+//发送系统消息
+message SysNoticeReq {
+	required int32 period = 1; //0:只发送1次,(1-30),总次数
+	required int32 count = 2; //总次数
+	required string msg = 3; //发送内容
+}
+
+message SysNoticeResp {
+	required int32 period = 1; //0:只发送1次,(1-30),总次数
+	required int32 count = 2; //总次数
+	required string msg = 3; //发送内容
+}
+//充值
+message RechargeTestReq {
+	required Users users = 1;
+	required int32 golding = 2; //充值金额
+	required VerifyCode verifyCode = 3;
+}
+
+message RechargeTestResp {
+	required string result = 1;
+	required int32 golding = 2; //
+}
+
+message VerifyCode {
+	required string code = 1;
+}
+//回答问题的开关
+message ActyAnsReq {
+	required int32 status = 1;
+}

@@ -1,0 +1,56 @@
+import "GuildMsg.proto";
+
+
+message C2STrailChapterList { //cmd=TRAIL_CHAPTER_LIST 试炼开放章节列表
+}
+message S2CTrailChapterList {
+	repeated TrailChapter chpaterList = 1; // 章节列表
+	repeated TrailStage stageList = 2;// 关卡列表
+}
+
+message C2STrailFightStart { // cmd=TRAIL_FIGHT_START 试炼战斗开始
+	required int32 stageId = 1;//关卡Id
+	repeated int32 heroIds = 2;//参战英雄
+	required int32 fightVal = 3;//战斗力
+}
+
+message S2CTrailFightStart {
+	required int64 fightId 			= 1;//战斗Id，由服务器生成，用于结算回传
+	repeated Item commonDropItems 	= 2;//普通掉落物品
+	repeated Item captionDropItems 	= 3;//队长掉落物品
+	repeated Item bossDropItems 	= 4;//BOOS掉落物品
+}
+
+message C2STrailFightEnd { // cmd=TRAIL_FIGHT_END 试炼战斗结束
+    required int64 fightId = 1[default=0];//战斗Id，由服务器生成，用于结算回传
+    required FightResultParam resultParam = 2;//战斗结果上报数据
+}
+message S2CTrailFightEnd {
+	required int64 fightId = 1;//战斗Id，由战斗开始前，服务器下发
+	required FightResultType result = 2;//战斗结果
+	required DropReward reward = 3; // 奖励
+	required int32 star = 4; // 星级
+}
+
+message C2STrialFightMopup {//cmd=TRAIL_FIGHT_MOPUP 试炼扫荡
+	required int32 stageId = 1;//关卡Id
+	required int32 count = 3;//扫荡次数
+}
+message S2CTrialFightMopup {
+	required int32 stageId = 1;//关卡Id
+	required int32 count = 2 [default = 0];//扫荡次数
+	repeated DropReward reward=3;//奖励物品集
+}
+
+// 试炼章节信息
+message TrailChapter {
+	required int32 chapterId 		= 1; 	// 章节ID
+	required int32 isOpen 			= 2;	// 是否开放1-开放 0-未开放 
+	required int32 challengeNum 	= 3;	// 今日挑战次数
+}
+
+// 试炼关卡信息
+message TrailStage {
+	required int32 stageId			= 1;	// 关卡
+	required int32 star				= 2;	// 关卡星级
+}

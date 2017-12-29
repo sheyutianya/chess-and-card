@@ -1,0 +1,6 @@
+package com.dh.game.vo.build;
+
+message DayVipGiftInfoResp {
+	required int32 rechargeHis = 1;
+	required int32 status = 2; //-1未达成 0 可领取 1已领取
+}

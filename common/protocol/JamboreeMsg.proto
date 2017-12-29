@@ -1,0 +1,69 @@
+
+import "GuildMsg.proto";
+
+message S2CJamboreeDorp{//活动额外掉落 JAMBOREE_DORP = 4701
+	repeated Item items = 1;//掉落道具
+	optional int32 sysId = 2;//系统ID
+}
+
+message C2SValidJamboreeList{//获取有效活动列表Id JAMBOREE_LIST = 4702
+
+}
+message S2CValidJamboreeList{
+	repeated JamboreeTime jamboree= 1;//活动ID
+}
+
+message C2SJamboree{//获取活动内容 JAMOREE_ENTRY = 4703
+	required int32 jamboreeId = 1;//活动Id
+}
+message S2CJamboree{
+	required int32 jamboreeId = 1;//活动Id
+	required int32 jamboreeType =2;//活动类型 1 任务类型 2兑换类型
+	repeated JamboreeEntry entry =3;//条目列表
+}
+
+message C2SJamboreeNotice{//设置提醒 JAMOREE_NOTICE = 4704 放回通用协议
+	required int32 jamboreeId = 1;//活动Id
+	repeated JamboreeNotice entry =2;//设置条目
+}
+
+message C2SJamboreeDward{//活动领奖 JAMOREE_DRAWD = 4705
+	required int32 jamboreeId = 1;//活动Id
+	required int32 entryId = 2;//条目ID
+}
+message S2CJamboreeDward{
+	required int32 result = 1;//结果 0成功 -1条件未达成
+	required int32 type = 2;//奖励类型 1道具 2宝箱
+	repeated Item items = 3;//奖励道具
+	optional int32 boxType = 4;//宝箱类型
+}
+
+message S2CJamboreeRedHot{//活动红点列表 JAMOREE_REDHOT = 4706
+	repeated JamboreeRedHot redHot =1;//活动ID
+}
+
+message JamboreeRedHot{
+	required int32 jamboreeId = 1;//活动ID
+	required int32 redNum = 2[default=0];//红点数
+}
+
+message JamboreeNotice{
+	required int32 entryId = 1;//条目ID
+	required int32 opt = 2;//操作 1设置提醒 2取消提醒
+}
+
+//活动条目
+message JamboreeEntry{
+	required int32 entryId = 1;//条目ID
+	required int32 progress = 2[default =0];//进度 目前只给任务活动进度
+	required int32 status = 3[default=1];//状态 1不可领取 2可领取 3已领取
+	optional int32 isNotice =4[default=1];//是否提醒 1不提醒 2提醒
+}
+
+//活动时间
+message JamboreeTime{
+	required int32 jamboreeId =1;//活动Id
+	optional int64 openTime = 2;//开始时间
+	optional int64 overTime = 3;//结束时间
+	optional int64 noticeTime = 4;//通知时间
+}

@@ -306,6 +306,10 @@
     <Compile Include="Assets\Scripts\Protocol\ActionParam.cs" />
     <Compile Include="Assets\Scripts\Protocol\GameAction.cs" />
     <Compile Include="Assets\Scripts\Protocol\Net.cs" />
+    <Compile Include="Assets\Scripts\Protocol\protobuf\MessagePack.cs" />
+    <Compile Include="Assets\Scripts\Protocol\protobuf\Request1001Pack.cs" />
+    <Compile Include="Assets\Scripts\Protocol\protobuf\Response1001Pack.cs" />
+    <Compile Include="Assets\Scripts\Protocol\protobuf\ResponsePack.cs" />
     <Compile Include="Assets\Scripts\Res\AssetLoader.cs" />
     <Compile Include="Assets\Scripts\Res\IResourceLoader.cs" />
     <Compile Include="Assets\Scripts\Res\ResourcesLoader.cs" />

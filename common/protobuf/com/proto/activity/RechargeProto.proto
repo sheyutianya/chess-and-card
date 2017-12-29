@@ -1,0 +1,8 @@
+package com.dh.game.vo.recharge;
+
+//给用户充值
+message RechargeRequest {
+	required int32 playerId = 1;
+	required int32 number = 2;
+}
+

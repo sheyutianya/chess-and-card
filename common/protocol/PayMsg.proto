@@ -1,0 +1,35 @@
+
+import "GuildMsg.proto";
+// 向服务器请求生成支付流水号
+message C2SGeneratePaySerial { // cmd=PAY_GENERATE_SERIAL_NO
+}
+message S2CGeneratePaySerial {
+	required string serialNo = 1; //流水号(facebook的随机数)
+}
+
+// 同步提交后支付订单结果 
+message C2SSyncSubmitPayOrder { //cmd=PAY_SUBMIT_ORDER
+	required string signature = 1; // 平台数据签名验证
+	required string signData = 2; // 平台数据所签名的内容
+}
+message S2CSyncSubmitPayOrder {
+	required int32 result = 1; // 同步订单后结果-1签名失败 0-订单状态不能发放 1-发放成功 2-已经发放过
+	optional int32 diamond = 2;	// 返回得到的钻石
+	repeated Item  awards = 3;//超值礼包奖励道具
+	optional int32 money = 4;//金额
+}
+
+message C2SStartPay{//发起支付 cmd=PAY_START = 4303  苹果支付还走之前的协议
+	required string productId = 1;//产品ID
+	required string dev =2;//设备类型 ios或者 android
+	required int32 payType =3;//支付方式1微信 后续对接支付方式待定
+}
+message S2CStartPay{
+	optional int32 result = 1;//结果 0成功 -1发起支付错误
+	optional string data =2;//调起支付数据 json串
+}
+
+//message C2SWxPayStartReust{ // cmd=PAY_WX_START_RESULT = 4304
+//	optional string prpayid =1;//微信预支付交易会话ID
+//	optional int32 relust=2;//微信发起支付结果
+//}

@@ -1,0 +1,89 @@
+
+import "GuildMsg.proto";
+
+message C2SStageFightStart{//cmd =STAGE_FIGHT_START 战斗开始，
+	required int32 chapterId =1;//章节Id
+	required int32 stageId = 2;//关卡Id
+	repeated int32 heroIds = 3;//参战英雄
+	required int32 fightVal = 4;//战斗力
+}
+message S2CStageFightStart{// 战斗开始，先扣取一点体力
+	required int64 fightId = 1 ;//战斗Id，由服务器生成，用于结算回传
+	repeated Item commonDropItems = 2;//普通掉落物品
+	repeated Item captionDropItems = 3;//队长掉落物品
+	repeated Item bossDropItems = 4;//BOOS掉落物品
+}
+
+message C2SStageFightEnd{//cmd=STAGE_FIGHT_END 战斗结算,
+	required int64 fightId = 1;//战斗Id，由战斗开始前，服务器下发
+    required FightResultParam resultParam = 2;//战斗结果上报数据
+}
+
+message S2CStageFightEnd{//战斗失败，不扣体力，成功扣取对应体力
+	required int64 fightId = 1;//战斗Id，由战斗开始前，服务器下发
+	required FightResultType result = 2;//战斗结果
+	optional StageInfo stageInfo = 3;//结算关卡信息
+	optional DropReward reward = 4;//结算奖励
+	repeated HeroExp heroExp = 5;//英雄经验奖励
+	required int32 difficulty =6; // 难度 0-普通1-精英...
+	repeated Item fristRaward = 7;//首次通过奖励道具
+}
+
+message C2SStageFightMopup{//cmd=STAGE_FIGHT_MOPUP扫荡
+	required int32 chapterId =1;//章节Id
+	required int32 stageId = 2;//关卡Id
+	required int32 count = 3;//扫荡次数
+}
+
+message S2CStageFightMopup{
+	required int32 result = 1 [default = 0];//战斗结果，0失败，1成功
+	repeated MopupResult mopup = 2;//奖励物品集
+	optional int32 count = 3 [default = 0];//扫荡次数
+}
+message MopupResult{
+	required int32 index = 1[default =0];//序号
+	optional int32 gold = 2 [default = 0];//奖励金币
+	optional int32 exp = 3 [default = 0];//奖励经验
+	repeated Item item = 4;//奖励物品
+}
+
+message C2SStageRest{//cmd=STAGE_REST重置关卡
+   	required int32 	stageId 	=1;//关卡ID
+}
+message S2CStageRest{
+	required int32 stageId 		=1;//关卡ID
+	required int32 chapterId 	=2;//章节Id
+	required int32 resetCount	=3;//重置次数
+	required int32 battleNum	=4;//战斗次数
+}
+
+message C2SStageOpenChest{//cmd=STAGE_OPNE_CHEST开宝箱，返回通用结果
+	required int32 chapterId =1;//章节Id
+	required int32 chestIndex=2 [default = 1];
+}
+
+message C2SStageJumpDialogue{//cmd =STAGE_JUMP_DIALOGUE 跳过关卡对话，返回通用结果
+	required int32 	chapterId 		=1;//章节ID
+   	required int32 	stageId 		=2;//关卡ID
+}
+
+message C2SPvPSearchEnemy {//cmd=PVP_SEARCH_ENEMY PVP侦察城池驻军
+	required int32 cityId	= 1;	//侦查城市ID
+	required int32 fightVal = 2;	//当前战斗力
+}
+
+message S2CPvPSearchEnemy {
+	required int32 cityId		= 1;//侦查城市ID
+	repeated HeroInfo heroList 	= 2;//驻守英雄列表
+}
+
+message C2SMortgageKitty{//cmd=STAGE_PASS_BY_KITTY	= 3008抵押猫咪开启下一关卡
+	required int32 	chapterId 		=1;//章节ID
+   	required int32 	stageId 		=2;//关卡ID
+}
+
+//英雄奖励经验封装
+message HeroExp{
+	required int32 id = 1;//英雄id
+	optional int32 addExp = 3;//增加经验
+}

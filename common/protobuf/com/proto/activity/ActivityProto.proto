@@ -1,0 +1,184 @@
+package com.dh.game.vo.activity;
+
+import "com/proto/vo/BaseProto.proto";
+message WelfareRequest {
+	required int32 type = 1; // 1, 2, 3
+}
+//活动回包
+message WelfareResp {
+	repeated WelfareInfo welfareInfo = 1;
+	optional GiftGoldInfo giftGoldInfo = 2;
+	required int32 type = 3; // 1, 2, 3
+}
+
+message GiftGoldInfo {
+	required int32 giftnum = 2;
+	required int32 giftGold = 3;
+}
+
+message WelfareInfo {
+	required int32 type = 1; //类型id  5
+	repeated WelfareValue welfareValue = 2; //是否有奖励
+	optional int32 curvalue = 3; //当前累计值.
+	required int32 timetype = 4; // 0/永久 1有时间限制
+	optional string startdate = 5; //2014-12-10 00:00:00
+	optional string enddate = 6; //2014-12-10 00:00:00
+}
+
+message WelfareValue {
+	required int32 index = 1; //从１开始
+	optional int32 val = 2; //是否有奖励 -1未达成 0可领取 1已领取
+	optional string name = 3;
+	repeated int32 stateval = 4; //黄瓜仙子礼包用　statevalue不用val
+}
+
+//领奖励
+message RewardWelfareRequest {
+	required int32 type = 1;
+	required int32 index = 2; //从１开始 在黄瓜仙的礼包中是playerid
+	optional int32 state = 3; //黄瓜仙子礼包阶段 1-3
+}
+////在线奖励细节
+//message OnlineRewardDetail {
+//	required int32 onlineCountDown = 1; //在线倒计时,unit:s
+//	required RewardInfoList rewardInfoList = 2; //在线奖励信息列表
+//	required bool hadRewardAll = 3; //今日奖励是否已经领取完
+//}
+
+//在线奖励
+message RewardOnlineResp {
+	required int32 countDown = 1; //倒计时,单位s
+	required RewardInfoList rewardInfos = 2; //奖励,参考baseproto.proto
+	required bool hadRewardAll = 3; //是否已经领取完
+}
+//每日签到
+message DaySignResp {
+	required int32 daySign = 1; //每日签到记录,int32为,如果bit为1则为签到
+	required int32 resignCount = 3; //剩余补签次数
+	required int32 signReawrd = 5; //领奖记录[按顺序使用二进制,如果领取则标记为1,采用小端]
+}
+
+message SignReq {
+	required bool isResign = 1; //是补签还是正常签到
+}
+
+message SignRewardReq {
+	required int32 count = 1; //领取连续签到天数奖励{2天:1,5天:2}依次类推
+}
+
+message SignRewardResp {
+	required int32 signReward = 1; //领取连续签到天数奖励{2天:1,5天:2}依次类推
+}
+//每日充值后回包
+message DayChangeResp {
+	required int32 changeStatus = 1; //今日是否充值,如果为0弹出原来界面,3弹出福利大厅界面
+	required int32 rewardId = 2; //奖励组id
+}
+
+message ChargeNoticeResp {
+	required ChargeNoticeList chargeNoticeList = 1;
+}
+
+message ChargeNoticeList {
+	repeated ChargeNoticiInfo chargeNoticiInfo = 1;
+}
+
+message ChargeNoticiInfo {
+	required string name = 1;
+	required int32 num = 2; //数量
+}
+
+message DayDoneResp {
+	repeated DayDoneInfo dayDoneInfo = 1;
+	required int32 score = 2; //当前玩家积分
+	required int32 rewards = 3; //领取奖励记录,如果为1则代表此奖励已经领取额
+}
+
+message DayDoneInfo {
+	required int32 cfgId = 1;
+	required int32 done = 2; //完成次数
+	//	required int32 needDone = 3; //需要完成次数
+	//	required int32 score = 4; //可以获得积分
+}
+
+message DayDoneRewardReq {
+	required int32 id = 1; //领取第几个
+}
+
+message DayDoneRewardResp {
+	required int32 rewards = 1; //最新奖励信息
+}
+//参加活动积分改变时
+message PushScoreResp {
+	required int32 score = 1;
+	required int32 rewards = 2;
+}
+
+message DayShareResponse {
+	required int32 dayShare = 1; //每日分享
+}
+
+message UseCDKeyRequest {
+	required string cdkey = 1;
+}
+//答题活动通知
+message ActyStatusNotice {
+	required int32 status = 1; //活动状态开关{0的位置为答题活动,如果为1则开,0则关闭}
+}
+
+message AnsNextReq {
+	required int32 type = 1; //[1:请求最新一题,2当前题超时请求下一题,3,退出]
+}
+//获得下一题回包
+message AnsNextResp {
+	required int32 cfgId = 1; //当前题目id
+	required int32 currId = 2; //当前第几题
+	required int32 score = 3; //当前得分
+	required int32 correct = 4; //答对玩家数目
+	repeated int32 skill = 5; //当前还剩余技能数.第一个位置删除错误答案,第二个位置直接选择正确答案,第三个位置积分加倍
+	required AnsRankList ansRankList = 6;
+	required bool isOver = 7; //用于处理回答完毕
+}
+
+message AnsRankList {
+	repeated AnsRankInfo ranks = 1; //排名
+}
+
+//排名
+message AnsRankInfo {
+	required int32 rank = 1;
+	required string name = 2; //玩家名字
+	required int32 score = 3; //当前积分
+}
+//回答请求
+message AnsCheckReq {
+	required int32 ans = 1; //[1-4]
+}
+//回答回包
+message AnsCheckResp {
+	required bool result = 1; //是否答对
+}
+
+enum ANS_SKILL_TYPE {
+	DEL = 1; //删除错误答案
+	CORRECT = 2; //选择正确答案
+	DOUBLE = 3; //积分加倍
+}
+//使用技能回包
+message AnsSkillReq { //使用技能
+	required int32 type = 1; //1删除错误答案,2直接选择正确答案,3积分加倍
+}
+//释放技能回包
+message AnsSkillResp {
+	required int32 type = 1;
+	required int32 value = 2; //如果类型为1,则是错误答案序号[1-4],如果类型为2这是正确答案序号[1-4],如果类型为3则1表示成功加倍
+}
+
+
+
+
+
+
+
+
+

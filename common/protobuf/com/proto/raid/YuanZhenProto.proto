@@ -1,0 +1,31 @@
+package com.dh.game.vo.raid;
+
+import "com/proto/vo/BaseProto.proto";
+import "com/proto/raid/RaidProto.proto";
+message YuanZhenInfoResponse {
+	required int32 times = 1; //刷新次数
+	required int32 ngress = 2; //普通进度
+	required int32 gress = 3; //精英进度
+}
+
+message YuanZhenDetailRequest {
+	required int32 layer = 1;
+}
+
+message YuanZhenDetailReponse {
+	required int32 layer = 1;
+	repeated YzRaid yzRaid = 2;
+}
+
+message YzRaid {
+	required int32 status = 1; // 0未远关 1完成
+	required int32 otherPlayerId = 2;
+	optional string otherPlayerNick = 3;
+	repeated FinalHero finalHero = 4;
+}
+
+//远征（华山论剑每30一结算）
+message StatisticsResponse {
+	repeated RaidRewardinfo raidRewardinfo = 2;
+}
+

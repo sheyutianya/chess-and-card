@@ -1,0 +1,9 @@
+package com.dh.game.vo.login;
+
+message CheckRoleNameRequest {
+	required string rolename = 1;
+}
+
+message CheckRoleNameResponse {
+	required int32 result = 1; //1 存在同名  0 无同名
+}

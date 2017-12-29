@@ -1,0 +1,39 @@
+
+// 获取玩家邮件列表信息 cmd=EMAIL_INFO_LIST 
+message C2SEmailInfoList { 
+}
+message S2CEmailInfoList {
+	repeated EmailInfo emails	=2;
+}
+
+// 读取邮件内容 cmd=EMAIL_INFO_READ
+message C2SEmailInfoRead { 
+	required int64 emailId		= 2;
+}
+message S2CEmailInfoRead {
+	required int32 ret			= 1;
+}
+//一键领取邮件附件 cmd=EMAIL_ONE_KEY_RECEIVE_ATTACHMENTS = 2303 返回通用协议
+message C2SEmailOneKeyReceiveAttachments{
+	// 请求领取的邮件ID列表
+	repeated int64 emailIds		= 1;
+}
+// 邮件信息
+message EmailInfo {
+	// 邮件ID
+	required int64 emailId		=1;
+	// 标题
+	optional string title		=2;
+	// 邮件内容
+	optional string context		=3;
+	// 附件物品ID
+	optional string itemId		=4;
+	// 发送时间 
+	optional int64 sendTime		=5;
+	// 过期时间
+	optional int64 expireTime 	=6;
+	// 是否已读
+	optional int32 isRead		=7;
+	// 模板Id
+	optional int32 templateId 	=8;
+}

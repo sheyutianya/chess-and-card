@@ -1,0 +1,31 @@
+/**
+* @file:   skill_info.proto
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package deploy;
+
+message SKILL_INFO {
+    /** 技能id */
+    required int32 id = 1 [default = 0];
+    /** 技能名 */
+    required string name = 2 [default = ""];
+    /** 技能描述 */
+    required string desc = 3 [default = ""];
+    /** 技能图标 */
+    required string icon = 4 [default = ""];
+    /** 施法范围 */
+    required int32 range_reach = 5 [default = 0];
+    /** 作用范围 */
+    required int32 range_effect = 6 [default = 0];
+    /** 是否被动 */
+    required int32 is_passive = 7 [default = 0];
+    /** 消耗水晶 */
+    required int32 cost = 8 [default = 0];
+    /** 冷却时间 */
+    required int32 cold_down = 9 [default = 0];
+}
+
+message SKILL_INFO_ARRAY {
+    repeated SKILL_INFO items = 1;
+}

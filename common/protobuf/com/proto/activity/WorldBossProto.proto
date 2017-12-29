@@ -1,0 +1,66 @@
+package com.dh.game.vo.activity;
+
+import "com/proto/vo/BaseProto.proto";
+
+//世界boss回包
+message WorldBossDetailResp {
+	repeated BossInfo bossInfo = 1;
+}
+
+enum BOSS_STATUS {
+	BEFORE = 1; //未开始
+	BATTLING = 2; //进行中
+	OVER = 3; //已经击杀
+	END = 4; //已经结束
+}
+
+message BossInfo {
+	required int32 id = 1;
+	required BOSS_STATUS bOSS_STATUS = 2;
+	required string open_date = 3; //开放时间
+}
+
+message BossDetailReq {
+	required int32 id = 1;
+}
+
+message BossDetailResp {
+	required int32 id = 1;
+	required int32 hp = 2; //血量
+	required int32 countDown = 4; //unit:s
+	required RankHuntLogList rankHuntLogList = 5;
+	required HuntLogInfo mineHunt = 6; //自己伤害量
+	required int32 totalHp = 7; //总血量
+	optional HuntLogInfo maxHuntInfo = 8; //最大伤害值
+}
+
+message RankHuntLogList {
+	repeated HuntLogInfo huntLogInfo = 1; //排行榜伤害
+}
+//玩家攻打后,更新boss信息
+message BossDetailUpdate {
+	required int32 hp = 1; //血量
+	optional HuntLogInfo huntLogInfo = 2; //
+	optional int32 countDown = 3;
+}
+
+//前台根据百分比排序
+message HuntLogInfo {
+	required string name = 1;
+	required int32 addtion = 2;
+	required int32 hunt = 3; //伤害
+}
+//复活加速
+message BossCdAccrResp {
+	required int32 cd = 1; //如果成功则返回0,未成功则返回当前cd时间
+}
+//后台push包[定点开启或者boss战结束是push]
+message BossStatusResp {
+	required BOSS_STATUS status = 1; //
+	required int32 hp = 2;
+}
+//增加号令值回包
+message BossAddtionResp {
+	required int32 addtion = 1; //最新号令值
+}
+

@@ -1,0 +1,129 @@
+package com.dh.game.vo.item;
+
+import "com/proto/vo/BaseProto.proto";
+
+//竞技场明细
+message AnernaDetailResponse {
+	repeated OtherAnernaInfo otherAnernaInfo = 1;
+	optional string win3dayRoleName = 2; //三日最高连胜角色名
+	optional int32 win3dayTimes = 3; //三日最高连胜场次
+	required MyAnernaInfo myAnernaInfo = 4;
+	required int32 costPvp = 5; //每次挑战消耗竞技值
+	required string balanceDate = 6; //结算截止日期
+	optional BattleRecord battleRecord = 7;
+}
+
+//前三名信息
+message OtherAnernaInfo {
+	required int32 order = 1; //排名
+	required string nick = 2; //尼称
+}
+
+//我的信息
+message MyAnernaInfo {
+	required int32 toporder = 1; //历史最高排名
+	required int32 topcwin = 2; //历史最高连胜
+	required int32 curorder = 3; //当前排名
+	required int32 curcwin = 4; //当年连胜
+	required int32 curc3win = 5; //本期最高连胜
+	required int32 challengeReMainTime = 7; //挑战失败剩余时间（秒）
+	required int32 enemRemainTime = 8; //对手刷新剩余时间
+	repeated EmenAnernaInfo emenAnernaInfo = 9; //对手信息
+	repeated int32 defHeroIds = 10; //防守阵容
+	required int32 rewardid1 = 11; //
+	required int32 rewardid3 = 12; //
+	required int32 reward1RemainTime = 13; //单日奖励剩余时间
+	required int32 reward3RemainTime = 14;
+	required int32 lastRank = 15; //上期排名
+	required int32 lastSuccWin = 16; //上期最高连胜
+}
+
+//对手信息
+message EmenAnernaInfo {
+	required int32 playerid = 1;
+	required int32 headIcon = 2;
+	required int32 level = 3;
+	required string nick = 4;
+	required int32 combat = 5;
+	required int32 ordernum = 6; //排名
+}
+
+//查看对手的防守阵容
+message LookDefanceTeamRequest {
+	required int32 playerid = 1; //对手的id
+}
+
+message LookDefanceTeamResponse {
+	repeated FinalHero finalHero = 1;
+}
+
+//换一批对手
+message ChangeEmenResponse {
+	required int32 enemRemainTime = 1; //对手刷新剩余时间
+	repeated EmenAnernaInfo emenAnernaInfo = 2; //对手信息
+}
+
+//更新防守阵容
+message UpdateDefanceTeamRequest {
+	repeated int32 defHeroIds = 1; //防守阵容
+}
+
+//领取奖励
+message RewardJCCRequest {
+	optional int32 rewardid1 = 1; //
+	optional int32 rewardid3 = 2; //
+}
+
+message RewardJCCResponse {
+	optional int32 rewardid1 = 1; //
+	optional int32 reward1RemainTime = 2; //单日奖励剩余时间
+	optional int32 rewardid3 = 3; //
+	optional int32 reward3RemainTime = 4;
+	optional int32 lastRank = 15; //上期排名
+	optional int32 lastSuccWin = 16; //上期最高连胜
+}
+
+//战报
+message BattleRecordResponse {
+	repeated BattleRecord battleRecord = 1;
+}
+
+enum RECORDTYPE {
+	DEF = 0; //防守
+	ATK = 1; // 进攻
+}
+
+enum RECORDSUCC {
+	FAIL = 0; //失败
+	SUCC = 1; // 胜利
+}
+
+message BattleRecord {
+	required RECORDTYPE type = 1; //攻击或被攻击
+	required string name = 2; //对方的名字
+	required RECORDSUCC result = 3; //结果
+	required int32 orderNum = 4; //排名
+	required string battleTime = 5;
+}
+
+
+message ArenaRankRequest {
+	required int32 page = 1;//页码
+}
+
+message ArenaRankResponse {
+	required int32 page = 1;//页码
+	repeated RankInfo rankInfo = 2;
+}
+
+message RankInfo {
+	required int32 playerId = 1;
+	required string nick = 2;
+	required int32 level = 3;
+	required int32 combat = 4;
+	optional string legion = 5; //军团
+	required int32 viplevel = 6;
+	required int32 order = 7; //排名
+
+}
+

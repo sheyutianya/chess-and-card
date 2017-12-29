@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Game.Pack;
+using System;
 using UnityEngine;
+using ZyGames.Framework.Common.Serialization;
 
 /// <summary>
 /// 游戏Action接口
@@ -23,8 +25,12 @@ public abstract class GameAction
     public byte[] Send(ActionParam actionParam)
     {
         NetWriter writer = NetWriter.Instance;
-        SetActionHead(writer);
-        SendParameter(writer, actionParam);
+
+        MessagePack headBuffer = new MessagePack();
+        headBuffer.ActionId = ActionId;
+        headBuffer.MsgId = Head.MsgId;
+        writer.SetHeadBuffer(ProtoBufUtils.Serialize(headBuffer, false));
+
         return writer.PostData();
     }
 

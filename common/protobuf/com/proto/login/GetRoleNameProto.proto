@@ -1,0 +1,9 @@
+package com.dh.game.vo.login;
+
+message GetRoleNameRequest {
+	required int32 headIcon = 1; //1男2女
+}
+
+message GetRoleNameResponse {
+	required string name = 1;
+}

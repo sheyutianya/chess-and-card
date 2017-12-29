@@ -1,0 +1,41 @@
+
+message C2SActivityList{//活动列表ACTIVITY_LIST= 10001
+}
+message S2CActivityList{//活动列表
+	repeated ActivityInfo infos = 1;
+}
+
+message ActivityInfo{
+	required int32 id = 1 [default = 0];//活动ID
+	required string name = 2 [default=""];//活动名称
+	required string icon = 3 [default=""];//活动图标
+	required int32 number = 4 [default=0];//活动编号，排序用
+	optional string description = 5 [default=""];//活动说明
+	optional int64 startTime = 6 [default=0];//开始时间
+	optional int64 endTime = 7 [default=0];//结束时间
+	optional string parameter = 8[default=""];//json串活动具体参数已经完成度 内容参数
+}
+
+message C2SActivityDraw{//领取奖励ACTIVITY_DRAW= 10002
+	required int32 id = 1 [default = 0];//活动ID
+	optional string parameter = 2[default=""];//json串领取参数
+}
+
+message S2CActivityDraw{//领取奖励结果
+	required int32 id = 1 [default = 0];//活动ID
+	optional string parameter = 2[default=""];//json串领取参数
+}
+/*
+ * json参数说明
+ * 登录有礼：
+ *	活动内容参数
+ * 	{"sum":7,"progress":1,"entry":[{"day":1,"items":[{"id":1001,"num":3},{"id":1002,"num":3}],"status":1},{"day":2,,"items":[{"id":1001,"num":3},{"id":1002,"num":3}]"status":2}]}
+ * 	sum 总天数，    progress 进度天数       entry条目      day累计天数   items奖励物品 id 道具ID num 道具数量  status 状态(1已领取，2可领取 3未达成)
+ * 	领取奖励请求参数
+ * 	{"day":1}
+ *   day天数
+ * 	领取奖励结果参数
+ * 	{"result":0,"items":[{"id":1001,"num":3},{"id":1002,"num":3}]}
+ *    result结果 0成功,小于0失败 具体错误原因参考错误码定义
+ */
+

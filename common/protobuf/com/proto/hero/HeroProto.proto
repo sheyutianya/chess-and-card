@@ -1,0 +1,100 @@
+package com.dh.game.vo.hero;
+
+//英雄升级
+message HeroLevelUpRequest {
+	required int32 heroId = 1;
+}
+
+//英雄升星
+message HeroStarUpPreRequest {
+	required int32 heroId = 1;
+}
+
+message HeroStarUpPreResponse {
+	required int32 heroId = 1; //英雄id
+	required int32 cfgId = 2; //升星后英雄模型id
+	required int32 star = 3; //星级
+	required int32 hp = 4; // 生命
+	required int32 atk = 5; // 远程攻击
+	required int32 def = 6; // 远程防御
+	required int32 matk = 7; // 远程攻击
+	required int32 mdef = 8; // 远程防御
+	required int32 atk_speed = 9; // 攻速
+	required int32 cir_rate = 10; // 暴击率
+	required int32 hit = 11; // 命中
+	required int32 dodge = 12; // 闪避
+	required int32 range = 13; // 攻击范围
+	required int32 combat = 14; //战斗力
+	required int32 maxLevel = 15;
+	//required int32 move_speed = 15; // 移动速度
+	required int32 itemCfgId = 16; //材料
+	required int32 itemNum = 17;
+	required int32 itemReqNum = 18;
+	required int32 heroCardId = 19; //英雄卡的物品配置id
+	required int32 heroCardNum = 20; //玩家升星可用英雄卡 数量
+	required int32 heroCardReqNum = 21; //升星所需 英雄卡 数量
+	required int32 reqLevel = 22; //升星所需等级
+	required int32 reqMoney = 23; //升星所需银两
+}
+
+//进入招蓦页面下行
+message HeroRecruitPageResponse {
+	repeated Recruit recruit = 1;
+	required int32 score = 2;
+	optional int32 freeMoneyTimes = 4;
+	repeated HeroAdvance heroAdvance =5 ;//广告
+}
+
+//招蓦广告
+message HeroAdvance {
+	required string nick = 1;
+	required int32 star = 2; //星级
+	required string heroName = 3;
+}
+
+message Recruit {
+	required RECRUIT_TYPE type = 1; //
+	required int32 price = 2;
+	required int32 remainTime = 3; //CD剩余时间(秒)
+	required int32 isfirst = 4; //是否首次招蓦
+}
+
+//招蓦英雄
+message HeroRecruitRequest {
+	required RECRUIT_TYPE type = 1;
+}
+
+message HeroRecruitResponse {
+	required Recruit recruit = 1;
+	required int32 score = 2;
+	repeated HeroRecruitCard heroRecruitCard = 3;
+	optional int32 freeMoneyTimes = 4;
+}
+
+message HeroRecruitCard {
+	required int32 cfgid = 1;
+	required int32 url = 2;
+	required string name = 3;
+	required int32 type = 4; // 1英雄卡 0 不是英雄卡(道具)
+	optional int32 race = 5 [default = 0];
+}
+
+//计算驱逐经验值
+message RemoveHeroPreRequest {
+	required int32 heroId = 1;
+}
+
+message RemoveHeroPreResponse {
+	required int32 heroId = 1;
+	required int32 exp = 2;
+}
+
+//招蓦类型
+enum RECRUIT_TYPE {
+	TYPE_MONEY = 1; //游戏币招
+	TYPE_RMB = 2; // 元宝抽
+	TYPE_RMB10 = 3; //10连抽
+	//	TYPE_SCORE = 4; //积分抽
+	TYPE_MONEY10 = 5; //银两10连抽
+}
+

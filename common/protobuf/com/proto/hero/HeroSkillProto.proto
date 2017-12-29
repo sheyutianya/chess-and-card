@@ -1,0 +1,37 @@
+package com.dh.game.vo.hero;
+//import "com/proto/vo/BaseProto.proto";
+
+
+//主动技能升级
+message HeroSkillUpLevelRequest {
+	required int32 heroId = 1;
+}
+
+message HeroSkillUpLevelResponse {
+	required int32 heroId = 1;
+	required int32 skillLevel = 2;
+}
+
+//刷新被动技能请求
+message SkillRefreshRequest {
+	required int32 heroId = 1;
+}
+
+
+//刷被技能
+message SkillRefreshResponse {
+	required int32 heroId = 1;
+	repeated int32 skillid = 2;
+}
+
+
+//替换技能
+message SkillReplaceRequest {
+	required int32 heroId = 1;
+	repeated int32 status = 2;
+}
+
+message SkillReplaceResponse {
+	required int32 heroId = 1;
+	repeated int32 passivesSkill = 29;
+}

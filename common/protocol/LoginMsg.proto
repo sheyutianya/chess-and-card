@@ -1,0 +1,64 @@
+
+message C2SGuide{//检查是否完成站前引导 1019
+	required string deviceId = 1;//设备号ID
+}
+message S2CGuide{
+	required bool isGuide = 1 [default = false];//是否完成站前引导
+	optional string version=2;//版本信息
+	optional string notice =3;//公告内容
+	optional bool   isRelease = 4[default = false];//是否为正式环境 正式环境true 测试环境false
+	optional string jpushSuffix = 5[default = ""];//推送账号后缀 正式服 没有后缀 测试服 test Android公测服 beta
+}
+message C2SLogin {//登录
+	required string account = 1;//账号
+	optional string password = 2;//密码
+	required int32 clientType = 3 [default = 0];//账号类型:0普通玩家账号,1游客账号
+	required int32 channelId = 4 [default = 10001];//渠道ID 10001自有渠道
+	required int32 loginType = 5[default=0];// 登陆方式
+	required string deviceType = 6[default = "pc"];//设备类型 pc-电脑，ios-ios设备，android-android设备
+	required string deviceId = 7;//设备号
+	optional string parameters = 8;//第三方登录透传参数 用josn 串方便扩展
+	optional string nickName = 9;// 昵称
+	optional string versionNo = 10;// 版本号(用于版本验证和兼容)
+	optional string fbtoken = 11;//jodo facebook  token
+	optional string cpid = 12;//jodo cpId
+	optional string gameid = 13;//jodo gameid
+	optional string jodochannelid =14;//jodo channelid
+	optional string pn =15;//jodo pn
+	optional string puid =16;//jodo puid
+	optional string userip =17;//jodo userip
+}
+message S2CLogin {
+	required int64 userId = 1;//登录成功返回账号ID
+	required AreaInfo areaInfo = 2;
+	optional int32 isFirstLogin = 3[default=0];//是否为第一次登陆 0-否 1-是
+	required int32 channelId = 4; // 渠道ID
+	optional string jodouid = 5;//
+	optional string jodotoken = 6;
+}
+
+message C2SBindAccount {//绑定账号 BIND_ACCOUNT=1014
+	required string account = 1;//账号
+	required string password = 2;//密码
+ 	required int32 channelId = 3 [default = 10001];//渠道ID 10001自有渠道
+ 	required int32 loginType = 4[default=0];//登陆方式
+ 	optional string fbtoken = 5;//jodo facebook  token
+	optional string cpid = 6;//jodo cpId
+	optional string gameid = 7;//jodo gameid
+	optional string jodochannelid =8;//jodo channelid
+	optional string pn =9;//jodo pn
+	optional string puid =10;//jodo puid
+	optional string userip =11;//jodo userip
+}
+message S2CBindAccount{
+	required int32 reslut = 1[default=0];//结果 0成功
+	optional string jodouid = 2;//
+	optional string jodotoken = 3;
+}
+message AreaInfo {//分区信息
+	required int32 id = 1;			                //类型id,对应数据表定义
+	required string name = 2;			            //分区名
+	required string areaIp = 3;			            //分区ip地址
+	required int32 areaPort = 4;			        //分区端口
+	required int32 status = 5;                      //分区状态1 满载 2 繁忙 3 通畅 4 空闲 11维护
+}

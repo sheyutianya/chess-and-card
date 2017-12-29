@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZyGames.Framework4.5", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountServerConsole", "AccountServer\AccountServerConsole.csproj", "{E6364DB8-8867-41C7-8816-2ADD1ADDA968}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game.Pack", "Game.Pack\Game.Pack.csproj", "{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +94,16 @@ Global
 		{E6364DB8-8867-41C7-8816-2ADD1ADDA968}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E6364DB8-8867-41C7-8816-2ADD1ADDA968}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E6364DB8-8867-41C7-8816-2ADD1ADDA968}.Release|x86.ActiveCfg = Release|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C52DFD7B-65BE-4478-A3E6-2E9554D63FE1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

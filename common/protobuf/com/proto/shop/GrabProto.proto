@@ -1,0 +1,33 @@
+package com.dh.game.vo.grab;
+
+import "com/proto/vo/BaseProto.proto";
+enum RATETYPE {
+	LOW = 1; //	5%~10%显示：低
+	MEDIUM = 2; //	11%~20%显示：中等
+	HIGH = 3; //	21%~30%显示：高
+	HIGHER = 4; //	31%~40%显示：较高
+	HIGHEST = 5; //	41%~50%显示：极高
+}
+
+//获取夺宝列表
+message GrabListRequest {
+	required int32 itemCfgid = 1;
+}
+
+message GrabListResponse {
+	required int32 itemCfgid = 1;
+	repeated GrabRoleInfo grabRoleInfo = 2;
+	required int32 costpvp = 3; //夺宝每次消耗costpvp点竞技值
+	required int32 remaintime = 4; //剩余刷新时间(秒)
+	required int32 changeEnempvp = 5; //换一批对手的消耗
+}
+
+//玩家数据
+message GrabRoleInfo {
+	required int32 playerId = 1;
+	required string name = 2;
+	required int32 combat = 3;
+	required RATETYPE rate = 4; //掉宝
+	repeated FinalHero finalHero = 5;
+}
+

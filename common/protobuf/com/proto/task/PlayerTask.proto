@@ -1,0 +1,14 @@
+package com.dh.game.vo.task;
+
+import "com/proto/vo/BaseProto.proto";
+
+//响应任务信息
+message TaskInfoResponse {
+	repeated MyTask myTask = 1;
+}
+
+
+//接任务,交任务
+message ReceiveTaskRequest {
+	required int32 taskId = 1;
+}

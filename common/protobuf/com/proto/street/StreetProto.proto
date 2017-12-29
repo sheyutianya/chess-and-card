@@ -1,0 +1,295 @@
+package com.dh.game.vo.street;
+
+import "com/proto/vo/BaseProto.proto";
+//主界面回包
+message StreetHomeResp {
+	required StreetStatus status = 1; //[0:空闲,1:有事情发生,2:有产出]
+	repeated StreetGridInfo streetGridInfo = 2;
+	required int32 boxLeft = 3; //宝箱剩余刷新时间unit:s
+	required int32 monsterLeft = 4; //怪物刷新剩余时间unit:s
+	repeated int32 mid = 5; //器械
+	repeated int32 fid = 6; //阵法
+}
+
+message StreetStatus {
+	required int32 isResAtked = 1; //资源点被攻击
+	required int32 isCenterAtked = 2; //1表示被攻击
+}
+
+message GridFreshReq {
+	required int32 type = 1; //1:宝箱,2:怪物
+}
+
+message GridFreshResp {
+	repeated StreetGridInfo streetGridInfo = 1;
+	required int32 boxLeft = 3; //宝箱剩余刷新时间unit:s
+	required int32 monsterLeft = 4; //怪物刷新剩余时间unit:s
+}
+
+//已开启的资源点[可能有五种状态:可以达到(如果等级等条件满足则可开启),空白,资源点,宝箱,怪物]
+message StreetGridInfo {
+	required int32 id = 1; //id从0开始
+	optional StreetResInfo streetResInfo = 2; //如果有资源点
+	optional int32 boxId = 3; //是否有宝箱
+	optional MonsterInfo monsterInfo = 4; //怪物组
+	optional OPEN_STATUS openStaus = 5; //开启状态[1:已经开启,但是没内容2:可以达到,3:有内容]
+}
+
+message MonsterInfo {
+	required int32 monsterId = 1; //有怪物1
+	required int32 url = 2;
+	required int32 level = 3;
+	required string name = 4; //名字
+}
+
+enum OPEN_STATUS {
+	OPEN_NOCENTENT = 1; //已开启,但无内容
+	REACHABLE = 2; //可达
+	OPEN_CONTENT = 3; //有内容
+}
+
+message StreetResInfo {
+	required int32 status = 1; //[资源点状态{0:空闲,1:自己占有,2:被别人占有}]
+	required int32 id = 2; //格子id
+	repeated ResItemInfo resItemInfo = 3; //产出道具
+}
+
+enum RES_STATUS {
+	FREE = 0; //空闲
+	OWN = 1; //拥有
+	OCCUPY = 2; //被占有
+}
+
+message ResItemInfo {
+	required int32 cfgId = 1; //道具id
+	required int32 type = 2;
+}
+//领取资源点奖励
+message ResRewardReq {
+	required int32 resId = 1;
+	optional int32 type = 2; //需要领取的类型
+}
+
+message ResRewardResp {
+	required StreetResInfo streetResInfo = 1;
+}
+//一键领取资源点奖励
+message ResRewardAllResp {
+	repeated StreetResInfo streetResInfo = 1;
+}
+
+//开宝箱
+message BoxRewardReq {
+	required int32 gridId = 1;
+}
+
+message BoxRewardResp {
+	required StreetGridInfo streetGridInfo = 1;
+}
+
+//开启云雾请求
+message OpenGridReq {
+	required int32 id = 1; //格子id
+}
+
+message OpenGridResp {
+	repeated StreetGridInfo streetGridInfo = 1;
+}
+//搜索猎食
+message HuntReq {
+	required int32 resId = 1;
+	required int32 type = 2; //0:搜索玩家,1:获取已经搜索但是未攻打
+}
+//复仇请求
+message EnemyCenterReq {
+	required int32 enemyId = 1; //复仇的敌人id
+}
+
+message EnemyCenterResp {
+	required int32 headIcon = 2; //玩家头像
+	required int32 level = 3; //玩家等级
+	required string nick = 4; //玩家昵称
+	required int32 combat = 5; //战斗力
+	required int32 playerId = 8; //对手id
+	repeated FinalHero finalHero = 9;
+	repeated int32 machineId = 10;
+	optional int32 fzId = 11;
+	required int32 vip = 12;
+	required int32 exp = 13;
+	required int32 money = 14;
+}
+//资源详细信息请求
+message ResInfoReq {
+	required int32 resId = 1;
+}
+
+//资源点信息回包
+message ResInfoResp {
+	required int32 resId = 1;
+	required int32 timeLeft = 2;
+	repeated FinalHero finalHero = 9;
+	repeated int32 machineId = 10;
+	optional int32 fzId = 11;
+}
+
+message HuntResp {
+	required int32 resId = 1; //资源点id
+	required int32 headIcon = 2; //玩家头像
+	required int32 level = 3; //玩家等级
+	required string nick = 4; //玩家昵称
+	required int32 combat = 5; //战斗力
+	required int32 timeLeft = 7; //剩余开采时间.unit:s
+	required int32 playerId = 8; //对手id
+	repeated FinalHero finalHero = 9;
+	repeated int32 machineId = 10;
+	optional int32 fzId = 11;
+	required int32 vip = 12;
+}
+//获取资源点驻守队伍
+message StreetDefendTeamReq {
+	required int32 resId = 1;
+}
+
+message StreetDefendReq {
+	required int32 resId = 1;
+	repeated int32 heroId = 2;
+	repeated int32 machineId = 3;
+	optional int32 fzId = 4;
+}
+//放弃驻守
+message StreetQuitDefReq {
+	required int32 resId = 1;
+}
+
+message StreetDefendResp {
+	required int32 resId = 1;
+	repeated int32 heroId = 2;
+	repeated int32 machineId = 3;
+	optional int32 fzId = 4;
+}
+//军械库回包
+message FactoryResp {
+	repeated int32 mIds = 1;
+	repeated int32 fIds = 2;
+}
+//升级
+message FactoryUpReq {
+	required int32 cfgId = 1;
+	required int32 type = 2;
+}
+
+message FactoryUpResp {
+	required int32 cfgId = 1;
+	required int32 type = 2;
+}
+
+//制造
+message FactoryMakeReq {
+	required int32 cfgId = 1;
+	required int32 type = 2; //[1:器械,2:法阵]
+}
+
+message FactoryMakeResp {
+	required int32 cfgId = 1;
+	required int32 type = 2;
+}
+
+//一览
+message BriefLogResp {
+	repeated BriefLogInfo briefLogInfo = 1;
+}
+
+message BriefLogInfo {
+	required int32 type = 1; //资源点了类型
+	required int32 total = 2;
+	required int32 producing = 3; //正在生产
+}
+//情报回包
+message BattleLogResp {
+	repeated BattleLogInfo battleLogInfo = 1;
+}
+
+message BattleLogInfo {
+	required string name = 1;
+	required int32 playerId = 2;
+	required int32 atkTime = 3; //攻击时间
+	required bool isSucc = 4; //战斗结果
+	repeated RewardInfo rewards = 5;
+	required int32 type = 6; //[战斗位置,其它参考cfg_resource]
+	optional bool isRevenge = 7; //是否已经复仇
+	required int32 id = 8;
+	optional int32 money = 9; //银两数,如果是攻击方则显示获得,如果是被攻击方则是失去
+	optional int32 expc = 10; //经验池,如果是攻击方则显示获得,如果是被攻击方则是失去
+	required int32 isAtk = 11; //是否是攻击方
+	required int32 isReward = 12; //是否已经领奖
+}
+
+//奖励还是损失根据输赢判断
+message RewardInfo {
+	required int32 type = 1;
+	optional int32 content = 2; //对于类型1,这里直接传递物品cfgId
+	required int32 number = 3; //奖励数量;
+}
+//领取战报奖励
+message LogRewardReq {
+	required int32 id = 1; //战报id
+}
+
+message LogRewardResp {
+	required int32 id = 1;
+}
+
+message EnemyLogResp {
+	repeated EnemyLogInfo enemyLogInfo = 1;
+}
+
+enum ENEMY_STATUS {
+	ENEMY_REVENG = 1; //已经复仇
+}
+//更新敌人状态
+message EnemyUpdateResp {
+	required ENEMY_STATUS status = 1; //更新敌人状态
+	required int32 enemyId = 2;
+}
+
+message EnemyLogInfo {
+	required int32 headIcon = 1;
+	required string name = 2;
+	required int32 level = 3;
+	required bool whosyourdaddy = 4; //是否开启封山令,开了true
+	required int32 playerId = 5; //等级
+	required bool isRevenge = 6; //是已经复仇
+}
+//更新格子信息
+message UpGridResp {
+	required StreetGridInfo streetGridInfo = 1;
+}
+
+enum GRID_FRESH_TYPE {
+	FRESH_TYPE_ATKED = 1; //表示资源点被攻下
+	FRESH_TYPE_OWN_SUCC = 2; //成功占有资源点
+	FRESH_TYPE_REVENGE_SUCC = 3; //复仇成功
+}
+
+message GridAtkFreshResp {
+	required GRID_FRESH_TYPE type = 1;
+	required int32 resId = 2;
+}
+//需要刷新的资源点id,回包会UpgridResp
+message GridAtkFreshReq {
+	required int32 resId = 1;
+}
+
+message ResBaseInfoResp {
+	repeated ResHeroInfo resHeroInfo = 1;
+}
+
+message ResHeroInfo {
+	required int32 heroId = 1;
+	required string resName = 2;
+}
+
+
+
+
+

@@ -1,0 +1,30 @@
+package com.dh.game.vo.build;
+
+import "com/proto/vo/BaseProto.proto";
+//议事堂详细数据
+message YiSiTangDetailResponse {
+	required BuildInfo buildInfo = 1;
+	required GetSalaryResponse salary = 2;
+}
+
+//领取俸禄
+message GetSalaryResponse {
+	required int32 salaryStep = 1;
+	required int32 salaryRemainTime = 2; //领奉剩余时间
+	required int32 haveSalary = 4; // 0 今日俸禄已领完 1 还有俸禄可领
+	required int32 salary = 5; //　可以领取的俸禄
+	required int32 cd = 6; // 冷确时间
+}
+
+//建筑升级请求
+message BuildUpLevelRequest {
+	required BUILDID buildId = 1;
+}
+
+message BuildUpLevelACCRequest {
+	required BUILDID buildId = 1;
+	optional int32 type = 2 [default = 0]; // 0用冷确符 1 用元宝
+}
+
+
+

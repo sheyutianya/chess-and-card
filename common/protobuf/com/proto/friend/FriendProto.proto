@@ -1,0 +1,58 @@
+package com.dh.game.vo.friend;
+
+import "com/proto/vo/BaseProto.proto";
+enum FriendType {
+	FRIEND = 1;
+	BLACK = 2;
+}
+
+message FriendListResp {
+	repeated FriendInfo friends = 1;
+	repeated FriendInfo blacks = 2; //黑名单
+}
+
+enum FriendModType {
+	ADD = 1; //添加好友
+	DEL = 2; //删除好友
+	TO_BLACK = 3; //加入黑名单
+	OUT_BLACK = 4; //取消加入黑名单
+	ADDFRIEND_DELBLACK = 5; //加入好友,从黑名单删除
+	TO_BLACK_DELFRIEND = 6; //加入黑名单,删除好友
+}
+
+enum FriendModResult {
+	FRIEND_MOD_SUCC = 1; //成功
+	FRIEND_EXIST = 2;
+	PLAYER_NOT_EXIST = 3;
+	FRIENDS_FULL = 4; //好友达到上限
+}
+//修改朋友请求
+message FriendModReq {
+	required FriendModType friendModType = 1;
+	required int32 playerId = 2;
+	optional string name = 3; //通过名字修改
+}
+
+message FriendModResp {
+	optional FriendModType friendModType = 1;
+	optional FriendInfo friendInfo = 2; //删除里面只有playerId
+	required FriendModResult friendModResult = 3;
+}
+
+//查看玩家信息
+message FriendDetailReq {
+	required int32 playerId = 1;
+}
+
+message FriendDetailResp {
+	required string name = 1;
+	required string legionName = 2;
+	required int32 chapter = 3; //副本进度章节
+	required int32 raidId = 4;
+	required int32 vip = 5;
+	required int32 headIcon = 6; //头像
+	required int32 url = 7;
+	required int32 level = 8;
+	required FriendType friendType = 9;
+	repeated MyHero heros = 10;
+}

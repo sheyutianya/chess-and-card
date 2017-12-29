@@ -1,0 +1,21 @@
+
+message C2SCheckLogin { //游戏服登陆校验，测试用而已，cmd=GAME_CHECK_LOGIN = 1004;
+	required int64 userId = 1; // 账号id,其实是userId,
+	optional int32 areaId = 3;//区服
+	optional string nickname = 4;//昵称
+	optional string icon = 5;//头象链接
+	optional string versionNo = 6;// 版本号(用于版本验证和兼容) 
+}
+
+message S2CCheckLogin { //游戏服登陆校验，cmd=GAME_CHECK_LOGIN = 1004;
+	required int64 playerId = 1; // 角色ID 0=还没有公会
+}
+message C2SSystemPlayerName{//获取系统推荐角色名 cmd = SYSTEM_PLAYER_NAME
+
+}
+message S2CSystemPlayerName{
+	required string playerName =1;
+}
+message C2SModifyPlayerName{//角色改名，cmd = MODIFY_PLAYER_NAME,返回通用结果
+	 required string playerName =1;
+ }

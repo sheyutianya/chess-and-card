@@ -1,0 +1,46 @@
+package com.dh.game.vo.raid;
+
+//副本列表
+message ManyPeopleListRequest {
+	required int32 raidid = 1; //副本id
+}
+
+message ManyPeopleListResp {
+	required int32 raidid = 1; //副本id
+	repeated ManyPeopleRaidTeamInfo teamInfo = 2;
+	required int32 times = 3; //今日可打多人副本次数
+}
+
+//创建队伍请求
+message CreateManyPeopleTeamReq {
+	required int32 raidid = 1; //副本id
+	required int32 reqLevel = 2; //等级下限
+	required bool isAutoStart = 3; //是否自动开始
+	required string password = 4; //密码
+}
+
+//队伍详情
+message ManyPeopleTeamDetail {
+	required int32 teamId = 1; //队伍id
+	repeated MemberInfo memberInfo = 6; //成员信息列表
+}
+
+//列表显示的队伍信息
+message ManyPeopleRaidTeamInfo {
+	required int32 teamId = 1; //队伍
+	required string nick = 2; //队长名字
+	required int32 number = 3; //当前人数
+	required int32 personLimit = 4; //人数上限
+	required bool isLock = 5; //是否有密码
+	required int32 reqLevel = 6; //等级下限
+}
+
+//成员信息
+message MemberInfo {
+	required int32 playerId = 1;
+	required int32 headIcon = 2; //头像
+	required string nick = 3;
+	required int32 combat = 4; //战斗力
+	required bool isLeader = 5; //是否队长
+	required int32 state = 6; //状态 0无  1准备好
+}

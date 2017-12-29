@@ -1,0 +1,56 @@
+package com.dh.game.vo.item;
+
+//穿，脱装备请求
+message FitEquipRequest {
+	required int32 itemId = 1; //物品ID
+	required int32 heroId = 2; //英雄ID
+}
+//穿，脱装备回应
+message FitEquipResponse {
+	optional int32 itemId = 2; //物品ID
+	optional int32 heroId = 3; //英雄ID
+}
+
+//装备强化和升星请求
+message EquipChangeRequest {
+	required int32 heroId = 1; //英雄cfg id
+	required int32 itemId = 2; //物品id
+}
+
+//合成请求
+message ComposeItemRequest {
+	required int32 itemResultId = 1; //成品cfgid
+	required int32 number = 2; //数量
+}
+
+//镶嵌
+message GemSetRequest {
+	required int32 heroId = 1; //英雄cfg id
+	required int32 equipItemId = 2; //装备物品id
+	required int32 gemCfgId = 3; //宝石id
+}
+
+message GemPickRequest {
+	required int32 heroId = 1; //英雄cfg id
+	required int32 equipItemId = 2; //装备物品id
+	required int32 pos = 3; //1-4 宝石位置
+}
+
+//装备开孔
+message OpenHoleRequest {
+	required int32 heroId = 1; //英雄cfg id
+	required int32 equipItemId = 2; //装备物品id
+	required int32 pos = 3; //1-4 宝石位置
+}
+
+//装备护佑
+message ProtectionRequest {
+	required int32 heroId = 1; //英雄cfg id
+	required int32 equipItemId = 2; //装备物品id
+	required PROTECTTYPE type = 3;
+}
+//护佑升级类型
+enum PROTECTTYPE {
+	RUNE = 1; //符文
+	MONEY = 2; //银两
+}

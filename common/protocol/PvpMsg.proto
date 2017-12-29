@@ -1,0 +1,189 @@
+
+import "GuildMsg.proto";
+message C2SBrath{//开启PVP CMD =4001，返回通用结果
+
+}
+
+message C2SPvpTechnologyList{//pvp 科技列表 CMD =4201
+
+}
+message S2CPvpTechnologyList{
+	repeated PvpTechnologyInfo technologyInfo = 1;
+}
+
+message C2SPvpTechnologyUp{//科技升级 cmd = 4204 返回通用结果
+	required int32 techId =1[default=0];//科技ID
+}
+
+message C2SPvpMainCityCollect{//收集主城产出资源 cmd = 4205 返回通用结果
+	repeated int32 type = 1;//收集类型 1，金币 2，钻石  3，经验药水
+}
+message C2SPvpStoreHose{//仓库CMD=4206
+
+}
+message S2CPvpStoreHose{
+	required int32 goldlevel = 1[default=0];//金币仓库等级
+	required int32 diamondlevel = 2[default=0];//钻石仓库等级
+	required int32 expriencelevel = 3[default=0];//经验药水仓库等级
+	required int32 gold = 4[default=0];//金币
+	required int32 diamond = 5[default=0];//钻石
+	required int32 experience = 6[default=0];//经验药水
+
+}
+message C2SPvpMainCity{//主城CMD=4207
+
+}
+message S2CPvpMainCity{
+	required int32 level = 1[default=0];//等级
+	required int32 food =2[default=0];//粮草
+ 	required int32 wood =3[default=0];//木材
+ 	required int32 metal =4[default=0];//金属
+ 	required int32 granite =5[default=0];//水晶矿脉
+ 	required int32 marble =6[default=0];//大理石
+}
+message C2SPvpMainCityUp{//主城升级CMD=4208  返回通用结果
+
+}
+message C2SPvpStoreHoseUp{//仓库升级CMD=4209  返回通用结果
+	required int32 type = 1[default=1];//升级对象，1金币仓库，2，钻石仓库3经验药水仓库
+}
+message C2SCityList{//城池列表 CMD =4002
+
+}
+message S2CCityList{
+	repeated CityInfo citys=1;
+}
+message C2SCloudList{//云块列表 CMD =4003
+
+}
+message S2CCloudList{
+	repeated CloudInfo cloud=1;//云块讯息
+}
+message C2SDrawChets{//领取宝箱 CMD = 4012
+	required int32 cloudId=1[default=0];//云块ID
+}
+message S2CDrawChets{
+	required int32 num = 1[default=0];//奖励数量
+}
+message C2SOpenCloud{//开启云块,返回通用协议 CMD=4004
+	required int32 cloudId=1[default=0];//云块ID
+	required int32 fightingForce =2 [default=0];//战斗力 玩家的战斗力
+}
+
+
+message C2SPvpStronghold{//黄巾据点CMD=4202
+
+}
+message S2CPvpStronghold{
+	required int32 stageId=1[default=0];//关卡ID
+}
+
+message C2SPvpPutOutFire{//灭火Cmd=4203
+	required int32 type = 1[default=0];//灭火类型 0自己城池灭火，1好友灭火
+	required int32 cityId =2[default=0];//城池ID
+	optional int64 playerId=3[default=0];//好友ID
+}
+message S2CPvpPutOutFire{//灭火
+	repeated Item items=1;//灭火奖励
+}
+
+//message C2SInvestigate{//侦查 CMD=4005
+//	required int32 cityId = 1[default=0];//城池ID
+//}
+//message S2CInvestigate{
+//	required CityInfo cityInfo = 1;//全新的城池防守讯息
+//}
+
+
+message C2SInvestigateClose{//侦查\更换阵容 ，开启或者关闭事件 CMD=4006
+	required int32 cityId = 1[default=0];//城池ID
+	required bool type = 2[default=true];//true开启，false关闭
+}
+
+message C2SPVPChanageComp{//更换\驻守阵容 返回通用结果 CMD=4007
+	required int32 cityId = 1[default=0];//城池ID
+	repeated int32 heroIds = 2;//调整后的阵容
+	optional int32 fightingForce =3 [default=0];//战斗力,阵容的战斗力
+}
+
+message C2SPVPChanageMatch{//更换对手 CMD=4011
+	required int32 cityId = 1[default=0];//城池ID
+	required int32 fightingForce =2 [default=0];//战斗力 玩家的战斗力
+}
+
+message S2CPVPChanageMatch{
+	required CityInfo cityInfo = 1;//全新的城池防守讯息
+}
+
+message C2SPVPFightStart{//并推送最新的城池信息 CMD=4008
+	required int32 cityId = 1[default=0];//城池ID
+	repeated int32 heroIds = 2;//参战英雄列表
+	required int32 fightForce = 3;//当前阵形战斗力
+}
+message S2CPVPFightStart{
+	required int64 fightId = 1 ;//战斗Id，由服务器生成，用于结算回传
+}
+
+message C2SPVPFightEnd{//并推送最新城池信息 CMD=4009
+    required int64 fightId = 1[default=0];//战斗Id，由服务器生成，用于结算回传
+    required FightResultParam resultParam = 2;//战斗结果上报数据
+}
+message S2CPVPFightEnd{
+	required int64 fightId = 1;//战斗Id，由战斗开始前，服务器下发
+	required FightResultType result = 2;//战斗结果
+	required DropReward reward = 3;
+}
+
+message C2SDrawReceive{//领取奖励返回通用结果，并且推送最新城池讯息 CMD=4010
+	required int32 cityId =  1[default=0];//城池ID
+}
+message C2SPVPLogList{//获取PVP日志 CMD=4013
+
+}
+message S2CPVPLogList{
+	repeated PVPLogInfo log = 1;
+}
+
+message C2SPVPLogRead{//阅读PVP日志cmd = 4210
+
+}
+
+message CityInfo{
+	required int32 cityId =1[default=0];//城池ID
+	required int32 status =2[default=0];//城池状态，0无；1，自己占领；2，山贼占领;3,被其他玩家占领，4机器人占领
+	optional PlayerInfo player = 3;//占领者的讯息
+	repeated HeroInfo hero = 4;//阵容  status=1 驻守阵容  status=3 对方驻守阵容
+    optional int32 stageId=5 [default=0];//关卡Id status=2
+    optional int32 outPut=6 [default=0];//产出道具数量
+    optional int32 addPut=7 [default=0];//额外产出道具数量
+    optional int32 outIntegral =8[default=0];//产出积分
+    optional int64 lastSettleDate=9[default=0];//最近产出结算时间
+    optional bool isAttacked =10[default=false];//是否被攻打中或者更换阵容中true是，false否
+    optional int64 lastChangeMatchDate =11[default=0];//最后更换对手时间
+    optional int32 changeMatchCount =12[default=0];//当天更换对手次数
+    optional int32 eventStatus =13[default=0];//事件状态 0无 1起火，2内乱，3异族入侵
+    optional int64 eventTime =14[default=0];//事件发生时间
+    optional int64 protectTime =15[default=0];//保护时间
+    repeated PvpTechnologyInfo technologyInfo = 16;//占领者科技讯息
+    repeated RobotInfo robotList= 17;				// 匹配机器人列表
+    optional int64 lastDrawReceiveDate = 18[default=0];//最后一次领取产出时间
+    optional int32 stageLevel = 19[default=0];//关卡等级
+}
+message CloudInfo{
+	required int32 cloudId=1[default=0];//云ID
+	required int32 chests =2[default=0];//宝箱数量
+}
+message PVPLogInfo{//PVP日志
+	required string logId = 1[default =""];//日志ID
+	required int32 cityId =2[default=0];//城池ID
+	required int32 type =3[default=0];//0异族入侵，被山贼占领，1城池被进攻，2城池被攻陷，3起火，4内乱，5异族入侵，抢夺一次资源，6抵抗异族入侵，7灭火
+	required int64 date =4[default=0];//日期
+	optional PlayerInfo player =5;//敌方玩家信息
+	optional int32 stageId =6[default=0];//关卡Id
+	optional bool isRead = 7[default=false];//是否已读，false 否 true 是
+}
+//pvp科技
+message PvpTechnologyInfo{
+	required int32 id = 1[default=0];//科技ID
+	required int32 level =2[default=0];//等级
+}

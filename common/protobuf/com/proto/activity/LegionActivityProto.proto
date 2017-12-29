@@ -1,0 +1,27 @@
+package com.dh.game.vo.activity;
+
+import "com/proto/vo/BaseProto.proto";
+message LegionBossDetail {
+	optional int32 bossId = 1; //怪物id
+	optional int32 hp = 2; //当前boss血量,如果将最后一个boss打完.hp则显示为0
+	required RewardInfoList rewardInfoList = 3; //奖励
+	required bool canReward = 4; //是否可以领取状态
+	optional string fb = 5;
+	required int32 bossStatus = 6; //boss当前能否被打[1:能打,2:不能打,3:已经打完了]
+	optional int32 countDown = 7; //倒计时
+	optional int32 legionLevel = 8; //当前帮派等级
+	optional bool bossBuf = 9; //boss状态[0未被攻打]已被攻打
+	required int32 rewardId = 10; //奖励领取到的位置
+}
+//领取奖励回包
+message LegionBossRewardResp {
+	required bool canReward = 4; //是否可以领取状态
+	required int32 rewardId = 10; //奖励领取到的位置
+	required RewardInfoList rewardInfoList = 3; //奖励
+}
+
+//复活加速
+message LegionBossCdAccrResp {
+	required int32 cd = 1; //如果成功则返回0,未成功则返回当前cd时间
+}
+

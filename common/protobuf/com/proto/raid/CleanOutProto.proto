@@ -1,0 +1,24 @@
+package com.dh.game.vo.raid;
+
+import "com/proto/raid/RaidProto.proto";
+enum RAIDTYPE {
+	NORMAL = 1; //普通本
+	ELI = 2; //精英本
+}
+
+message CleanOutRequest {
+	required int32 raidid = 1;
+	required RAIDTYPE raidtype = 2;
+	optional int32 times = 3;
+}
+
+message CleanOutResponse {
+	required int32 raidid = 1;
+	required RAIDTYPE raidtype = 2;
+	repeated TimesResult timesResult = 3;
+}
+
+message TimesResult {
+	required int32 times = 1;
+	repeated RaidRewardinfo raidRewardinfo = 2;
+}

@@ -1,0 +1,226 @@
+package com.dh.game.vo;
+//角色基本信息
+message MyPlayer {
+	required int32 playerId = 1; // 玩家编号
+	required string nick = 2; // 昵称
+	required int32 headIcon = 3; // 头像 1,2,3,4
+	required int32 country = 4; // 所属国家
+	required int32 legionId = 5; //帮会
+	required int32 level = 7; // 玩家等级
+	required int32 exp = 8; // 当前经验
+	required int32 maxexp = 9; // 升级所需最大经验
+	required int32 honor = 10; // 军衔
+	required int32 combat = 11; //战斗力
+	required int32 renown = 12; // 声望
+	required int32 vip = 13; //vip  0非vip
+	required int32 maxexpc = 14; //经验池上限
+}
+
+//角色资源
+message MyPlayerAccount {
+	required int32 money = 1; //游戏 币
+	required int32 rmb = 2; //元宝
+	required int32 exploit = 3; //功勋
+	required int32 pvpm = 4; //pvp值
+	required int32 power = 5; //行动力
+	required int32 maxPower = 6; //行动力上限
+	required int32 powerLifeTime = 7; //行动力倒计时(unit:s)
+	required int32 expc = 8; //经验池
+	required int32 giftgod = 9; //礼金
+	required int32 score = 10; //积分
+}
+
+//英雄
+message MyHero {
+	required int32 id = 1;
+	optional int32 cfgId = 2; // 配置id
+	optional string name = 3; // 士兵名称
+	optional int32 url = 4; // 资源名称
+	optional int32 level = 5; // 等级
+	optional int32 star = 6; //星级
+	optional int32 exp = 7; //当前经验
+	optional int32 maxExp = 8; //升级所需经验
+	optional int32 hp = 9; // 生命
+	optional int32 atk = 10; // 远程攻击
+	optional int32 def = 11; // 远程防御
+	optional int32 matk = 12; // 远程攻击
+	optional int32 mdef = 13; // 远程防御
+	optional int32 atk_speed = 14; // 攻速
+	optional int32 cir_rate = 15; // 暴击率
+	optional int32 move_speed = 16; // 移动速度
+	optional int32 hit = 17; // 命中
+	optional int32 dodge = 18; // 闪避
+	optional int32 range = 19; // 攻击范围
+	optional int32 race = 20; //职业id
+	repeated ItemInfo itemInfo = 21; //英雄装备
+	optional int32 hunger = 22; //饥饿值 疲劳值
+	optional int32 status = 23; //当前英雄所在队列[1-100:江湖资源点;攻击或者防守队列:150]
+	optional int32 maxLevel = 24; //当前星级所能升到的最高等级
+	optional int32 combat = 25; //战斗力
+	optional int32 hungryStatus = 26; //1挂机 0正常
+	optional int32 skillid = 27; //主动技能id
+	optional int32 skilllevel = 28; //主动技能等级
+	repeated int32 passivesSkill = 29;
+	optional int32 beat = 30;
+	optional int32 common_atk = 31;
+	optional int32 hpX = 32;
+	optional int32 hpY = 33;
+	optional int32 yzhp = 34;
+	optional int32 yzanger = 35;
+}
+
+
+message PassivesSkill {
+	required int32 skillId = 1;//被动技能id
+	required int32 level = 2; //技能等级
+}
+
+message MyTask {
+	required int32 taskId = 1; //任务编号
+	required int32 taskType = 2; //主线或者支线
+	required int32 status = 3; //任务状态    0可接取 1进行中  2已完成未领奖  3已领奖
+	optional int32 finishnum = 4; //任务完成度  次数
+}
+
+//物品详细信息，静态数据请读取配置表
+message ItemInfo {
+	required int32 id = 1;
+	required int32 cfgId = 2;
+	required int32 enhance = 3; //强化等级
+	required int32 num = 4; //数量
+	optional int32 hp = 5;
+	optional int32 def = 6;
+	optional int32 mdef = 7;
+	optional int32 atk = 8;
+	optional int32 matk = 9;
+	optional int32 hit = 10;
+	optional int32 dodge = 11;
+	optional int32 cir_rate = 12;
+	optional int32 addhp = 13;
+	optional int32 adddef = 14;
+	optional int32 addmdef = 15;
+	optional int32 addatk = 16;
+	optional int32 addmatk = 17;
+	optional int32 addhit = 18;
+	optional int32 adddodge = 19;
+	optional int32 addcir_rate = 20;
+	required int32 type = 21; //物品类型
+	optional int32 protectLevel = 22;
+	optional int32 protectExp = 23;
+	optional int32 combat = 24;
+	required int32 isBind = 25;
+	repeated int32 gemCfgId = 26; //镶嵌宝石 -1未开孔 0 空孔   >0宝石配置id
+	optional int32 protectRate = 27; //护佑加成百分比
+}
+
+//背包信息
+message MyKnapsack {
+	required int32 openGrid = 1; //已经开启的格子数
+	required int32 canGrid = 2; //可开启的格子数
+	required int32 remaintime = 3;
+}
+
+//建筑信息
+message BuildInfo {
+	required BUILDID buildId = 1;
+	required int32 buildLevel = 2;
+	optional int32 buildUpRemainTime = 3; //建靠冷却剩余时间
+	optional int32 reqMoney = 4; //升级所需要的银两
+	optional int32 itemCfgId = 5; //物品cfgId
+	optional int32 num = 6; //数量
+	optional int32 nextLevelCD = 7; //下级升级CD冷确
+	optional int32 nextSalary = 8; //下一级能领的初始俸禄
+}
+
+//建筑类型
+enum BUILDID {
+	YISITANG = 1; //议事堂
+	YANGXINGDIAN = 2; //养心殿
+	SHANGHUI = 3; //商会
+}
+
+//英雄终级数据　用于pvp　竞技场和夺宝
+message FinalHero {
+	required int32 id = 1;
+	optional int32 cfgId = 2; // 配置id
+	optional string name = 3; // 士兵名称
+	optional int32 url = 4; // 资源名称
+	optional int32 level = 5; // 等级
+	optional int32 star = 6; //星级
+	optional int32 hp = 7; // 生命
+	optional int32 atk = 8; // 远程攻击
+	optional int32 def = 9; // 远程防御
+	optional int32 matk = 10; // 远程攻击
+	optional int32 mdef = 11; // 远程防御
+	optional int32 atk_speed = 12; // 攻速
+	optional int32 cir_rate = 13; // 暴击率
+	optional int32 hit = 14; // 命中
+	optional int32 dodge = 15; // 闪避
+	optional int32 combat = 16; //战斗力
+	optional int32 race = 17; //职业类型
+	optional int32 range = 18; //职业类型
+	optional int32 skillid = 19; //主动技能id
+	optional int32 skilllevel = 20; //主动技能等级
+	repeated int32 passivesSkill = 21; //被动技能
+	optional int32 beat = 22;
+	optional int32 common_atk = 23;
+	optional int32 hpX = 24;
+	optional int32 hpY = 25;
+	optional int32 yzanger = 26;
+	optional int32 yzhp = 27;
+	optional int32 bossType = 28 [default = 1]; //1普通怪 2boss
+}
+
+message RewardInfoList {
+	repeated RewardInfo rewardInfos = 1;
+}
+
+message RewardInfo {
+	required int32 type = 1;
+	optional int32 content = 2; //对于类型1,这里直接传递物品cfgId
+	required int32 number = 3; //奖励数量;
+}
+
+message FriendInfo {
+	required int32 playerId = 1;
+	optional int32 rank = 2; //排名
+	optional string name = 3; //玩家名字
+	optional int32 level = 4;
+	optional int32 vip = 5; //vip等级
+	optional int32 combat = 6; //战斗力
+	optional bool isOnline = 7; //是否在线
+}
+
+//黄钻礼包信息
+message YellowGiftInfo {
+	required int32 isYellowVip = 1; //是否黄钻vip 0否 1是
+	required int32 yellowVip = 2; //黄钻等级
+	required int32 isYellowYearVip = 3; //是否年费黄钻 0否 1是
+	required int32 isDayGift = 4; //是否能领取每日黄钻礼包 1已领取　0未领
+	required int32 isNewGift = 5; //是否能领新手黄钻礼包   1已领取　0未领
+	repeated YellowLevelGift yellowLevelGift = 6;
+}
+
+message YellowLevelGift {
+	required int32 id = 1;
+	required int32 state = 2; //1已领取　0未领
+}
+
+////主页图标状态
+//message IconInfoResponse {
+//	repeated IconInfo iconInfo = 1; //// 江湖追杀,替天行道,华山论剑 ,神机入梦
+//}
+//
+//message IconInfo {
+//	required ICONID id = 1; //
+//	required int32 state = 2; //1开启状态 0 关闭
+//}
+//
+//enum ICONID {
+//	JHZS = 1;// 江湖追杀
+//	TTXD = 2;//替天行道
+//	HSLJ = 3;//华山论剑
+//	SJRM = 4;//神机入梦
+//}
+
+

@@ -1,0 +1,11 @@
+package com.dh.game.vo.server;
+
+message ServerRegisterRequest {
+	required int32 serverId = 1;
+	required SERVERTYPE serverType = 2;
+}
+
+enum SERVERTYPE {
+	GATE = 1; //网关
+	BATTLE = 2; //战斗服
+}

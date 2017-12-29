@@ -1,0 +1,75 @@
+package com.dh.game.vo.item;
+//import "com/proto/login/PlayerLoginProto.proto";
+//出售物品
+enum RESULT {
+	OK = 1;
+	FAILURE = 2;
+}
+
+message ItemSellRequest {
+	required int32 itemId = 1; //物品id
+	required int32 count = 2; //数量
+}
+
+message ItemSellResponse {
+	required int32 itemId = 1; //失败itemId=0
+	required int32 count = 2;
+	required RESULT result = 3;
+}
+
+//物品使用
+message ItemUseRequest {
+	required int32 itemId = 1;
+	required int32 count = 2;
+}
+
+message ItemUseResponse {
+	required int32 itemId = 1; //失败itemId=0
+	required int32 count = 2;
+	required RESULT result = 3;
+}
+
+//开启背包格子
+message OpenGuidRequest {
+	required int32 gridIndex = 1; //格子索引
+}
+
+//商品列表
+message ShopItemListResponse {
+	required int32 remaintTime = 1; //刷新剩余时间
+	repeated ShopItem shopItem = 2;
+	optional TIMETYPE timeType = 3;
+	optional int32 refreshExploit = 4; //主动刷新消耗功勋
+}
+
+message ShopItem {
+	required int32 cfgId = 1; //物品配置id
+	required int32 limitCount = 2; //服务器剩余总数
+	required int32 limitSingle = 3; //个人限购数
+	required int32 rmPrice = 4; //原价
+	required int32 nowPrice = 5; //现价
+	required int32 serialId = 6; //流水id(购买物品根据流水id)
+	optional int32 num = 7; //数量
+}
+
+//购买物品ID
+message ItemBuyReq {
+	required int32 serialId = 1; // //商品流水id
+	required int32 count = 2; //
+	required int32 type = 3; // 0 普通商品 1折扣商城 3功勋商城 4远征商品
+}
+
+message ItemBuyResp {
+	required int32 serialId = 1; ///商品流水id
+	required int32 count = 2; //
+	required int32 type = 3; // 0 普通商品 1折扣商城 2功勋商城
+	required RESULT result = 4;
+}
+
+enum TIMETYPE {
+	ONE = 1; //9点
+	TWO = 2; //12点
+	THREE = 3; //18点
+	FOUR = 4; //21点
+	FIVE = 5; //第二天的9点
+}

@@ -1,0 +1,241 @@
+package com.dh.game.vo.legion;
+
+import "com/proto/vo/BaseProto.proto";
+//玩家帮会基本信息
+message BaseLegionInfo {
+	required int32 id = 1;
+	required string name = 2;
+	required int32 level = 3;
+	required MEM_TYPE type = 4;
+}
+//有人申请军团时调用
+message LegionReqNoticeResp {
+	required int32 hasReq = 1; //0没有,1有盛情请求
+}
+
+enum MEM_TYPE {
+	MEM_TYPE_NONE = 0; //没有任何军团
+	MEM_TYPE_REQ = 1; //申请
+	MEM_TYPE_STAFF = 2; //普通
+	MEM_TYPE_PM = 3; //堂主
+	MEM_TYPE_VP = 4; //副帮主
+	MEM_TYPE_CEO = 5; //帮主
+}
+
+//显示军团列表
+message LegionListReq {
+	required int32 showType = 1 [default = 0]; //显示军团筛选条件:0为所有,1为勾选已经申请,2获得列表,如果已经有则返回该军团详情
+	required int32 pageCount = 2 [default = 0]; //页码
+	required int32 legionId = 3; //当前军团id
+	//	optional string keyWords = 3; //筛选关键词(filter)
+}
+
+message LegionListResp {
+	required int32 totalAmount = 1; //总军团数
+	repeated LegionListInfo legionListInfo = 2; //军团详细信息
+	optional int32 pageCount = 3; //当前页码
+	required int32 joinCountDown = 4; //如果退出后加入需要进入冷却时间
+}
+//军团列表需要的军团信息
+message LegionListInfo {
+	required int32 id = 1; //军团Id;
+	required string playerNick = 3; //团长名字[请用名字判断是否团长或者副团长]
+	required int32 legionLevel = 4; //军团等级
+	required int32 limitNum = 5; //军团人数上限
+	required int32 membersNum = 6; //军团当前成员数
+	required MEM_TYPE type = 7; //玩家与该团申请状态(0代表未申请,1代表申请,大于1军团成员不考虑)
+	required int32 rank = 8; //军团排名
+	required string legionName = 9; //军团名称
+	required int32 combat = 10; //军团战斗力
+}
+//创建军团(response在与查看军团信息通用)
+message LegionCreateReq {
+	required string legionName = 1; //军团名字
+}
+
+message LegionCreateResp {
+	required BaseLegionInfo baseLegionInfo = 1;
+}
+
+message LegionJoinReq {
+	required int32 leigonId = 1;
+}
+
+message LegionJoinResp {
+	required int32 legionId = 1;
+}
+
+//军团详细信息
+message LegionInfoResp {
+	required int32 id = 1; //军团Id;
+	//	required int32 headIcon = 2; //团徽
+	required string playerNick = 3; //团长名字
+	required int32 legionLevel = 4; //军团等级
+	required int32 limitNum = 5; //军团人数上限
+	required int32 membersNum = 6; //军团当前成员数
+	required MEM_TYPE type = 7;
+	required int32 rank = 8; //军团排名
+	required string legionName = 9; //军团名称
+	optional string qq = 10; //帮会qq群
+	required string legionNotice = 12; //帮会公告
+	required int32 material = 13; //当前建造令数量
+	required int32 money = 14; //总贡献
+	required int32 donateReward = 15; //是否领取帮贡奖励
+	required bool dayReward = 16; //是否领取每日礼包
+	required int32 destroyTime = 17; //解散帮会倒计时//没有倒计时传-1,否则传倒计时s
+	required int32 donate = 18; //个人捐献总量[银两万=1贡献度,一个建设令=10贡献]
+	required int32 ownDonate = 19; //实际拥有贡献值,可以花费
+}
+//编辑军团信息
+message LegionEditReq {
+	required int32 type = 1; //1:修改qq,2:修改公告
+	optional string qq = 2;
+	optional string legionNotice = 3; //军团公告
+}
+
+message LegionEditResp {
+	required int32 type = 1; //1:修改qq,2:修改公告
+	optional string qq = 2;
+	optional string legionNotice = 3; //军团公告
+}
+
+message LegionDayRewardResp {
+	required bool dayReward = 1;
+}
+
+message LegionDonateRewardResp {
+	required int32 donateReward = 1; //领取状态
+}
+
+//退出军团请求,请求发送命令码
+message LegionQuitResp {
+	required int32 legionId = 1; //退出成功后为0
+}
+//##########军团管理相关############
+//请求列表
+message LegionJionListResp {
+	repeated LegionJionInfo legionJionInfo = 1;
+}
+
+message LegionJionInfo {
+	required string name = 1; //玩家名称
+	required int32 playerId = 2; //玩家id
+	required int32 level = 3; //玩家等级
+	required int32 combat = 4; //玩家战斗力
+	optional int32 date = 5; //申请时间戳:unit:s
+}
+
+message LegionMemListResp { //军团成员列表
+	repeated MemDetails memDetails = 1; //玩家
+}
+//军团成员信息
+message MemDetails {
+	required string name = 1; //玩家名称
+	required int32 playerId = 2; //玩家id
+	required MEM_TYPE type = 3; //玩家职位
+	required int32 level = 4; //玩家等级
+	optional int32 arenaRaking = 5; //竞技场排名
+	required int32 donate = 6; //总贡献
+	required int32 lastLoginDate = 8; //上次登录时间
+	required int32 isOnline = 9; //是否在线(在线为1)
+	required int32 combat = 12; //战斗力
+}
+//解散请求
+message LegionDestroyReq {
+	required int32 type = 1 [default = 1]; //1为解散,2为取消解散
+}
+
+//解散军团,发命令码请求,这里回包,全军团将会push包
+message LegionDestroyResp {
+	required int32 timeLeft = 1; //解散倒计时unit:s,如果没有倒计时传-1;
+}
+//取消解散军团
+message LegionDestroyCacelReq {
+	required int32 timeLeft = 1; ///
+}
+
+enum MEM_MANAGE_TYPE {
+	MANAGE_TYPE_UP = 1; //升级
+	MANAGE_TYPE_DOWN = 2; //降级
+	MANAGE_TYPE_CEO_CHANGE = 3; //转化帮主
+	MANAGE_TYPE_AGREE = 4; //同意加入
+	MANAGE_TYPE_REJECT = 5; //拒绝加入
+	MANAGE_TYPE_DEL = 6; //剔除
+	MANAGE_TYPE_QUIT = 7; //退出军团
+}
+//军团管理
+message LegionMemManageReq {
+	required MEM_MANAGE_TYPE type = 1; //如果传0则代表开出或者拒绝玩家
+	repeated int32 playerIds = 2; //玩家id
+}
+
+message LegionMemManageResp {
+	required MEM_MANAGE_TYPE type = 1; //如果传0则代表开出或者拒绝玩家
+	repeated int32 playerIds = 2; //玩家id
+}
+
+//########帮会建设#############
+message LegionBuildResp {
+	required int32 material = 1; //建造令数量
+	required int32 legionMoney = 2; //帮派银两
+}
+
+enum DONATE_TYPE {
+	DONATE_MONEY = 1; //捐献银两
+	DONATE_MATERIAL = 2; //捐献建设令
+}
+//军团捐献
+message LegionDonateReq {
+	required DONATE_TYPE donate_type = 1;
+	required int32 num = 2; //单位化后的数量
+}
+////捐献回包
+message LegionDonateResp {
+	required int32 level = 3; //军团等级
+	required int32 money = 4; //直接传金钱数,服务端换算
+	required int32 material = 5;
+	required int32 donate = 6; //累计贡献
+	required int32 ownDonate = 7; //当前拥有贡献
+}
+//#############帮会商店######///
+message LegionShopBuyReq {
+	required int32 cfgId = 1;
+	required int32 num = 2;
+}
+
+message LegionShopBuyResp {
+	required int32 ownDonate = 1; //消费后剩余捐献
+}
+//####帮会日志######//
+message LegionLogsResp {
+	repeated LogInfo logInfo = 1;
+}
+
+enum LEGION_LOG_TYPE {
+	LOG_TYPE_DONATE_MATERIAL = 1; //捐献建造令[捐献值名字,数量,获得帮贡]
+	LOG_TYPE_DONATE_MONEY = 2; //捐献银两[捐献值名字,数量,获得帮贡]
+	LOG_TYPE_ADD = 3; //加入血盟:名字
+	LOG_TYPE_DEL = 4; //剔除:操作者名字,职位,被操作
+	LOG_TYPE_QUIT = 5; //退团:玩家名字
+	LOG_TYPE_UP = 6; //升职:操作者,职位,被操作玩家,新职位
+	LOG_TYPE_DOWN = 7; //降职:操作者,职位,被操作玩家,新职位
+	LOG_TYPE_DESTROY = 8; //解散:盟主
+	LOG_TYPE_CHANGE = 9; //转让:原帮主,新帮主
+	LOG_TYPE_UPGRADE = 10; //升级:新等级
+}
+
+//盟主帮派
+message LogInfo {
+	required LEGION_LOG_TYPE type = 1; //捐献银两与捐献建造以type区分
+	required int32 date = 2;
+	optional string param1 = 3; //
+	optional string param2 = 4;
+	optional string param3 = 5;
+	optional string param4 = 7;
+}
+
+
+
+
+
+

@@ -1,0 +1,151 @@
+option java_package = "net.uyo.proto"; 
+option java_outer_classname = "FightMsg";
+
+import "GuildMsg.proto";
+
+// 注意* 战斗服务器的所有消息客户端都向战斗服务器请求，不能发给游戏服务器
+
+// 战斗服心跳包
+message C2SFightHeartbeat { //cmd=FIGHT_HEAT_BEAT
+}
+message S2CFightHeartbeat {
+	optional int64 nowTime	= 1[default=0]; // 当前服务器时间
+	optional int32 timeZone	= 2[default=0]; // 服务器时间与世界标准时间时区间隔时长
+}
+
+// 战斗服务器请求进入房间
+message C2SFightEnterRoom { //cmd=FIGHT_ENTER_ROOM 实时PVP请求进入战斗
+	required int64 roomId					= 1;			// 战斗服务器房间编号，每个战斗服唯一
+	required int64 playerId					= 2;			// 玩家ID
+	required string token					= 3;			// 匹配令牌客户端回传用于进入战斗服或重连战斗服时的较验
+	required int32 isReEnter 				= 4;			// 是否为重新进入0-非 1-断线回来重新进入
+	optional string versionNo 				= 5;			// 版本号(用于版本验证和兼容) 
+}
+message S2CFightEnterRoom {
+	required int32 result					= 1;			// 连接进入战斗服务器结果 0-失败 1-成功
+}
+
+
+// 战斗服务器通知战斗开始
+message S2CFightPVpStart { //cmd=FIGHT_PVP_START 实时PVP战斗开始 
+	required FightRoundInfo roundInfo		= 1;			// 回合信息
+	repeated int32 randomSeed				= 2;			// 随机数种子
+}
+
+// 请求选择出战武将
+message C2SFightSelectHero { //cmd=FIGHT_SELECT_CAMP 实时PVP选择阵营
+	repeated int32 selectHeros				= 1;			// 选择武将
+}
+message S2CFigthSelectHero { 
+	required FightRoundInfo	roundInfo		= 1;			// 回合信息
+	repeated HeroInfo selfHeros				= 2;			// 自己选择的武将列表
+	repeated HeroInfo enemyHeros			= 3;			// 对方选择的武将列表
+}
+
+// 请求调整布阵
+message C2SFightAjdustCamp { //cmd=FIGHT_ADJUST_CAMP 实时PVP调整布阵
+	repeated int32 herosIds					= 1;			// 布阵武将顺序 
+}
+message S2CFightAdjustCamp {
+	optional FightRoundInfo	roundInfo		= 1;			// 回合信息
+	repeated int32 selfCamp					= 2;			// 已方布阵武将顺序
+	repeated int32 enemyCamp				= 3;			// 敌方布阵武将顺序
+}
+
+// 战斗信息数据
+message C2SFightMsgInfo {	//cmd=FIGHT_UPLOAD_DATA 实时PVP上传战斗数据
+	repeated FightMsgInfo fightMsgInfo		= 1;			//战斗信息列表
+	repeated FightHeroInfo fightHeroList 	= 2;			//武将信息列表
+	optional int32 attackFlag	  = 3[default = 0];			//0 正常攻击，1 不攻击，2 超时攻击 3结束攻击
+}
+message S2CFightMsgInfo {
+	repeated FightMsgInfo fightMsgInfo		= 1;			//战斗信息列表
+	repeated FightHeroInfo fightHeroList 	= 2;			//武将信息列表
+	optional int32 attackFlag	  = 3[default = 0];			//0 正常攻击，1 不攻击，2 超时攻击  3结束攻击
+	optional FightRoundInfo roundInfo		= 4;			//回合信息
+}
+
+// 棋盘Buff数据
+message C2SChessBuffInfo {	// cmd=FIGHT_CHESS_BUFF 实时PVP棋盘BUFF同步
+	repeated ChessBuffInfo chessBuffList	= 1;			//棋子Buff列表
+}
+message S2CChessBuffInfo {
+	repeated ChessBuffInfo chessBuffList	= 1;			//棋子Buff列表
+}
+
+// 资源加载
+message C2SFightLoadRes {	//cmd=FIGHT_LOADING_RES  实时PVP资源加载
+	optional float progress					= 1[default = 1];// 加载进度 0.0 ~ 1.0
+}
+message S2CFightLoadRes {
+	required FightRoundInfo	roundInfo		= 1;			// 回合信息
+	optional int64 completeId				= 2[default = 0];// 完成加载玩家ID
+	optional float progress					= 3[default = 1];// 进度
+}
+
+// 房间状态更改(服务器推送)
+message S2CRoomStateChange {  //cmd=FIGHT_ROOM_STATE 实时PVP房间状态变化
+	required FightRoundInfo	roundInfo		= 1;			// 回合信息
+	optional int64 changePlayer				= 2[default = 0];// 状态改变的玩家Id
+}
+
+//发送表情信息
+message C2SFightFace {	//cmd=FIGHT_FACE_INFO 实时PVP发送表情信息
+	required int32 id		= 1;			//表情id
+}
+message S2CFightFace {
+	required int32 id		= 1;			//表情id
+}
+
+// 发送棋盘卡死
+message C2SFightChessDead {	//cmd=FIGHT_CHESS_DEAD 实时pvp棋盘卡死
+}
+message S2CFightChessDead {
+	required int32 result 					= 1;		// 返回结果0-处理失败 1-处理成功
+}
+
+// 战斗中回合信息
+message FightRoundInfo {
+	required int32 phase					= 1;			// 战斗阶段 0-未开始 1-等待玩家加入房间 2-选阵营 3-布阵 4-资源加载中 5-战斗中 6-掉线 7-战斗结束
+	required int64 timeout					= 2;			// 超时时间戳
+	required int64 turnId					= 3;			// 当前谁playerId的回合
+	required int32 roundCount				= 4;			// 当前剩余回合数 
+}
+
+// 战斗数据信息
+message FightMsgInfo {
+	required int32 msgId					= 1;		//消息ID
+	required int32 skillId					= 2;		//技能ID
+	required int32 skillLv					= 3;		//技能等级
+	required int32 attackerIndex			= 4;		//攻击者索引
+	required int32 attackerType				= 5;		//攻击者类型：0武将 1棋盘Buff 2棋子
+	required int32 randomIndex				= 6;		//随机目标索引
+	optional int32 skillType				= 7[default = -1];  	//攻击技能类型
+	optional int32 computeType				= 8[default = 0];  		//棋子消除类型
+	optional int32 comboType				= 9[default = 0];  		//0：普通连击，1：效果叠加
+	optional float comboCount				= 10[default = 1];  	//连击次数或效果叠加数值
+	optional int32 normalExtra				= 11[default = 0];  	//普通消除的棋子个数
+	optional int32 fourExtra				= 12[default = 0];  	//四消消除的棋子个数
+	optional int32 tlExtraCount				= 13[default = 0];  	//TL消消除的棋子个数
+	optional int32 playFlag					= 14[default = 0];	//释放标识，0未释放，1已释放
+	repeated int32 randomList				= 15;	//随机数组下标
+}
+
+//武将血量或伤害信息
+message FightHeroInfo {
+	required int32 msgId					= 1;		//消息ID
+	required int32 index					= 2;		//武将索引
+	required int32 isEnemy				= 3;		//是否是敌方武将，0否，1是
+	required int32 infoType				= 4;		//数据类型：0武将血量 1技能伤害
+	optional float hp							= 5;		//武将当前血量百分比
+	optional int32 damageValue		= 6;		//伤害数值
+	optional int32 hitId						= 7;		//受击Id
+	optional int32 critId					= 8;		//暴击Id
+	optional int32 flagParam			= 9;		//标识参数，十进制存储，二进制读取
+}
+
+//棋子Buff信息
+message ChessBuffInfo {
+	required int32 chessType			= 1;	//棋子Buff类型
+	required int32 num						= 2;	//棋子Buff数量
+}

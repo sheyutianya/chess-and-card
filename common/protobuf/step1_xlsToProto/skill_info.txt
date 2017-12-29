@@ -1,0 +1,198 @@
+items {
+  id: 100
+  name: "爆裂碾压者"
+  desc: "对技能有效范围内一个敌方单位施加断筋，使其机动力-1，效果持续三回合。"
+  icon: "skill100"
+  range_reach: 2
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 101
+  name: "旋风斩"
+  desc: "举起武器对周围一圈敌方单位造成普攻X%点伤害。"
+  icon: "skill101"
+  range_reach: 0
+  range_effect: 1
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 102
+  name: "挑衅"
+  desc: "挑衅周围一圈敌方单位，使其移动不能攻击力降低X%且普攻只能以自己为攻击目标，持续一回合。"
+  icon: "skill102"
+  range_reach: 0
+  range_effect: 1
+  is_passive: 0
+  cost: 0
+  cold_down: 1
+}
+items {
+  id: 104
+  name: "雷霆震击"
+  desc: "向目标格子跃进，落地冲击波对周围一圈敌方单位造成X点伤害。"
+  icon: "skill104"
+  range_reach: 3
+  range_effect: 1
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 200
+  name: "圣盾守护"
+  desc: "在技能有效范围内选择一名友方单位为该单位施加一个护盾，使其抵挡X点伤害，持续一回合。"
+  icon: "skill200"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 201
+  name: "迅捷守护"
+  desc: "在技能有效范围内选择一名友方单位为该单位施加迅捷效果，使其在本回合里移动无需消耗法力水晶且机动力+1。"
+  icon: "skill201"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 202
+  name: "神圣之怒"
+  desc: "对周围两圈范围内区域释放法术侵蚀，使其范围内敌方单位的普攻只能以自己为攻击目标并且每个回合结束后使位于范围内的敌方单位造成X点伤害，持续三回合。"
+  icon: "skill202"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 301
+  name: "影刺"
+  desc: "瞬移至技能有效范围内一个敌方单位背后（此目标背后格子无任何障碍），本回合里下一次普攻暴击率提高X%。"
+  icon: "skill301"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 302
+  name: "致盲"
+  desc: "致盲技能范围内任意一个敌方单位，使其X回合丧失普攻行为。"
+  icon: "skill302"
+  range_reach: 1
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 400
+  name: "爆炸陷阱"
+  desc: "在技能范围内任意一个空格子放置一个爆炸陷阱，对踩到此陷阱的单位造成X点法术伤害。"
+  icon: "skill400"
+  range_reach: 1
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 402
+  name: "震荡射击"
+  desc: "击晕技能有效范围内一个单位，持续一个回合。"
+  icon: "skill402"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 501
+  name: "治疗术"
+  desc: "恢复技能有效范围内任意一名友方单位X点生命值。"
+  icon: "skill501"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 502
+  name: "暗影亲和"
+  desc: "对攻击自己的敌方单位施加法术侵蚀，使其在回合结束后承受额外的X点伤害，并治愈自己X点生命值。"
+  icon: "skill502"
+  range_reach: 0
+  range_effect: 0
+  is_passive: 1
+  cost: 0
+  cold_down: 1
+}
+items {
+  id: 600
+  name: "陨石术"
+  desc: "对技能有效范围内任意一格子召唤一颗陨石，对此格子内单位造成X点伤害，并施加灼烧效果。灼烧效果持续三回合，每回合造成X点伤害。"
+  icon: "skill600"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 601
+  name: "暴风雪"
+  desc: "对技能有效范围内一个区域施放暴风雪，被暴风雪命中的敌方单位造成X点伤害并使其在下回合移动消耗+1。"
+  icon: "skill601"
+  range_reach: 3
+  range_effect: 1
+  is_passive: 0
+  cost: 2
+  cold_down: 1
+}
+items {
+  id: 602
+  name: "奥术位移"
+  desc: "瞬移至技能有效范围任意一个空格子。"
+  icon: "skill602"
+  range_reach: 3
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 700
+  name: "治愈图腾"
+  desc: "召唤一个治愈图腾，治愈图腾在己方回合结束后恢复此图腾有效区域内的友方单位X点生命值。"
+  icon: "skill700"
+  range_reach: 1
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}
+items {
+  id: 701
+  name: "暗语图腾"
+  desc: "召唤一个沉默图腾，沉默图腾在己方回合结束后随机沉默图腾有效范围内任意一个敌方单位，使其下一回合无法施放技能。"
+  icon: "skill701"
+  range_reach: 1
+  range_effect: 0
+  is_passive: 0
+  cost: 1
+  cold_down: 1
+}

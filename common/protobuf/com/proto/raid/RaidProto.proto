@@ -1,0 +1,201 @@
+package com.dh.game.vo.raid;
+
+import "com/proto/vo/BaseProto.proto";
+enum BATTLE_TYPE {
+	RAID = 1; //副本
+	ARENA = 2; //竞技场
+	DUOBAO = 3; //夺宝
+	STREET = 4; //江湖
+	ELITE = 5; //精英副本
+	MONSTER = 6; //打野怪
+	ME = 7; //经验,金钱副本
+	YUANZHEN = 8; //远征
+	BOSS = 9; //世界大boss
+	LEGION_BOSS = 10; //帮派小boss
+}
+
+message RaidUIResponse {
+	required int32 eliRaidCount = 1; //精英副本可战斗总次数
+}
+
+message RaidChapterResponse {
+	required int32 curChapter = 1;
+	required int32 maxChapter = 2; //最大章节 (每个主城 的最大最小章节不同)
+	required int32 minChapter = 3; //最小章节
+	optional int32 maxRaidid = 4;
+}
+
+//请求副本列表
+message RaidProgressRequest {
+	required int32 chapter = 1;
+}
+
+//章节星级奖励请求
+message ChapterScoreRewardRequest {
+	required int32 chapter = 1;
+	required int32 index = 2;
+}
+
+//下行副本列表
+message RaidProgressResponse {
+	required int32 curChapter = 1; //当前章节
+	repeated RaidProgress raidProgress = 2;
+	required int32 raidid = 3; //当前副本
+	required int32 scorereward1 = 4;
+	required int32 scorereward2 = 5;
+	required int32 scorereward3 = 6;
+	optional int32 elitimes = 7; //精英副本可用次数
+	optional int32 eliCountTimes = 8; //精英副本购买剩余次数
+}
+//副本进度
+message RaidProgress {
+	required int32 chapter = 1; //章节场景
+	required int32 raidid = 2; //副本id
+	required int32 score = 3; // 几颗星
+	required int32 status = 4; //是否开启 1开启 0未开启
+	optional int32 timers = 5; //精英副本次数
+	optional int32 fivereward = 6; //0未领取过 1 领取过
+}
+
+//副本开始
+message RaidStartRequest {
+	required int32 raidid = 1; //副本id,江湖战斗中传地方玩家id
+	optional BATTLE_TYPE type = 2 [default = RAID];
+	optional int32 resId = 3; //资源点id
+}
+
+message RaidStartResponse {
+	required int32 raidid = 1; //副本id
+	optional BATTLE_TYPE type = 2 [default = RAID];
+	required string validateKey = 3; //效验key
+}
+//副本结束
+message RaidEndRequest {
+	required int32 raidid = 1; //副本id
+	required string validateCode = 2; //MD5(raidid&diff&validateKey) 效验码
+	required int32 isSucc = 3; //1胜利 0 失败
+	required int32 score = 4 [default = 0]; //boss请传伤害量
+	optional BATTLE_TYPE type = 5 [default = RAID]; //战斗类型
+	optional int32 resId = 6;
+	repeated YuanZhenhero myYuanZhenhero = 7;
+	repeated YuanZhenhero enemYuanZhenhero = 8;
+	optional int32 addtion = 9 [default = 0]; //haolingzhi
+}
+
+//远征英雄状态
+message YuanZhenhero {
+	required int32 id = 1;
+	required int32 yzhp = 2;
+	required int32 yzanger = 3;
+}
+
+message RaidEndResponse {
+	required int32 raidid = 1; //副本id
+	required int32 isSucc = 2; //1胜利 0 失败
+	optional int32 teamExp = 3; //战队经验
+	optional int32 money = 4; //奖励银两
+	optional int32 heroExp = 5;
+	repeated int32 upHeroId = 6; //升级英雄id
+	repeated RaidRewardinfo rewards = 7;
+	optional int32 score = 8; //
+	optional BATTLE_TYPE type = 9 [default = RAID]; //战斗类型
+}
+
+//副本准备
+message RaidPrepareRequest {
+	required int32 raidid = 1; //副本id
+	optional BATTLE_TYPE type = 2 [default = RAID];
+	optional int32 resId = 3; //江湖资源点id
+}
+
+message RaidPrepareResponse {
+	required int32 raidid = 1; //副本id
+	optional BATTLE_TYPE type = 2 [default = RAID];
+	optional int32 combat = 3;
+	required HeroTeam heroTeam = 4;
+	repeated FinalMonster finalMonster = 5;
+	repeated RaidRewardinfo rewards = 6;
+	optional int32 teamExp = 7; //战队经验
+	optional int32 money = 8; //奖励银两
+	optional int32 heroExp = 9;
+	repeated FinalHero FinalHero = 10; //竞技场对手的阵容
+	optional int32 resId = 11;
+	optional int32 fzId = 12; //阵法id
+	repeated int32 machineIds = 13; //江湖中器械id组
+	repeated int32 helpHeroCfgId = 14; //助阵英雄
+	optional int32 bossHp = 15; //boss战血量
+	optional int32 bossAddtion = 16; //Boss战攻击加成
+}
+
+message FinalMonster {
+	repeated FinalHero FinalHero = 1;
+}
+
+//翻牌
+message OpenBoxRequest {
+	required int32 pos = 1; //开启宝箱
+}
+
+message OpendBoxResponse {
+	repeated RaidRewardinfo raidRewardinfo = 1;
+	required int32 pos = 2;
+}
+
+message RaidRewardinfo {
+	required int32 type = 1; //类型
+	required int32 itemCfgId = 2; //物品配置id如果type=1物品时，才有itemCfgId,否则为0
+	required int32 number = 3; //数量
+}
+
+message HeroTeam {
+	repeated int32 heroIds = 1; //0表示空位 大于0表示英雄id
+	optional BATTLE_TYPE type = 2 [default = RAID];
+}
+
+//购买可打精英副本次数
+message EliRaidTimesBuyReq {
+	required int32 times = 1; //购买次数
+}
+//经验,银两副本
+message MERaidDetail {
+	repeated MERaidInfo mERaidInfo = 1; //
+}
+
+message MERaidInfo {
+	required string name = 1; //副本名字
+	required int32 time = 2; //当前次数
+	required int32 totalTime = 3; //总次数
+	required int32 type = 4; //type=1为经验,2为银两
+	required int32 reqPower = 5; //需要行动力
+	required int32 reqLevel = 6; //需要等级
+	required int32 rewardCount = 7; //根据type判断具体奖励银两还是经验
+	optional int32 countDown = 8; //倒计时,unit:s
+	optional string openTip = 9; //开放日期说明
+	required int32 raidId = 10; //副本id
+	required int32 leftTime = 11; //剩余购买次数
+}
+//增加购买次数
+message MERaidAddCountReq {
+	required int32 type = 1; //1为经验,2为银两
+}
+
+message MERaidAddCountResp {
+	required int32 type = 1;
+	required int32 totalTime = 2; //总次数
+	required int32 leftTime = 3;
+}
+//加速冷却
+message MERaidAccrCDReq {
+	required int32 type = 1;
+}
+//加速冷却
+message MERaidAccrCDResp {
+	required int32 type = 1;
+	required string openTip = 2;
+}
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+
+
+message C2STestMsg {
+	required int32 cmdCode = 1 [default = -1]; //操作的协议号
+	optional string resultInfo = 2; //result=各种失败时,返回对应错误提示
+}
+
+message S2CTestMeg {
+	required int32 result = 1 [default = -1];
+	optional string resultInfo = 2;
+}

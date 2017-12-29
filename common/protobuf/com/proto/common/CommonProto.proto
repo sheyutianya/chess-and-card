@@ -1,0 +1,56 @@
+package com.dh.game.vo.common;
+
+//结果提示
+message ResultResponse {
+	required int32 result = 1;
+	optional string msg = 2;
+}
+
+//提示信息
+message ClientAlert {
+	required string msg = 1;
+}
+//宗主
+message BriefInfoResp {
+	required int32 heroNum = 1;
+	required int32 chapter = 2;
+	required int32 raidId = 3;
+	required int32 pvpRank = 11; //pvp排名
+	required int32 pvpKills = 12; //连胜
+	required int32 maxPvpKills = 13; //最高连胜
+	required int32 pvpCountDown = 14; //奖励发放时间
+	//	required int32 pvpPower = 15; //竞技值
+	optional int32 resNum = 21; //资源点数
+	//	optional int32 cityLevel = 31;
+	optional int32 salaryStep = 32;
+	//	optional int32 yxdLevel = 33; //养心殿等级
+	//	fsaf
+}
+
+message CountDownResp {
+	required int32 yst = 1; //议事堂
+	required int32 yxd = 2; //养心殿
+	required int32 commerce = 3; //商会
+	required int32 freeHire = 4; //免费招募
+	required int32 RMBHire = 5; //元宝招募
+	required int32 M_time = 6;
+	required int32 M_countDown = 7; //金钱倒计时
+	required int32 E_time = 8;
+	required int32 E_countDown = 9; //经验倒计时
+}
+
+message CountUpdateResp {
+	required int32 countDown = 1; //unit:s
+	required CountType countType = 2;
+	optional int32 time = 3;
+}
+
+enum CountType {
+	YST = 1; //议事堂
+	YXD = 2; //养心殿
+	COMMERCE = 3; //商会
+	FREE_HIRE = 4; //免费招募
+	RMB_HIRE = 5; //元宝招募
+	M_RAID = 6; //金钱副本
+	E_RAID = 7; //
+}
