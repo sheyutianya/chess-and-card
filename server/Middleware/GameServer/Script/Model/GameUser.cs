@@ -33,9 +33,23 @@ namespace GameServer.Script.Model
     [EntityTable("chessandcard")]
     public class GameUser : BaseUser
     {
+        private String _UserID;
+        /// <summary>
+        /// 
+        /// </summary>
         [ProtoMember(1)]
-        [EntityField(true)]
-        public int UserId { get; set; }
+        [EntityField("UserID", IsKey = true)]
+        public String UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                SetChange("UserID", value);
+            }
+        }
 
         [ProtoMember(2)]
         [EntityField]

@@ -1,5 +1,4 @@
-﻿using GameServer.Script.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using ZyGames.Framework.Cache.Generic;
 using ZyGames.Framework.Game.Context;
@@ -7,7 +6,7 @@ using ZyGames.Framework.Game.Contract;
 using ZyGames.Framework.Game.Lang;
 using ZyGames.Framework.Game.Service;
 using ZyGames.Framework.Model;
-
+using GameServer.Script.Model;
 
 namespace GameServer.CsScript.Action
 {

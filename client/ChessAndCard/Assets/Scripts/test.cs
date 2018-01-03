@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using UIFrameWord.UI;
+using UIFrameWork.UI;
 using UnityEngine;
 
 public class test : MonoBehaviour {
@@ -55,7 +55,7 @@ public class test : MonoBehaviour {
         if (GUI.Button(new Rect(cwidth - 100, cheight - 80, 80, 22), "Regist"))
         {
             NetWriter.SetUrl("127.0.0.1:9001");
-            Net.Instance.Send((int)ActionType.Regist, RegistCallback, null);
+            Net.Instance.Send((int)ActionType.Login, RegistCallback, null);
         }
 
         if (GUI.Button(new Rect(cwidth, cheight - 80, 80, 22), "GetRes"))
@@ -66,7 +66,8 @@ public class test : MonoBehaviour {
 
         if (GUI.Button(new Rect(cwidth + 100, cheight - 80, 80, 22), "GetRoleInfo"))
         {
-            ActionParam actionParam = new ActionParam();
+            Game.Pack.RankData rankdata = new Game.Pack.RankData();
+            ActionParam actionParam = new ActionParam(rankdata);
             actionParam["userName"] = "shulu";
             actionParam["userId"] = 1001001;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using ProtoBuf;
 
-namespace Game.Pack
+namespace GameP
 {
     [ProtoContract]
     public class Request1001Pack

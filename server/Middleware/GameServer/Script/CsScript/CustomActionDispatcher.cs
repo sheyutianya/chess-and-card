@@ -1,5 +1,4 @@
-﻿using Game.Pack;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,11 +6,13 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using GameP;
 using ZyGames.Framework.Common.Serialization;
 using ZyGames.Framework.Game.Contract;
 using ZyGames.Framework.Game.Service;
 using ZyGames.Framework.RPC.IO;
 using ZyGames.Framework.RPC.Sockets;
+
 
 namespace GameServer.Script
 {

@@ -1,4 +1,4 @@
-﻿namespace UIFrameWord.UI
+﻿namespace UIFrameWork.UI
 {
     using UnityEngine;
     using System.Collections;

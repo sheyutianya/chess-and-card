@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ProtoBuf;
 
-namespace Game.Pack
+namespace GameP
 {
     [ProtoContract]
     public class Response1001Pack

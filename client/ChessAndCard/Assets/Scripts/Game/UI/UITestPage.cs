@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UIFrameWord.UI;
+using UIFrameWork.UI;
 using UnityEngine;
 
 public class UITestPage : TTUIPage {
