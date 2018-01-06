@@ -2,6 +2,7 @@
 using UnityEngine;
 using ZyGames.Framework.Common.Serialization;
 using Game.Pack;
+using GameP;
 
 public class Action1000 : BaseAction
 {
@@ -19,7 +20,7 @@ public class Action1000 : BaseAction
         {
             //自定对象参数格式
             isCustom = true;
-            var loginData = actionParam.GetValue<LoginMsg.C2SLogin>();
+            var loginData = actionParam.GetValue<C2SLogin>();
             byte[] data = ProtoBufUtils.Serialize(loginData);
             writer.SetBodyData(data);
         }

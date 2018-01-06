@@ -90,18 +90,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Script\Model\Enum\UserStatus.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Script\CsScript\Action\Action1001.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Script\CsScript\Action\BaseAction.cs">
+    <Compile Include="Script\CsScript\Action\BaseAction.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Compile>
     <None Include="Script\CsScript\CustomActionDispatcher.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Script\CsScript\Action\Action2001.cs">
+    <Compile Include="Script\CsScript\Action\Action2001.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Compile>
     <None Include="Script\Model\GameUser.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

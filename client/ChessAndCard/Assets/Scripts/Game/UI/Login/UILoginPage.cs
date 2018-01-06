@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GameP;
+using System.Collections;
 using System.Collections.Generic;
 using UIFrameWork.UI;
 using UnityEngine;
@@ -25,7 +26,9 @@ public class UILoginPage : TTUIPage
 
     void OnClickLoginBtn(GameObject go) 
     {
-        LoginMsg.C2SLogin c2slogin = new LoginMsg.C2SLogin();
+        C2SLogin c2slogin = new C2SLogin();
+        c2slogin.account = "Z10002";
+        c2slogin.password = "12345";
         ActionParam actionParam = new ActionParam(c2slogin);
         Net.Instance.Send((int)ActionType.Login, LoginCallback, actionParam, true);
     }
@@ -34,6 +37,13 @@ public class UILoginPage : TTUIPage
     {
         if (actionResult != null)
         {
+            S2CLogin data = actionResult.GetValue<S2CLogin>();
+            NetWriter.setSessionID(data.sessionId);
+            NetWriter.setUserID(data.userId);
+            if (data != null) 
+            {
+                Debug.Log("UserId:" + data.userId + " FirstLogin:" + data.isFirstLogin);
+            }
         }
     }
 }

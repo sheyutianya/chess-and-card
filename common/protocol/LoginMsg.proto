@@ -12,10 +12,11 @@ message C2SLogin {//登录
 }
 
 message S2CLogin {
-	required int64 userId = 1;//登录成功返回账号ID
+	required uint64 userId = 1;//登录成功返回账号ID
 	required AreaInfo areaInfo = 2;
 	optional int32 isFirstLogin = 3[default=0];//是否为第一次登陆 0-否 1-是
 	required int32 channelId = 4; // 渠道ID
+    required string sessionId = 5;//会话ID
 }
 
 message AreaInfo {//分区信息

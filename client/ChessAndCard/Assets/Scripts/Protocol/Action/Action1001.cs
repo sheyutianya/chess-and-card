@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using Game.Pack;
 using ZyGames.Framework.Common.Serialization;
+using GameP;
 
 public class Action1001 : BaseAction//GameAction
 {
-    private LoginMsg.S2CLogin _responseData;
+    private S2CLogin _responseData;
     private bool isCustom;
 
     public Action1001()
@@ -19,7 +20,7 @@ public class Action1001 : BaseAction//GameAction
         {
             //自定对象参数格式
             isCustom = true;
-            LoginMsg.C2SLogin requestPack = actionParam.GetValue<LoginMsg.C2SLogin>();
+            C2SLogin requestPack = actionParam.GetValue<C2SLogin>();
             byte[] data = ProtoBufUtils.Serialize(requestPack);
             writer.SetBodyData(data);
         }
@@ -42,7 +43,7 @@ public class Action1001 : BaseAction//GameAction
             if (isCustom)
             {
                 //自定对象格式解包
-                _responseData = ProtoBufUtils.Deserialize<LoginMsg.S2CLogin>(reader.Buffer);
+                _responseData = ProtoBufUtils.Deserialize<S2CLogin>(reader.Buffer);
             }
             else
             {

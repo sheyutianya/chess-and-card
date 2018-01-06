@@ -225,6 +225,8 @@ public class Net : MonoBehaviour, IHttpCallback
         }
 
         gameAction.Head.MsgId = NetWriter.MsgId - 1;
+        gameAction.Head.UserId = NetWriter.UserID;
+        gameAction.Head.SessionId = NetWriter.SessionID;
 
         SocketPackage package = new SocketPackage();
         package.MsgId = gameAction.Head.MsgId;

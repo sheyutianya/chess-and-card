@@ -24,13 +24,14 @@ THE SOFTWARE.
 
 using System;
 using ProtoBuf;
+using ZyGames.Framework.Common;
 using ZyGames.Framework.Game.Context;
 using ZyGames.Framework.Model;
 
-namespace GameServer.Script.Model
+namespace GameServer.Script.Model 
 {
     [Serializable, ProtoContract]
-    [EntityTable("chessandcard")]
+    [EntityTable(CacheType.Dictionary,"chessandcard")]
     public class GameUser : BaseUser
     {
         private String _UserID;
@@ -51,43 +52,139 @@ namespace GameServer.Script.Model
             }
         }
 
+        private String _RetailID;
+        /// <summary>
+        /// 
+        /// </summary>
         [ProtoMember(2)]
-        [EntityField]
+        [EntityField("RetailID")]
+        public String RetailID
+        {
+            get
+            {
+                return _RetailID;
+            }
+            set
+            {
+                SetChange("RetailID", value);
+            }
+        }
+        private String _Pid;
+        /// <summary>
+        /// 
+        /// </summary>
+        [ProtoMember(3)]
+        [EntityField("Pid")]
+        public String Pid
+        {
+            get
+            {
+                return _Pid;
+            }
+            set
+            {
+                SetChange("Pid", value);
+            }
+        }
+
+        private String _NickName;
+        /// <summary>
+        /// 
+        /// </summary>
+        [ProtoMember(4)]
+        [EntityField("NickName")]
         public String NickName
         {
-            get;
-            set;
+            get
+            {
+                return _NickName;
+            }
+            set
+            {
+                SetChange("NickName", value);
+            }
         }
 
-        [ProtoMember(3)]
-        [EntityField]
-        public String PassportId
-        {
-            get;
-            set;
-        }
-
-        [ProtoMember(4)]
-        [EntityField]
-        public String RetailId
-        {
-            get;
-            set;
-        }
-
+        private UserStatus _UserStatus;
+        /// <summary>
+        /// 
+        /// </summary>
         [ProtoMember(5)]
-        public int CurrRoleId { get; set; }
+        [EntityField("UserStatus")]
+        public UserStatus UserStatus
+        {
+            get
+            {
+                return _UserStatus;
+            }
+            set
+            {
+                SetChange("UserStatus", value);
+            }
+        }
 
-        public string SId { get; set; }
+        private string _sessionID;
+        public string SessionID
+        {
+            get { return _sessionID; }
+            set
+            {
+                _sessionID = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 对象索引器属性
+        /// </summary>
+        /// <returns></returns>
+        /// <param name="index">Index.</param>
+        protected override object this[string index]
+        {
+            get
+            {
+                #region
+                switch (index)
+                {
+                    case "UserID": return UserID;
+                    case "RetailID": return RetailID;
+                    case "Pid": return Pid;
+                    case "NickName": return NickName;
+                    case "UserStatus": return UserStatus;                     
+                    default: throw new ArgumentException(string.Format("GameUser index[{0}] isn't exist.", index));
+                }
+                #endregion
+            }
+            set
+            {
+                #region
+                switch (index)
+                {
+                    case "UserID":
+                        _UserID = value.ToNotNullString();
+                        break;
+                    case "RetailID":
+                        _RetailID = value.ToNotNullString();
+                        break;
+                    case "Pid":
+                        _Pid = value.ToNotNullString();
+                        break;
+                    case "NickName":
+                        _NickName = value.ToNotNullString();
+                        break;
+                    case "UserStatus":
+                        _UserStatus = value.ToEnum<UserStatus>();
+                        break;
+                    default: throw new ArgumentException(string.Format("GameUser index[{0}] isn't exist.", index));
+                }
+                #endregion
+            }
+        }
 
         protected override int GetIdentityId()
         {
-            return UserId;
-        }
-        
-        public override int GetUserId()
-        {
-            return UserId;
+            //allow modify return value
+            return UserID.ToInt();
         }
 
         public override string GetNickName()
@@ -97,24 +194,25 @@ namespace GameServer.Script.Model
 
         public override string GetPassportId()
         {
-            return PassportId;
+            return Pid;
         }
 
         public override string GetRetailId()
         {
-            return RetailId;
+            return RetailID;
+        }
+
+        public override int GetUserId()
+        {
+            return UserID.ToInt();
         }
 
         public override bool IsLock
         {
-            get { return false; }
+            get { return UserStatus == UserStatus.FengJin; }
         }
 
-        public override DateTime OnlineDate
-        {
-            get;
-            set;
-        }
+ 
     }
 
 }

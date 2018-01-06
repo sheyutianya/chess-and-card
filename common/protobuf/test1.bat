@@ -29,7 +29,7 @@ cd ..
 
 cd ProtoGen
 
-protogen -i:..\%STEP2_XLSTOPROTO_PATH%\%protoFileName%.protobin -o:%C_PATH%\%protoFileName%.cs
+protogen -i:..\%STEP2_XLSTOPROTO_PATH%\%protoFileName%.protobin -o:%C_PATH%\%protoFileName%.cs -ns:GameP
 
 
 if %isDedug% == 1 pause

@@ -33,41 +33,8 @@ namespace GameServer.CsScript.Action
 
         public bool CheckLogin()
         {
-            var cacheSet = new PersonalCacheStruct<GameUser>();
-            List<GameUser> gameuserlist = cacheSet.FindGlobal(t => t.PassportId == PassportID);
-            if (gameuserlist != null && gameuserlist.Count > 0) 
-            {
-                UserID = gameuserlist[0].UserID;
-                return true;
-            }
-
-            //GameUser gameuser = new GameUser
-            //{
-            //    UserId = RedisConnectionPool.GetNextNo(typeof(GameUser).FullName),
-            //};
-
-            //cacheSet.Add(gameuser);
-            //cacheSet.Update();
-
-            //var cache = new MemoryCacheStruct<ChatUser>();
-            //ChatUser chatUser = cache.Find(t => t.UserName == PassportID);
-            //if (chatUser != null)
-            //{
-            //    UserID = chatUser.UserId.ToString();
-            //    return true;
-            //}
-            ////not user create it.
-            //chatUser = new ChatUser()
-            //{
-            //    UserId = (int)RedisConnectionPool.GetNextNo(typeof(ChatUser).FullName),
-            //    UserName = PassportID,
-            //    AccessTime = DateTime.Now
-            //};
-            //if (cache.TryAdd(chatUser.UserId.ToString(), chatUser))
-            //{
-            //    UserID = chatUser.UserId.ToString();
-            //    return true;
-            //}
+            int userid = SnsManager.Login(PassportID, Password,true);
+            UserID = userid.ToString();
             return true;
         }
 
@@ -133,6 +100,10 @@ namespace GameServer.CsScript.Action
         public override bool TakeAction()
         {
             ILogin login = CreateLogin();
+            //在这里处理业务
+            responsePack = new S2CLogin();
+            responsePack.isFirstLogin = SnsManager.GetUserInfo(login.PassportID).UserId <= 0 ? 1 : 0;
+
             login.Password = DecodePassword(login.Password);
             var watch = RunTimeWatch.StartNew("Request login server");
             try
@@ -141,10 +112,7 @@ namespace GameServer.CsScript.Action
                 if (login.CheckLogin())
                 {
                     watch.Check("GetResponse");
-                    Current.SetExpired();
-                    Current = GameSession.CreateNew(Guid.NewGuid());
                     Sid = Current.SessionId;
-
                     int userId = login.UserID.ToInt();
 
                     IUser user;
@@ -154,9 +122,7 @@ namespace GameServer.CsScript.Action
                         var session = GameSession.Get(Sid);
                         if (session != null)
                         {
-                            //user is null in create role.
                             session.Bind(user ?? new SessionUser() { PassportId = PassportId, UserId = userId });
-                            return true;
                         }
                     }
                 }
@@ -175,9 +141,9 @@ namespace GameServer.CsScript.Action
                 watch.Flush(true);
             }
 
-            //在这里处理业务
-            responsePack = new S2CLogin();
-           
+            responsePack.userId = (ulong)UserId;
+            responsePack.sessionId = Sid;
+
             return true;
         }
 
@@ -206,27 +172,20 @@ namespace GameServer.CsScript.Action
         ///// <param name="user"></param>
         //protected abstract bool DoSuccess(int userId, out IUser user);
 
-        protected override bool DoSuccess(int userId, out IUser user)
+        protected virtual bool DoSuccess(int userId, out IUser user)
         {
-            //user = null;
-            //var cache = new MemoryCacheStruct<GameUser>();
-            //GameUser chatUser = cache.Find(t => t.UserName == _userName);
-            //if (chatUser != null)
-            //{
-            //    user = chatUser;
-            //    return true;
-            //}
-            return false;
+            user = null;
+            return CreateUserRole(userId,out user); ;
         }
 
-        protected override bool CreateUserRole(out IUser user)
+        protected virtual bool CreateUserRole(int userId,out IUser user)
         {
             user = null;
             GameUser userEntity = new PersonalCacheStruct<GameUser>().FindKey(UserId.ToString());
 
             if (new PersonalCacheStruct<GameUser>().FindKey(UserId.ToString()) == null)
             {
-                userEntity = CreateGameUser();
+                userEntity = CreateGameUser(userId);
                 user = new SessionUser(userEntity);
             }
             else
@@ -237,11 +196,11 @@ namespace GameServer.CsScript.Action
         }
 
 
-        private GameUser CreateGameUser()
+        private GameUser CreateGameUser(int userId)
         {
             GameUser userEntity = new GameUser
             {
-                UserID = UserId.ToString(),
+                UserID = userId.ToString(),
             };
             var cacheSet = new PersonalCacheStruct<GameUser>();
             cacheSet.Add(userEntity);

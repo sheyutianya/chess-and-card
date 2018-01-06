@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: LoginMsg.proto
-namespace LoginMsg
+namespace GameP
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"C2SLogin")]
   public partial class C2SLogin : global::ProtoBuf.IExtensible
@@ -99,9 +99,9 @@ namespace LoginMsg
   {
     public S2CLogin() {}
     
-    private long _userId;
+    private ulong _userId;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"userId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public long userId
+    public ulong userId
     {
       get { return _userId; }
       set { _userId = value; }
@@ -127,6 +127,13 @@ namespace LoginMsg
     {
       get { return _channelId; }
       set { _channelId = value; }
+    }
+    private string _sessionId;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"sessionId", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string sessionId
+    {
+      get { return _sessionId; }
+      set { _sessionId = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)

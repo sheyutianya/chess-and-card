@@ -76,7 +76,7 @@ public class CustomHeadFormater : IHeadFormater
             MsgId = NetWriter.MsgId,
             ActionId = 1,
             SessionId = NetWriter.SessionID,
-            UserId = (int)NetWriter.UserID
+            UserId = NetWriter.UserID
         };
         byte[] headBytes = ProtoBufUtils.Serialize(headPack);
         writer.SetHeadBuffer(headBytes);

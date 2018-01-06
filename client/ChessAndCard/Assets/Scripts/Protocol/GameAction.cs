@@ -10,7 +10,18 @@ public abstract class GameAction
 
     protected GameAction(int actionId)
     {
-        Head = new PackageHead() { ActionId = actionId };
+        Head = new PackageHead() 
+        {
+            ActionId = actionId 
+        };
+
+        //MessagePack headPack = new MessagePack()
+        //{
+        //    MsgId = NetWriter.MsgId,
+        //    ActionId = 1,
+        //    SessionId = NetWriter.SessionID,
+        //    UserId = (int)NetWriter.UserID
+        //};
     }
 
     public int ActionId

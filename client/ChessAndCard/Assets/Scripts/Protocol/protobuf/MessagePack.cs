@@ -16,7 +16,7 @@ namespace Game.Pack
         public string SessionId { get; set; }
 
         [ProtoMember(4)]
-        public int UserId { get; set; }
+        public ulong UserId { get; set; }
 
     }
 }

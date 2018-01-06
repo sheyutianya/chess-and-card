@@ -33,7 +33,7 @@ public class PackageHead
     }
 
     public string SessionId { get; set; }
-    public int UserId { get; set; }
+    public ulong UserId { get; set; }
 
     /// <summary>
     /// st

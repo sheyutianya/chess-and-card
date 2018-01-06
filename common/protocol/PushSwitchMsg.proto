@@ -1,6 +1,0 @@
-
-// 推送开关
-message C2SPushSwitchMsg {//PUSH_SWITCH 		  = 4561
-	required int32 type = 1[default=0];//0宝箱推送1体力推送
-	required int32 switch =2[default=0];//0开启1关闭
-}
