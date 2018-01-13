@@ -60,9 +60,9 @@ namespace GameServer.CsScript.Action
         protected string PassportId = string.Empty;
 
         public Action1001(ActionGetter actionGetter)
-            : base((short)1001, actionGetter)
+            : base((short)ActionType.Login, actionGetter)
         {
-
+            
         }
 
         /// <summary>
@@ -72,8 +72,6 @@ namespace GameServer.CsScript.Action
         public override bool GetUrlElement()
         {
             byte[] data = (byte[])actionGetter.GetMessage();
-            //使用protobuf反序列化
-            //T t = ProtoBufUtils.Deserialize<T>(data);
 
             if (data.Length > 0)
             {
@@ -81,7 +79,7 @@ namespace GameServer.CsScript.Action
 
                 if (requestPack != null) 
                 {
-                    _userName = requestPack.account;
+                    _userName = requestPack.account;              
                 }
                 return true;
             }

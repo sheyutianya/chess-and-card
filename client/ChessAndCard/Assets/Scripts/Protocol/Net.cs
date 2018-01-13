@@ -87,7 +87,8 @@ public class Net : MonoBehaviour, IHttpCallback
             if (result && gameAction.TryDecodePackage(reader))
             {
                 ActionResult actionResult = gameAction.GetResponseData();
-                gameAction.OnCallback(actionResult);
+                //gameAction.OnCallback(actionResult);
+                gameAction.OnPushCallBack(actionResult);
             }
             else
             {

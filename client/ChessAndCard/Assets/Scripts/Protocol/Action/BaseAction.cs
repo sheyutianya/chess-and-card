@@ -25,7 +25,6 @@ public abstract class BaseAction : GameAction
         byte[] data = ProtoBufUtils.Serialize(headPack);
         writer.SetHeadBuffer(data);
         writer.SetBodyData(null);
-
         //base.SetActionHead(writer);
     }
 }

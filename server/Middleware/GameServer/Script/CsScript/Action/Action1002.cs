@@ -1,30 +1,30 @@
-﻿using System;
+﻿using GameP;
+using GameServer.Script.Model;
+using System;
+using System.Collections.Generic;
+using ZyGames.Framework.Cache.Generic;
 using ZyGames.Framework.Common.Security;
+using ZyGames.Framework.Common.Serialization;
+using ZyGames.Framework.Game.Context;
+using ZyGames.Framework.Game.Contract;
 using ZyGames.Framework.Game.Lang;
 using ZyGames.Framework.Game.Runtime;
 using ZyGames.Framework.Game.Service;
 using ZyGames.Framework.Game.Sns;
+using ZyGames.Framework.Net;
+using ZyGames.Framework.RPC.Sockets;
 
 namespace GameServer.CsScript.Action
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <remarks>继续BaseStruct类:不检查用户合法性请求;AuthorizeAction:有验证合法性</remarks>
-    public class Action1002 : BaseStruct
+    public class Action1002 : BaseAction
     {
-        private string passport = string.Empty;
-        private string password = string.Empty;
-        private string deviceID = string.Empty;
-        private int mobileType = 0;
-        private int gameID = 0;
-        private string retailID = string.Empty;
-        private string clientAppVersion = string.Empty;
-        private int ScreenX = 0;
-        private int ScreenY = 0;
+        C2SChat requestPack;
+        S2CChatCommonMsg responsePack;
+
+        ulong mToUserId;
 
         public Action1002(ActionGetter actionGetter)
-            : base((short) ActionType.Regist, actionGetter)
+            : base((short) ActionType.Chat, actionGetter)
         {
         }
 
@@ -34,20 +34,19 @@ namespace GameServer.CsScript.Action
         /// <returns>false:中断后面的方式执行并返回Error</returns>
         public override bool GetUrlElement()
         {
-            if (httpGet.GetInt("MobileType", ref mobileType) &&
-                httpGet.GetInt("GameID", ref gameID) &&
-                httpGet.GetString("RetailID", ref retailID) &&
-                httpGet.GetString("ClientAppVersion", ref clientAppVersion) &&
-                httpGet.GetString("DeviceID", ref deviceID))
+            byte[] data = (byte[])actionGetter.GetMessage();
+
+            if (data.Length > 0)
             {
-                httpGet.GetInt("ScreenX", ref ScreenX);
-                httpGet.GetInt("ScreenY", ref ScreenY);
+                requestPack = ProtoBufUtils.Deserialize<C2SChat>(data);
+
+                if (requestPack != null)
+                {
+                    mToUserId = requestPack.privatePlayerId;
+                }
+                return true;
             }
-            else
-            {
-                return false;
-            }
-            return true;
+            return false;
         }
 
 
@@ -60,9 +59,6 @@ namespace GameServer.CsScript.Action
         {
             try
             {
-                string[] userList = SnsManager.GetRegPassport(deviceID);
-                passport = userList[0];
-                password = userList[1];
                 return true;
             }
             catch (Exception ex)
@@ -73,13 +69,49 @@ namespace GameServer.CsScript.Action
                 return false;
             }
         }
+
+        public override void TakeActionAffter(bool state)
+        {
+            var user = PersonalCacheStruct.Get<GameUser>(mToUserId.ToString());
+
+            List<ChatMsgInfo> msglist = new List<ChatMsgInfo>();
+
+            ChatMsgInfo msginfo = new ChatMsgInfo();
+            msginfo.messageId = "1aaaaaa";
+            msginfo.msgContent = "aaaaa";
+            msginfo.playerId = (ulong)Current.UserId;
+            msginfo.sendTime = System.DateTime.Now.Ticks;
+
+            responsePack = new S2CChatCommonMsg();
+            responsePack.charMsgInfo.Add(msginfo);
+
+
+            byte[] head = ProtoBufUtils.Serialize(new ResponsePack() { ActionId = 1002 });
+            byte[] body = ProtoBufUtils.Serialize(responsePack);
+
+            byte[] headBytes = BitConverter.GetBytes(head.Length);
+            byte[] buffer = new byte[headBytes.Length + head.Length + body.Length];
+
+            Buffer.BlockCopy(headBytes, 0, buffer, 0, headBytes.Length);
+            Buffer.BlockCopy(head, 0, buffer, headBytes.Length, head.Length);
+            Buffer.BlockCopy(body, 0, buffer, headBytes.Length + head.Length, body.Length);
+
+            GameSession session = GameSession.Get((int)mToUserId);
+            session.SendAsync(OpCode.Text, buffer, 0, buffer.Length, asyncResult =>
+            {
+                Console.WriteLine("Push Action -> {0} result is -> {1}", actionId, asyncResult.Result == ResultCode.Success ? "ok" : "fail");
+            });
+
+
+            base.TakeActionAffter(state);
+        }
+
         /// <summary>
         /// 下发给客户的包结构数据
         /// </summary>
         public override void BuildPacket()
         {
-            PushIntoStack(passport);
-            PushIntoStack(password);
+
         }
 
     }

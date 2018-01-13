@@ -10,6 +10,34 @@ public abstract class ActionFactory
     private static Hashtable lookupType = new Hashtable();
     private static string ActionFormat = "Action{0}";
 
+    public static Type getActionType(int pActionId) 
+    {
+        Type result = null;
+        try
+        {
+            string name = string.Format(ActionFormat, pActionId);
+            var type = (Type)lookupType[name];
+            lock (lookupType)
+            {
+                if (type == null)
+                {
+                    type = Type.GetType(name);
+                    lookupType[name] = type;
+                }
+            }
+            if (type != null)
+            {
+                result = type;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("GameAction create error:" + ex);
+        }
+
+        return result;
+    }
+
     public static GameAction Create(object actionType)
     {
         return Create((int)actionType);

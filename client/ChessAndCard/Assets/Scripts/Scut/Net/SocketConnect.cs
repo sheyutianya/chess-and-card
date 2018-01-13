@@ -364,8 +364,8 @@ public class SocketConnect
             return true;
         }
         return false;
-
     }
+
     private void sendCallback(IAsyncResult asyncSend)
     {
     }

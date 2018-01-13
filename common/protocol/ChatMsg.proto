@@ -1,0 +1,17 @@
+message C2SChat { //聊天:cmd=CHAT_CHAT = 5001  , 返回通用结果  推送： S2CChatCommonMsg
+	required string msgContent = 1;//消息内容
+	required int32 chatType = 2;//聊天频道 1，世界  2，公会 3，私聊
+	optional uint64 privatePlayerId = 3;//私聊玩家ID（用于私聊）
+}
+
+message S2CChatCommonMsg { //推送聊天通用协议:cmd=COMMON_CHAT_MSG = 5001
+	repeated ChatMsgInfo charMsgInfo = 1;//消息集合
+}
+
+message ChatMsgInfo{  
+	required string messageId		= 1;	// 消息ID
+	required uint64 playerId			= 2[default = 0];	// 玩家ID
+	required int32 chatType         = 11;//消息类型 1，世界  2，公会 3，私聊，
+	optional string msgContent      = 12; //消息内容
+	optional int64 sendTime         = 13;//发送时间
+}

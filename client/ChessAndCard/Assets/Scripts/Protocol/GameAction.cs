@@ -29,6 +29,8 @@ public abstract class GameAction
         get { return Head.ActionId; }
     }
     public event Action<ActionResult> Callback;
+    static public event Action<ActionResult> PushCallBack;
+
     public PackageHead Head { get; private set; }
 
     public byte[] Send(ActionParam actionParam)
@@ -55,6 +57,21 @@ public abstract class GameAction
         {
             Debug.Log(string.Format("Action {0} decode package error:{1}", ActionId, ex));
             return false;
+        }
+    }
+
+    public void OnPushCallBack(ActionResult result) 
+    {
+        try
+        {
+            if (PushCallBack != null)
+            {
+                PushCallBack(result);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(string.Format("Action {0} callback process error:{1}", ActionId, ex));
         }
     }
 
